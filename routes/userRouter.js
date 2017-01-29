@@ -4,3 +4,8 @@ const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
 
 const {userInfo} = require('./usermodels');
+
+
+
+
+module.exports = router;

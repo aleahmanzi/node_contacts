@@ -19,3 +19,32 @@ app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
 
 
+function runServer() {
+	return new Promise((resolve, reject) => {
+	    server = app.listen(PORT || 8080, () => {
+	      console.log(`Your app is listening on port ${PORT}`);
+	      resolve();
+	    })
+	    .on('error', err => {
+	      reject(err);
+	    });
+	  });
+}
+
+function closeServer() {
+	return new Promise((resolve, reject) => {
+	console.log('Closing server');
+	server.close(err => {
+	   if (err) {
+	       return reject(err);
+	   }
+	   resolve();
+	});
+	});
+}
+
+if (require.main === module) {
+  runServer().catch(err => console.error(err));
+};
+
+module.exports = {runServer, app, closeServer};
