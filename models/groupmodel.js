@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const groupInfo = new Schema({
   name: String,
-  contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}];
+  contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}]
 });
 
-contactInfo.methods.apiRepr = function() {
+groupInfo.methods.apiRepr = function() {
   return {
     id: this._id,
     name: this.name,

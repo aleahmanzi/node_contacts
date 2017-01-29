@@ -5,7 +5,7 @@ const userInfo = new Schema({
   name: {
     firstName: String,
     lastName: String
-  }
+  },
   username: String,
   password: String,
   email: String,
@@ -14,10 +14,10 @@ const userInfo = new Schema({
     locLat: String,
     locLong: String
   },
-  contacts: [addressInfo, contactInfo, groupInfo]
+  contacts: [{type: mongoose.Schema.Types.ObjectId, ref: 'addressInfo'}, {type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}, {type: mongoose.Schema.Types.ObjectId, ref: 'groupInfo'}]
 });
 
-contactInfo.methods.apiRepr = function() {
+userInfo.methods.apiRepr = function() {
   return {
     id: this._id,
     name: this.name,
