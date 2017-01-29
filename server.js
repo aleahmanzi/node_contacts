@@ -11,6 +11,9 @@ const userRouter = require('./routes/userRouter');
 
 const PORT = 8080;
 const jsonParser = bodyParser.json();
+mongoose.Promise = global.Promise;
+
+const {PORT, DATABASE_URL} = require('./config');
 
 app.use(bodyParser.json());
 app.use('/contactInfo', contactRouter);
