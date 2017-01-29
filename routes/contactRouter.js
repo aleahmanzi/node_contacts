@@ -3,7 +3,7 @@ const router = express.Router();
 const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
 
-const {contactInfo} = require('./contactmodels');
+const {contactInfo} = require('../models/contactmodels');
 
 contactInfo.create('123', 'Aleah, Manzi', '603-540-8289', 'aleah.manzi@gmail.com');
 

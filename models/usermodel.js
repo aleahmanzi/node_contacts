@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userInfo = new Schema({
-  _id: String,
   name: {
     firstName: String,
     lastName: String
@@ -17,6 +16,20 @@ const userInfo = new Schema({
   },
   contacts: [addressInfo, contactInfo, groupInfo]
 });
+
+contactInfo.methods.apiRepr = function() {
+  return {
+    id: this._id,
+    name: this.name,
+    username: this.username,
+    password: this.password,
+    email: this.email,
+    picture: this.picture,
+    coordinates: this.coordinates,
+    contacts: this.contacts
+  };
+};
+
 
 const user = mongoose.model('user', userInfo);
 

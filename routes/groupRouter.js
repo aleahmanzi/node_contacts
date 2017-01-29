@@ -3,4 +3,8 @@ const router = express.Router();
 const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
 
-const {groupInfo} = require('./groupmodels');
+const {groupInfo} = require('../models/groupmodels');
+
+
+
+module.exports = router;

@@ -3,7 +3,7 @@ const router = express.Router();
 const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
 
-const {userInfo} = require('./usermodels');
+const {userInfo} = require('../user/usermodels');
 
 
 

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const addressInfo = new Schema({
-  _id: String,
   street1: String,
   street2: String,
   city: String,
@@ -14,8 +13,23 @@ const addressInfo = new Schema({
     locLong: String
   },
   phone: String,
-  contact: [contactInfo._id]
+  contact: [{type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}]
 });
+
+addressInfo.methods.apiRepr = function() {
+  return {
+    id: this._id,
+    street1: this.street1,
+    street2: this.street2,
+    city: this.city,
+    state: this.state,
+    zip: this.zip,
+    country: this.country,
+    coordinates: this.coordinates,
+    phone: this.phone,
+    contact: this.contact
+  };
+};
 
 const address = mongoose.model('address', addressInfo);
 

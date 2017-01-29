@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const contactRouter = require('./contactRouter');
-const addressRouter = require('./addressRouter');
-const groupRouter = require('./groupRouter');
-const userRouter = require('./userRouter');
+const contactRouter = require('./routes/contactRouter');
+const addressRouter = require('./routes/addressRouter');
+const groupRouter = require('./routes/groupRouter');
+const userRouter = require('./routes/userRouter');
 
 const PORT = 8080;
 const jsonParser = bodyParser.json();

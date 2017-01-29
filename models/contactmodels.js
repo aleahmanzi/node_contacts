@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const contactInfo = new Schema({
-  _id: String,
   name: {
   	firstName: String,
   	lastName: String
@@ -22,16 +21,35 @@ const contactInfo = new Schema({
     work: String 
   },
   company: String,
-  groups: [groupInfo._id],
+  groups: [{type: mongoose.Schema.Types.ObjectId, ref: 'groupInfo'}],
   pictures: [],
-  address: [addressInfo._id],
-  spouce: [countactInfo._id],
-  lastContact: [{
+  address: [{type: mongoose.Schema.Types.ObjectId, ref: 'addressInfo'}],
+  spouse: {
+    name: String,
+    _id: String
+  },
+  connections: [{
     type: String,
     date: {type: Date},
     photos: []
   }],
 });
+
+contactInfo.methods.apiRepr = function() {
+  return {
+    id: this._id,
+    name: this.name,
+    birthday: this.birthday,
+    phoneNumber: this.phoneNumber,
+    email: this.email,
+    company: this.company,
+    groups: this.groups,
+    pictures: this.pictures,
+    address: this.address,
+    spouse: this.spouse,
+    connections: this.connections
+  };
+};
 
 
 const contact = mongoose.model('contact', contactInfo);
