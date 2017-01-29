@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const contactInfo = new Schema({
-  id: String,
+  _id: String,
   name: {
   	firstName: String,
   	lastName: String
@@ -24,11 +24,12 @@ const contactInfo = new Schema({
   company: String,
   groups: [],
   pictures: [],
-  address: [object.id.address],
-  spouce: [countactInfo.id],
+  address: [addressInfo._id],
+  spouce: [countactInfo._id],
   lastContact: [{
     type: String,
-    date: {type: Date}
+    date: {type: Date},
+    photos: []
   }],
 });
 

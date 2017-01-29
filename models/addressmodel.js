@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const addressInfo = new Schema({
-  id: String,
+  _id: String,
   street1: String,
   street2: String,
   city: String,
@@ -13,7 +13,8 @@ const addressInfo = new Schema({
     locLat: String,
     locLong: String
   },
-  phone: String
+  phone: String,
+  contact: [contactInfo._id]
 });
 
 const address = mongoose.model('address', addressInfo);
