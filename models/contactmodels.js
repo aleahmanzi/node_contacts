@@ -22,7 +22,7 @@ const contactInfo = new Schema({
     work: String 
   },
   company: String,
-  groups: [],
+  groups: [groupInfo._id],
   pictures: [],
   address: [addressInfo._id],
   spouce: [countactInfo._id],

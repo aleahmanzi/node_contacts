@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const groupInfo = new Schema({
   _id :String,
   name: String,
-  contacts: [];
+  contacts: [contactInfo._id];
 });
 
 const group = mongoose.model('group', groupInfo);

@@ -14,7 +14,8 @@ const userInfo = new Schema({
   coordinates: {
     locLat: String,
     locLong: String
-  }
+  },
+  contacts: [addressInfo, contactInfo, groupInfo]
 });
 
 const user = mongoose.model('user', userInfo);
