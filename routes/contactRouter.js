@@ -1,20 +1,21 @@
 const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
 
-const {contactInfo} = require('../models/contactmodels');
+const {contact} = require('../models/contactmodels');
+
 
 // GET REQUEST
 router.get('/', (req, res) => {
-  contactInfo
+  contact
     .find()
     .limit(10)
     .exec()
     .then(blogPost => {
       res.json({
-        contactInfo: contactInfo.map(
-          (contactInfo) => contactInfo.apiRepr())
+        contact: contact.map(
+          (contact) => contact.apiRepr())
       });
     })
     .catch(
