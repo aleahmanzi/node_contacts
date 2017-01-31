@@ -77,7 +77,7 @@ router.put('/:id', (req, res) => {
 });
 
 
-// DELET REQUEST
+// DELETE REQUEST
 
 router.delete('/:id', (req, res) => {
   contactInfo
