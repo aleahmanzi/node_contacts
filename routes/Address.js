@@ -9,11 +9,9 @@ const addressInfo = mongoose.model('addressInfo');
 // GET REQUEST -- Address
 
 router.get('/', (req, res) => {
-  console.log("hit address route");
   addressInfo
     .find()
     .then(addressInfo => {
-      console.log("got address")
       res.json({
         addressInfo: addressInfo.map(
           (addressInfo) => addressInfo.apiRepr())

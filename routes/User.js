@@ -9,11 +9,9 @@ const userInfo = mongoose.model('userInfo');
 // GET REQUEST -- User
 
 router.get('/', (req, res) => {
-  console.log("hit user route");
   userInfo
     .find()
     .then(userInfo => {
-      console.log("got user")
       res.json({
         userInfo: userInfo.map(
           (userInfo) => userInfo.apiRepr())

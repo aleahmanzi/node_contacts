@@ -9,11 +9,9 @@ const groupInfo = mongoose.model('groupInfo');
 // GET REQUEST -- Groups
 
 router.get('/', (req, res) => {
-  console.log("hit group route");
   groupInfo
     .find()
     .then(groupInfo => {
-      console.log("got group")
       res.json({
         groupInfo: groupInfo.map(
           (groupInfo) => groupInfo.apiRepr())
