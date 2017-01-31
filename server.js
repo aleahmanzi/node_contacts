@@ -2,13 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+require('./models/addressInfo');
+require('./models/contactInfo');
+require('./models/groupInfo');
+require('./models/userInfo');
+
 
 const app = express();
 
-const contactRouter = require('./routes/contactRouter');
-const addressRouter = require('./routes/addressRouter');
-const groupRouter = require('./routes/groupRouter');
-const userRouter = require('./routes/userRouter');
+const contactRouter = require('./routes/Contact');
+const addressRouter = require('./routes/Address');
+const groupRouter = require('./routes/Group');
+const userRouter = require('./routes/User');
 
 const PORT = 8080;
 const jsonParser = bodyParser.json();
@@ -24,7 +29,7 @@ app.use('/userInfo', userRouter);
 
 
 function runServer() {
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve, reject) => {	
 	    server = app.listen(PORT || 8080, () => {
 	      console.log(`Your app is listening on port ${PORT}`);
 	      resolve();
@@ -34,6 +39,19 @@ function runServer() {
 	    });
 	  });
 }
+
+function openDatabase() {
+	console.log("connecting to DB", DATABASE_URL);
+	return new Promise((resolve, reject) => {
+		mongoose.connect(DATABASE_URL);
+		var db = mongoose.connection;
+		db.on('error', console.error.bind(console, 'connection error:'));
+		db.once('open', function() {
+			console.log("connection successful");
+			resolve();
+		});
+	});
+};
 
 function closeServer() {
 	return new Promise((resolve, reject) => {
@@ -48,7 +66,7 @@ function closeServer() {
 }
 
 if (require.main === module) {
-  runServer().catch(err => console.error(err));
+  runServer().then(openDatabase).catch(err => console.error(err));
 };
 
 module.exports = {runServer, app, closeServer};

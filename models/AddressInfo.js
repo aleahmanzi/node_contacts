@@ -31,6 +31,4 @@ addressInfo.methods.apiRepr = function() {
   };
 };
 
-const address = mongoose.model('address', addressInfo);
-
-module.exports = address;
+mongoose.model('addressInfo', addressInfo);

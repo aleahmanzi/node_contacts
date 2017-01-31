@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 const userInfo = new Schema({
   name: {
     firstName: String,
@@ -31,6 +30,4 @@ userInfo.methods.apiRepr = function() {
 };
 
 
-const user = mongoose.model('user', userInfo);
-
-module.exports = user;
+mongoose.model('userInfo', userInfo);

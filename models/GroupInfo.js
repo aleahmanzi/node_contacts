@@ -15,6 +15,4 @@ groupInfo.methods.apiRepr = function() {
 };
 
 
-const group = mongoose.model('group', groupInfo);
-
-module.exports = group;
+mongoose.model('groupInfo', groupInfo);

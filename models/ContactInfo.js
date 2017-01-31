@@ -52,6 +52,4 @@ contactInfo.methods.apiRepr = function() {
 };
 
 
-const contact = mongoose.model('contact', contactInfo);
-
-module.exports = contact;
+mongoose.model('contactInfo', contactInfo);

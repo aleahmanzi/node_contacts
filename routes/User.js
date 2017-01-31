@@ -1,21 +1,22 @@
 const express = require('express');
-const router = require('express').Router();
+const router = express.Router();
 const morgan = require('morgan');
 const jsonParser=require('body-parser').json();
+const mongoose = require('mongoose');
 
-const {contact} = require('../models/contactmodels');
+const userInfo = mongoose.model('userInfo');
 
+// GET REQUEST -- User
 
-// GET REQUEST
 router.get('/', (req, res) => {
-  contact
+  console.log("hit user route");
+  userInfo
     .find()
-    .limit(10)
-    .exec()
-    .then(blogPost => {
+    .then(userInfo => {
+      console.log("got user")
       res.json({
-        contact: contact.map(
-          (contact) => contact.apiRepr())
+        userInfo: userInfo.map(
+          (userInfo) => userInfo.apiRepr())
       });
     })
     .catch(
