@@ -41,7 +41,10 @@ router.post('/', (req, res) => {
       name: req.body.name,
       username: req.body.username,
       password: req.body.password,
-      email: req.body.email
+      email: req.body.email,
+      picture: req.body.picture,
+      coordinates: req.body.coordinates,
+      contacts: req.body.contacts
     })
     .then(
       userInfo => res.status(201).json(userInfo.apiRepr()))
@@ -64,8 +67,8 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['street1'];
-
+  const updateableFields = ['name', 'username', 'password', 'email', 'picture', 'coordinates', 'contacts'];
+  
   updateableFields.forEach(field => {
     if (field in req.body) {
       toUpdate[field] = req.body[field];

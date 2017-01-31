@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  const requiredFields = ['name'];
+  const requiredFields = ['name', 'contacts'];
   requiredFields.forEach(field => {
     if (! (field in req.body && req.body[field])) {
       return res.status(400).json({message: `Must specify value for ${field}`});
@@ -62,7 +62,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['street1'];
+  const updateableFields = ['name', 'contacts'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {

@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  const requiredFields = ['name'];
+  const requiredFields = ['name', 'birthday', 'phoneNumber', 'email', 'company', 'groups', 'pictures', 'address', 'spouse', 'connections'];
   requiredFields.forEach(field => {
     if (! (field in req.body && req.body[field])) {
       return res.status(400).json({message: `Must specify value for ${field}`});
@@ -39,7 +39,16 @@ router.post('/', (req, res) => {
 
   contactInfo
     .create({
-      name: req.body.name
+      name: req.body.name,
+      birthday: req.body.birthday,
+      phoneNumber: req.body.phoneNumber,
+      email: req.body.email,
+      company: req.body.company,
+      groups: req.body.groups,
+      pictures: req.body.pictures ,
+      address: req.body.address,
+      spouse: req.body.spouse,
+      connections:req.body.connections
     })
     .then(
       contactInfo => res.status(201).json(contactInfo.apiRepr()))

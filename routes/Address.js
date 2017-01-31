@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  const requiredFields = ['street1'];
+  const requiredFields = ['street1', 'city', 'state'];
   requiredFields.forEach(field => {
     if (! (field in req.body && req.body[field])) {
       return res.status(400).json({message: `Must specify value for ${field}`});
@@ -38,7 +38,15 @@ router.post('/', (req, res) => {
 
   addressInfo
     .create({
-      street1: req.body.street1
+      street1: req.body.street1,
+      street2: req.body.street2,
+      city: req.body.city
+      state: req.body.state,
+      zip: req.body.zip,
+      country: req.body.country,
+      coordinates: req.body.coordinates,
+      phone: req.body.phone,
+      contact: req.body.contact
     })
     .then(
       addressInfo => res.status(201).json(addressInfo.apiRepr()))
