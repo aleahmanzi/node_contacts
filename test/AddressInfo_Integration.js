@@ -2,10 +2,11 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
-const addressInfo = mongoose.model('addressInfo');
 
 const should = chai.should();
 
+const {DATABASE_URL} = require('../config');
+const {addressInfo} = require('../models/AddressInfo');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
@@ -21,14 +22,14 @@ function tearDownDb() {
 }
 
 
-function seedBlogPostData() {
+function seedAddressData() {
   console.info('seeding address data');
   const seedData = [];
   for (let i=1; i<=10; i++) {
     seedData.push({
-      street1: faker.lorem.text(), 
-      city: faker.lorem.text(),
-      state: faker.lorem.text()
+      street1: faker.address.streetName(), 
+      city: faker.address.city(),
+      state: faker.address.state()
     });
   }
   return addressInfo.insertMany(seedData);
@@ -42,7 +43,7 @@ describe('address API resource', function() {
   });
 
   beforeEach(function() {
-    return seedBlogPostData();
+    return seedAddressData();
   });
 
   afterEach(function() {
@@ -109,9 +110,9 @@ describe('address API resource', function() {
     it('should add a new addres', function() {
 
       const newAddress = {
-	      street1: faker.lorem.text(), 
-	      city: faker.lorem.text(),
-	      state: faker.lorem.text()
+	      street1: faker.address.streetName(), 
+	      city: faker.address.city(),
+	      state: faker.address.state()
       };
 
       return chai.request(app)

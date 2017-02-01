@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-require('./models/addressInfo');
-require('./models/contactInfo');
-require('./models/groupInfo');
-require('./models/userInfo');
+require('./models/AddressInfo');
+require('./models/ContactInfo');
+require('./models/GroupInfo');
+require('./models/UserInfo');
 
 
 const app = express();
