@@ -1,7 +1,7 @@
-deploy:
+deploy: 
   provider: heroku
   api_key:
     secure: C+QARhm+g685OkJLTDhYRJPt/516b1wDzLMRqhLuVU/0k+IT+5qIV6OFZpKPSMwjnD99/MaQ2epwocYTYNlVgrDUKEkm+EfUSVQhJOJsM/rEJ4JLexU8fCZe9u+M+MN9WBlJhhz9hFWh0hpztQWApxoG4qlw0vehUPi7ZYVCSFyWIN89Ssc55eoa2RJZAcoUbkHyLHsBLJilVZpaqwCV/LnvVFHDJ3xFdZA57O++dLOO/b1cDADcLMeNWRLxp0zgpe/iCiPssJi3N6zPkgz7MPsU+3CH9UyOUl9VyRjh2ARNFEuc+TpDMGPpQ3NgTShMKqLfO8llti2vmTZZQlQ1IXUILzLVL2aqkr57nztAYAH4KdJJUjelGrPCRMJsNYKzivvwlN3pbnbFS+6I8RJxfDZXVv+Q6AFoTynjZ7OrN4lXa8d2pqBJdiQo5J756Ty/Yq7QWvEpCqTRz9MBSt/tH4iIfHubpH84t3blfHYIiSs1i1J22Smn9fil4IboXr+gyfzEaRLk+ZZq5lHgVU8sanllwdJfQuVm+Ly532MqhRau5IA0/LWN3bEH9r7hGuyVHqZ0zKbt+wg8MKLTgm0B7U1L5bU3aXkzxA2quQWq4iIvZISFgBG1Ghku7QrwoBNzEuHZ+wv5Lr1lz1PX3/5XcL6O4A0DT7+A92rn4q4y/fM=
-  app: git diff
+  app: https://git.heroku.com/murmuring-depths-86850.git
   on:
-    repo: aleahmanzi/node_contacts
+    repo: https://github.com/aleahmanzi/node_contacts.git
