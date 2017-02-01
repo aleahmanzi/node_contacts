@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
     .create({
       street1: req.body.street1,
       street2: req.body.street2,
-      city: req.body.city
+      city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
       country: req.body.country,

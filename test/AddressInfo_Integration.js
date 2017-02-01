@@ -77,7 +77,7 @@ describe('address API resource', function() {
 
     it('should return addresses with right fields', function() {
 
-      let resPost;
+      let resAddress;
       return chai.request(app)
         .get('/addressInfo')
         .then(function(res) {
@@ -93,13 +93,13 @@ describe('address API resource', function() {
           });
           // just check one of the posts that its values match with those in db
           // and we'll assume it's true for rest
-          resPost = res.body[0];
-          return addressInfo.findById(resPost.id).exec();
+          resAddress = res.body[0];
+          return addressInfo.findById(resAddress.id).exec();
         })
         .then(post => {
-          resPost.street1.should.equal(post.street1);
-          resPost.city.should.equal(post.city);
-          resPost.state.should.equal(post.state);
+          resAddress.street1.should.equal(post.street1);
+          resAddress.city.should.equal(post.city);
+          resAddress.state.should.equal(post.state);
         });
     });
   });
