@@ -11,170 +11,190 @@ const {TEST_DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
-function seedBlogData() {
-	console.ingoO('seeding blog post data');
-	const seedData = [];
-
-	for (let i=1; i<=10; i++) {
-		seedData.push(generateBlogData());
-	}
-	return BlogPost.insertMany(seedData);
+function tearDownDb() {
+  return new Promise((resolve, reject) => {
+    console.warn('Deleting database');
+    mongoose.connection.dropDatabase()
+      .then(result => resolve(result))
+      .catch(err => reject(err))
+  });
 }
 
-function generateAuthorName() {
-	const authors = ['Billy Smith', 'Wilson Withers', 'Tabernacle Jeff'];
-	return authors[Math.floor(Math.random() = authors.length)];
+
+function seedBlogPostData() {
+  console.info('seeding address data');
+  const seedData = [];
+  for (let i=1; i<=10; i++) {
+    seedData.push({
+      street1: faker.lorem.text(), 
+      city: faker.lorem.text(),
+      state: faker.lorem.text()
+    });
+  }
+  return addressInfo.insertMany(seedData);
 }
 
-function generateBlogData() {
-	return {
-		title: faker.company.companyName(), 
-		author: generateAuthorName()
-	}
-}
 
-function tearDownDB() {
-	console.warn('Deleting database');
-	return mongoose.connection.dropDatabase();
-}
+describe('address API resource', function() {
 
-describe ('Blog API resource', function() {
+  before(function() {
+    return runServer(TEST_DATABASE_URL);
+  });
 
-	before(function() {
-		return runServer(TEST_DATABSE_URL);
-	});
+  beforeEach(function() {
+    return seedBlogPostData();
+  });
 
-	beforeEach(function() {
-		return seedBlogData();
-	});
+  afterEach(function() {
+    return tearDownDb();
+  });
 
-	afterEach(function() {
-		return tearDownDb();
-	});
+  after(function() {
+    return closeServer();
+  });
 
-	after(function() {
-		return closeServer;
-	});
 
-})
+  describe('GET endpoint', function() {
 
-/// --- TESTS --- ///
+    it('should return all existing addresses', function() {
 
-/// GET ///
-
-describe('GET endpoint', function() {
-
-	it('should return all exisiting posts', function() {
-
-	let res;
-	return chai.request(app)
-	.get('/posts')
-	.then(function(_res) {
-		console.log("how about here??")
-		res = _res; 
-		res.should.have.status(200);
-		res.body.posts.should.have.length.of.at.least(1);
-		return Posts.count();
-	})
-	.then(function(count) {
-		res.body.posts.should.have.length.of(count);
-	});
-	})
-
-	it('should return posts with right fields', function() {
-
-		let resPosts;
-		return chai.request(app)
-			.get('/posts')
-			.then(function(res) {
-				res.should.have.status(200);
-				res.should.be.json;
-				res.body.posts.should.be.a('array');
-				res.body.posts.should.have.length.of.at.least(1);
-
-				res.body.post.forEach(function(posts) {
-					posts.should.be.a('object');
-					posts.should.include.keys(
-						'id', 'title', 'author');
-				});
-				resPosts = res.body.posts[0];
-				return posts.findById(resPosts.id);
-			})
-			.then(function(posts) {
-
-				resPosts.id.should.equal(posts.id);
-				resPosts.title.should.equal(posts.title);
-				resPosts.author.should.equal(post.author);
-			});
-	});
-});
-
-/*/// POST ///
- describe('POST endpoint', function() {
-    it('should add a new post', function() {
-      const newPost = generateBlogData();
+      let res;
       return chai.request(app)
-        .post('/posts')
-        .send(newPost)
+        .get('/addressInfo')
+        .then(_res => {
+          res = _res;
+          // check that res has correct status
+          res.should.have.status(200);
+          res.body.should.have.length.of.at.least(1);
+
+          return addressInfo.count();
+        })
+        .then(count => {
+          // check number of posts v number of posts in db
+          res.body.should.have.length.of(count);
+        });
+    });
+
+    it('should return addresses with right fields', function() {
+
+      let resPost;
+      return chai.request(app)
+        .get('/addressInfo')
+        .then(function(res) {
+
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('array');
+          res.body.should.have.length.of.at.least(1);
+
+          res.body.forEach(function(post) {
+            post.should.be.a('object');
+            post.should.include.keys('street1', 'city', 'state');
+          });
+          // just check one of the posts that its values match with those in db
+          // and we'll assume it's true for rest
+          resPost = res.body[0];
+          return addressInfo.findById(resPost.id).exec();
+        })
+        .then(post => {
+          resPost.street1.should.equal(post.street1);
+          resPost.city.should.equal(post.city);
+          resPost.state.should.equal(post.state);
+        });
+    });
+  });
+
+  describe('POST endpoint', function() {
+
+    it('should add a new addres', function() {
+
+      const newAddress = {
+	      street1: faker.lorem.text(), 
+	      city: faker.lorem.text(),
+	      state: faker.lorem.text()
+      };
+
+      return chai.request(app)
+        .post('/addressInfo')
+        .send(newAddress)
         .then(function(res) {
           res.should.have.status(201);
           res.should.be.json;
           res.body.should.be.a('object');
           res.body.should.include.keys(
-            'id', 'title', 'author');
-          res.body.title.should.equal(newPost.title);
+            'street1', 'city', 'state');
+          res.body.street1.should.equal(newAddress.street1);
           res.body.id.should.not.be.null;
-          res.body.author.should.equal(newPost.author);
+          res.body.city.should.equal(newAddress.city);
+          res.body.content.should.equal(newAddress.content);
+          return addressInfo.findById(res.body.id).exec();
         })
-        .then(function(posts) {
-          posts.title.should.equal(newPost.title);
-          posts.author.should.equal(newPost.author);
+        .then(function(post) {
+          post.street1.should.equal(newAddress.street1);
+          post.state.should.equal(newAddress.state);
+          post.city.should.equal(newAddress.city);
         });
     });
   });
-/// PUT ///
+
   describe('PUT endpoint', function() {
+
     it('should update fields you send over', function() {
       const updateData = {
-        title: 'fofofofo',
-        author: 'futuristic fusion'
+        street1: '123 Test Road',
+        city: 'Brooklyn',
+        state: 'New York'
       };
-      return Post
+
+      return addressInfo
         .findOne()
         .exec()
-        .then(function(posts) {
-          updateData.id = posts.id;
+        .then(post => {
+          updateData.id = post.id;
+
           return chai.request(app)
-            .put(`/posts/${posts.id}`)
+            .put(`/addressInfo/${post.id}`)
             .send(updateData);
         })
-        .then(function(res) {
-          res.should.have.status(204);
-          return Posts.findById(updateData.id).exec();
+        .then(res => {
+          res.should.have.status(201);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          res.body.street1.should.equal(updateData.street1);
+          res.body.city.should.equal(updateData.city);
+          res.body.state.should.equal(updateData.state);
+
+          return addressInfo.findById(res.body.id).exec();
         })
-        .then(function(posts) {
-          restaurant.title.should.equal(updateData.title);
+        .then(post => {
+          post.street1.should.equal(updateData.street1);
+          post.state.should.equal(updateData.state);
+          post.city.should.equal(updateData.city);
         });
-      });
+    });
   });
-/// DELETE ///
+
   describe('DELETE endpoint', function() {
-    it('delete a post by id', function() {
+
+    it('should delete an address by id', function() {
+
       let post;
-      return Post
+
+      return addressInfo
         .findOne()
         .exec()
-        .then(function(_post) {
-          restaurant = _post;
-          return chai.request(app).delete(`/posts/${restaurant.id}`);
+        .then(_post => {
+          post = _post;
+          return chai.request(app).delete(`/addressInfo/${post.id}`);
         })
-        .then(function(res) {
+        .then(res => {
           res.should.have.status(204);
-          return Post.findById(post.id).exec();
+          return addressInfo.findById(post.id);
         })
-        .then(function(_post) {
+        .then(_post => {
+
           should.not.exist(_post);
         });
     });
   });
-*/
+});
