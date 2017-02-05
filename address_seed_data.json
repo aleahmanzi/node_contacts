@@ -1,0 +1,1 @@
+{"street1": "10 wish lane", "street2": "APT 1", "city": "Brooklyn", "state": "New York", "zip": "11111", "country": "USA", "coordinates": {"locLat": "1.000", "locLong": "2.000"}, "phone": "111-111-1111", "contact": [{"type": "123", "ref": "'contactInfo'"}]};

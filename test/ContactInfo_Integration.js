@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
-const contactInfo = mongoose.model('contactInfo');
+require('../models/ContactInfo');
 
 const should = chai.should();
 
@@ -39,7 +39,6 @@ function seedContactData() {
 	  }
 	});
   }
-    console.log("got data", seedData)
 
   return contactInfo.insertMany(seedData);
 }

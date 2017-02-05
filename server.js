@@ -35,7 +35,7 @@ function runServer() {
 	      resolve();
 	    })
 	    .on('error', err => {
-	      reject(err);
+/ []''''	      reject(err);
 	    });
 	  });
 }
