@@ -6,6 +6,8 @@ require('../models/ContactInfo');
 
 const should = chai.should();
 
+const {DATABASE_URL} = require('../config');
+const contactInfo = mongoose.model('contactInfo');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 

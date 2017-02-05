@@ -6,6 +6,8 @@ require('../models/UserInfo');
 
 const should = chai.should();
 
+const {DATABASE_URL} = require('../config');
+const userInfo = mongoose.model('userInfo');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
@@ -30,12 +32,7 @@ function seedUserData() {
   		firstName: faker.name.findName(),
   		lastName: faker.name.findName()
   	   },
-  	  email: faker.internet.email(),	  
-	  username: faker.Internet.userName(),
-	  coordinates: {
-	    locLat: faker.Address.latitude(),
-	    locLong: faker.Address.longitude()
-	  },
+  	  email: faker.internet.email()
     });
   }
   return userInfo.insertMany(seedData);

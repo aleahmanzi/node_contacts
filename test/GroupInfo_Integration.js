@@ -6,6 +6,8 @@ require('../models/GroupInfo');
 
 const should = chai.should();
 
+const {DATABASE_URL} = require('../config');
+const groupInfo = mongoose.model('groupInfo');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
@@ -26,7 +28,7 @@ function seedGroupData() {
   const seedData = [];
   for (let i=1; i<=10; i++) {
     seedData.push({
-      name: faker.name.streetName()
+      name: faker.name.findName(),
     });
   }
   return groupInfo.insertMany(seedData);
@@ -107,7 +109,6 @@ describe('group API resource', function() {
     it('should add a new addres', function() {
 
       const newGroup = {
-	      street1: faker.address.streetName(), 
 	      city: faker.address.city(),
 	      state: faker.address.state()
       };

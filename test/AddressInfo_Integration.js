@@ -111,9 +111,9 @@ describe('address API resource', function() {
     it('should add a new addres', function() {
 
       const newAddress = {
-	      street1: faker.address.streetName(), 
-	      city: faker.address.city(),
-	      state: faker.address.state()
+	      street1: faker.Address.streetName(), 
+	      city: faker.Address.city(),
+	      state: faker.Address.state()
       };
 
       return chai.request(app)
