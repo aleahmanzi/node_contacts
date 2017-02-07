@@ -7,6 +7,7 @@ require('../models/GroupInfo');
 const should = chai.should();
 
 const {DATABASE_URL} = require('../config');
+
 const groupInfo = mongoose.model('groupInfo');
 const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');

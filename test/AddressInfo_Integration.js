@@ -4,6 +4,7 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 require('../models/AddressInfo');
 
+
 const should = chai.should();
 
 const {DATABASE_URL} = require('../config');
@@ -12,6 +13,8 @@ const {app, runServer, closeServer} = require('../server');
 const {TEST_DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
+mongoose.Promise = global.Promise;
+
 
 function tearDownDb() {
   return new Promise((resolve, reject) => {
@@ -57,23 +60,23 @@ describe('address API resource', function() {
 
 
   describe('GET endpoint', function() {
-
+    console.log("how about here????", addressInfo);
     it('should return all existing addresses', function() {
 
       let res;
       return chai.request(app)
         .get('/addressInfo')
-        .then(_res => {
+        .then(function(_res) {
+          console.log('did we make it here???');
           res = _res;
           // check that res has correct status
           res.should.have.status(200);
-          res.body.should.have.length.of.at.least(1);
-
+          res.body.addressInfo.should.have.length.of.at.least(1);
           return addressInfo.count();
         })
-        .then(count => {
+        .then(function(count) {
           // check number of posts v number of posts in db
-          res.body.should.have.length.of(count);
+          res.body.addressInfo.should.have.length.of(count);
         });
     });
 
@@ -86,22 +89,22 @@ describe('address API resource', function() {
 
           res.should.have.status(200);
           res.should.be.json;
-          res.body.should.be.a('array');
-          res.body.should.have.length.of.at.least(1);
+          res.body.addressInfo.should.be.a('array');
+          res.body.addressInfo.should.have.length.of.at.least(1);
 
-          res.body.forEach(function(post) {
-            post.should.be.a('object');
-            post.should.include.keys('street1', 'city', 'state');
+          res.body.addressInfo.forEach(function(addressInfo) {
+            addressInfo.should.be.a('object');
+            addressInfo.should.include.keys('street1', 'city', 'state');
           });
           // just check one of the posts that its values match with those in db
           // and we'll assume it's true for rest
-          resAddress = res.body[0];
+          resAddress = res.body.addressInfo[0];
           return addressInfo.findById(resAddress.id).exec();
         })
-        .then(post => {
-          resAddress.street1.should.equal(post.street1);
-          resAddress.city.should.equal(post.city);
-          resAddress.state.should.equal(post.state);
+        .then(function(addressInfo) {
+          resAddress.street1.should.equal(addressInfo.street1);
+          resAddress.city.should.equal(addressInfo.city);
+          resAddress.state.should.equal(addressInfo.state);
         });
     });
   });
@@ -131,10 +134,10 @@ describe('address API resource', function() {
           res.body.content.should.equal(newAddress.content);
           return addressInfo.findById(res.body.id).exec();
         })
-        .then(function(post) {
-          post.street1.should.equal(newAddress.street1);
-          post.state.should.equal(newAddress.state);
-          post.city.should.equal(newAddress.city);
+        .then(function(addressInfo) {
+          addressInfo.street1.should.equal(newAddress.street1);
+          addressInfo.state.should.equal(newAddress.state);
+          addressInfo.city.should.equal(newAddress.city);
         });
     });
   });
@@ -151,11 +154,11 @@ describe('address API resource', function() {
       return addressInfo
         .findOne()
         .exec()
-        .then(post => {
-          updateData.id = post.id;
+        .then(function(addressInfo) {
+          updateData.id = addressInfo.id;
 
           return chai.request(app)
-            .put(`/addressInfo/${post.id}`)
+            .put(`/addressInfo/${addressInfo.id}`)
             .send(updateData);
         })
         .then(res => {
@@ -168,10 +171,10 @@ describe('address API resource', function() {
 
           return addressInfo.findById(res.body.id).exec();
         })
-        .then(post => {
-          post.street1.should.equal(updateData.street1);
-          post.state.should.equal(updateData.state);
-          post.city.should.equal(updateData.city);
+        .then(function(addressInfo) {
+          addressInfo.street1.should.equal(updateData.street1);
+          addressInfo.state.should.equal(updateData.state);
+          addressInfo.city.should.equal(updateData.city);
         });
     });
   });

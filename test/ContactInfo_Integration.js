@@ -67,7 +67,7 @@ describe('contact API resource', function() {
 
   describe('GET endpoint', function() {
 
-    it('should return all existing addresses', function() {
+    it('should return all existing contacts', function() {
 
       let res;
       return chai.request(app)
