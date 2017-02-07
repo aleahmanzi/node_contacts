@@ -6,7 +6,7 @@ require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
 require('./models/UserInfo');
-
+require('./authentication/Google_oauth');
 
 const app = express();
 
@@ -14,6 +14,7 @@ const contactRouter = require('./routes/Contact');
 const addressRouter = require('./routes/Address');
 const groupRouter = require('./routes/Group');
 const userRouter = require('./routes/User');
+const Google = require('./authentication/Google_oauth');
 
 const PORT = 8080;
 const jsonParser = bodyParser.json();
@@ -26,6 +27,7 @@ app.use('/contactInfo', contactRouter);
 app.use('/addressInfo', addressRouter);
 app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
+app.use('/auth/google', Google);
 
 
 function runServer() {
