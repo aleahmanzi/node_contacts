@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
@@ -29,6 +30,9 @@ app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
 app.use('/auth/google', Google);
 
+app.get('/', function(req, res){
+	res.sendFile(path.join(__dirname, '/browser/index.html'))
+});
 
 function runServer() {
 	return new Promise((resolve, reject) => {	
