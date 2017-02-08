@@ -6,14 +6,18 @@ const mongoose = require('mongoose');
 
 const addressInfo = mongoose.model('addressInfo');
 
+
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
+const GOOGLE_CLIENT_ID = "374972509400-eqik5st3gmk2vl9ij2qp7jh6b3pjdrl1.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "Q5avSRkQvZ4cY2DHGl3U2qXm";
 
 passport.use(new GoogleStrategy({
-    clientID: '374972509400-eqik5st3gmk2vl9ij2qp7jh6b3pjdrl1.apps.googleusercontent.com',
-    clientSecret: 'Q5avSRkQvZ4cY2DHGl3U2qXm',
-    callbackURL: "http://www.example.com/auth/google/callback"
+    clientID:     GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "localhost:8080",
+    passReqToCallback   : true
   },
   function(accessToken, refreshToken, profile, done) {
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -22,12 +26,11 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-
-router.get('/auth/google',
+router.get('/',
   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
 
 
-router.get('/auth/google/callback', 
+router.get('/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');

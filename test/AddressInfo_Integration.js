@@ -60,7 +60,6 @@ describe('address API resource', function() {
 
 
   describe('GET endpoint', function() {
-    console.log("how about here????", addressInfo);
     it('should return all existing addresses', function() {
 
       let res;
