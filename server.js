@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+
+
 require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
@@ -10,6 +12,9 @@ require('./models/UserInfo');
 require('./authentication/Google_oauth');
 
 const app = express();
+
+require('./authentication')(app);
+app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
 const contactRouter = require('./routes/Contact');
 const addressRouter = require('./routes/Address');
