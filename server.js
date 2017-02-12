@@ -7,7 +7,6 @@ require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
 require('./models/UserInfo');
-require('./authentication/Google_oauth');
 
 const app = express();
 
@@ -29,6 +28,8 @@ app.use('/addressInfo', addressRouter);
 app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
 app.use('/auth/google', Google);
+
+app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
 app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '/browser/index.html'))
