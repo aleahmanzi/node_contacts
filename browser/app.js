@@ -7,7 +7,7 @@ myApp.factory('Store', function(){
 myApp.service('AuthService', function($http, $rootScope, $q, Store){
 
   this.getLoggedInUser = function(){
-    return $http.get('/session').then(onSuccessfullLogin)
+    //return $http.get('/session').then(onSuccessfullLogin)
   };
   this.isAuthenticated = function(){
     return !!Store.user;
@@ -20,9 +20,34 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
 
 });
 
-myApp.controller('Ctrl', function ($scope) {
+myApp.factory('getContacts', function($http){
+  return function(){
+    return $http ({
+      url: 'http://localhost:8080/contactInfo',
+      method: 'GET',
+      params: {callback: 'JSON_CALLBACK'}
+    });
+  }
+});
 
-  $scope.test = 'Angular is working!'
+
+myApp.controller('Ctrl', function ($scope, $rootScope, getContacts) {
+$scope.test = 'Angular is working!'
+
+/// - default values
+$scope.contacts = [];
+
+///- return personal contacts
+ 
+ $scope.getContacts = function(){
+    console.log("empty contact list", $scope.contacts)
+     getContacts().success(function(result){
+          $scope.contacts = result;
+          console.log("response from GET request for contacts", $scope.contacts);
+      })
+  };
+
+
 
 }); /// Ctrl
 

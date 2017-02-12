@@ -2,8 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const seeder = require('mongoose-seeder');
 const path = require('path');
 
+const addressData = require('./seeds/Address.json');
+const contactData = require('./seeds/Contact.json');
+const groupData = require('./seeds/Group.json');
+const userData = require('./seeds/User.json');
 
 require('./models/AddressInfo');
 require('./models/ContactInfo');
@@ -82,3 +87,15 @@ if (require.main === module) {
 };
 
 module.exports = {runServer, app, closeServer};
+
+
+
+/// - seed data
+mongoose.connection.on('connected', function() {
+    seeder.seed(contactData).then(function(contactInfo) {
+    	console.log("data was seeded!");
+	}).catch(function(err) {
+	});
+});
+
+

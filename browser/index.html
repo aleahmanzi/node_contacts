@@ -20,7 +20,15 @@
 
 <p>{{test}}</p>
 
+<button ng-click="getContacts()">Get Contacts</button>
 
+<section>
+  <div ng-repeat="contact in contacts">
+    <div>
+    	<p>Contact Data: {{ contact }}</p>
+    </div>
+  </div>
+</section>
 
 
 </body>

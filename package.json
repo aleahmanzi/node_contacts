@@ -21,6 +21,7 @@
     "express-session": "^1.15.1",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
+    "mongoose-seeder": "v1.2.1",
     "passport-google-oauth": "~0.1.5",
     "passport": "latest"
   },

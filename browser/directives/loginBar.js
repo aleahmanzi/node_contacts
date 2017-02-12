@@ -10,14 +10,14 @@ myApp.directive('loginBar', function(AuthService, Store){
         scope.user = Store.user;
       } else {
         AuthService.getLoggedInUser()
-          .then(function(res){
-            console.log("getting res user from backend", res);
-            if(res.data.user) {
-              scope.isAuthenticated = true;
-              scope.user = res.data.user;
+          //.then(function(res){
+            //console.log("getting res user from backend", res);
+            //if(res.data.user) {
+              //scope.isAuthenticated = true;
+              //scope.user = res.data.user;
             }
-          })
+          //})
       }
     }
-  }
+  //}
 });
