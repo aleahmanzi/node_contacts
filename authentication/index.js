@@ -23,8 +23,8 @@ module.exports = function(app) {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function(user, done){
-    userInfo.findById(id, done);
+  passport.deserializeUser(function(user, done, id){
+    userInfo.findById(user, id, done);
   });
 
   app.get('/session', function(req, res){
