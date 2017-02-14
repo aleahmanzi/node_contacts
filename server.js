@@ -20,7 +20,6 @@ const addressRouter = require('./routes/Address');
 const groupRouter = require('./routes/Group');
 const userRouter = require('./routes/User');
 const Google = require('./authentication/Google_oauth');
-const contactDataRouter = require('./seeds/ContactSeedData');
 
 const PORT = 8080;
 const jsonParser = bodyParser.json();
@@ -34,7 +33,6 @@ app.use('/addressInfo', addressRouter);
 app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
 app.use('/auth/google', Google);
-app.use(contactDataRouter);
 
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
@@ -82,18 +80,5 @@ function closeServer() {
 if (require.main === module) {
   runServer().then(openDatabase).catch(err => console.error(err));
 };
-
-/// - seed data
-/*function seedData(){
-	console.log("seeding the data")
- createContactData() 
-
-    .catch(function(err) {
-		console.log("data was NOT seeded", err);
-	});
-	}*/
-
-//mongoose.connection.on('connected', function());
-
 
 module.exports = {runServer, app, closeServer};

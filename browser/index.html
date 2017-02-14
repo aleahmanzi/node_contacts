@@ -21,13 +21,53 @@
 <p>{{test}}</p>
 
 <button ng-click="getContacts()">Get Contacts</button>
+<button ng-click="addContact()">Add a Contact</button>
+<button ng-click="addGroup()">Add a Group</button>
 
-<section>
-  <div ng-repeat="contact in contacts">
+<section class="result_wrap">
+  <a ng-show="resultWrap" ng-repeat="contact in contacts" href="#/contacts/{{ contact.id }}">
     <div>
     	<p>Contact Data: {{ contact }}</p>
     </div>
+  </a>
+</section><!-- . result_wrap - -->
+
+<section class="new_contact_wrap" ng-show="contactGrid">
+  <table name="new_contact">
+    <tr>
+      <td class="label">First Name</td>
+      <td class="input">
+        <input type="text" ng-model="contact.firstName" required/>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Last Name</td>
+      <td class="input">
+        <input type="text" ng-model="contact.lastName" required/>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Phone Number</td>
+      <td class="input">
+        <input type="text" ng-model="contact.personalEmail" required/>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Email</td>
+      <td class="input">
+        <input type="text" ng-model="contact.phoneNumber" required/>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <div class="submit_button">
+      <button type="text" required ng-click="createContact()">Submit</button>
+    </div><!-- . submit_button - -->
   </div>
+</section><!-- . new_contact_wrap - -->
+
+<section class="post_message" ng-show="postMessage">
+ <div>contact successfully created!</div>
 </section>
 
 
