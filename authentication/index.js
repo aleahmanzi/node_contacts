@@ -23,8 +23,9 @@ module.exports = function(app) {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function(user, done, id){
-    userInfo.findById(user, id, done);
+  passport.deserializeUser(function(userId, done){
+    console.log("HERE IS THE USER", userId);
+    userInfo.findById(userId, done);
   });
 
   app.get('/session', function(req, res){
