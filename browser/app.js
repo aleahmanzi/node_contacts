@@ -26,13 +26,23 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
 /// GET contacts factory
 
 myApp.factory('getContactsFactory', function($http){
-  return function(){
+
+  var fact = {}
+
+  fact.getContactData = function() {
     return $http ({
       url: 'http://localhost:8080/contactInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
       maxResult: '10'
-    });
+    })
+    .then(function(contactID){
+      return $http ({
+        url: 'http://localhost:8080' + contactID,
+        method: 'JSONP',
+        callback: 'JSON_CALLBACK'
+      })
+    })
   }
 });
 
@@ -40,12 +50,12 @@ myApp.factory('getContactsFactory', function($http){
 
 myApp.factory('postContactFactory', function($http){
 
-  return function(){
+  return function(data){
       return $http ({
-        url: 'http://localhost:8080/createContact',
+        url: 'http://localhost:8080',
         dataType: 'JSON',
         method: "POST", 
-        data: $scope.contact,
+        data: data,
       })
 
       .success(function(addData) {
@@ -73,9 +83,14 @@ $scope.resultWrap = false;
     $scope.resultWrap = true;
     $scope.postMessage = false;
      getContactsFactory().success(function(result){
-          $scope.contacts = result;
+          $scope.contacts = result.contactInfo;
           console.log("response from GET request for contacts", $scope.contacts);
       })
+
+      getContactsFactory($scope.contactID).success(function(contactData){
+        console.log("here is the extra contact data", contactData);
+        $scope.contactData = contactData;
+    })
   };
 
 }); 
@@ -90,7 +105,6 @@ $scope.test = 'Angular is working!'
 /// - default values
 $scope.contactGrid = false;
 $scope.postMessage = false;
-$scope.resultWrap = false;
 
 $scope.contact = {
    firstName: '',
@@ -103,7 +117,6 @@ $scope.contact = {
 
   $scope.addContact = function(){
     $scope.contactGrid = true;
-    $scope.resultWrap = false;
     $scope.postMessage = false;
   };
 
@@ -114,7 +127,7 @@ $scope.contact = {
     $scope.postMessage = true;
     $scope.resultWrap = false;
     $scope.contactGrid = false;
-    postContactFactory().success(function(contact){
+    postContactFactory($scope.contact).success(function(contact){
       console.log("here is the new contact", contact);
     })
   };

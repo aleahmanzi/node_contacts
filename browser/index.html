@@ -27,11 +27,11 @@
 
   <button ng-click="getContacts()">Get Contacts</button>
   <section class="result_wrap">
-    <a ng-show="resultWrap" ng-repeat="contact in contacts" href="#/contacts/{{ contact.id }}">
+    <div ng-show="resultWrap" ng-repeat="contact in contacts" >
       <div>
-      	<p>Contact Data: {{ contact }}</p>
+      	Last Name:<a href="#/contacts/{{ contact.id }}"> {{ contact.name.lastName }}</a>
       </div>
-    </a>
+    </div>
   </section><!-- . result_wrap - -->
 </div>
 
