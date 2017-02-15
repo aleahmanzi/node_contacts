@@ -20,6 +20,11 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
 
 });
 
+////////// FACTORIES ////////////////
+
+
+/// GET contacts factory
+
 myApp.factory('getContactsFactory', function($http){
   return function(){
     return $http ({
@@ -31,25 +36,35 @@ myApp.factory('getContactsFactory', function($http){
   }
 });
 
-myApp.factory('')
+/// POST contact factory
 
+myApp.factory('postContactFactory', function($http){
 
-myApp.controller('Ctrl', function ($scope, $rootScope, getContactsFactory) {
+  return function(){
+      return $http ({
+        url: 'http://localhost:8080/createContact',
+        dataType: 'JSON',
+        method: "POST", 
+        data: $scope.contact,
+      })
+
+      .success(function(addData) {
+        console.log("new contact added!", addData)
+      })
+    }
+})
+
+////////////// CONTROLLERS /////////////////
+
+/// - GET contact Ctrl
+
+myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams) {
 $scope.test = 'Angular is working!'
 
 /// - default values
 $scope.contacts = [];
-$scope.contactGrid = false;
 $scope.postMessage = false;
 $scope.resultWrap = false;
-
-$scope.contact = {
-   firstName: '',
-   lastName: '',
-   PersonalEmail: '',
-   phoneNumber: ''
-   };
-
 
 ///- return personal contacts
  
@@ -63,21 +78,46 @@ $scope.contact = {
       })
   };
 
+}); 
+
+
+
+/// - POST new contact NewContactCtrl
+
+myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
+$scope.test = 'Angular is working!'
+ 
+/// - default values
+$scope.contactGrid = false;
+$scope.postMessage = false;
+$scope.resultWrap = false;
+
+$scope.contact = {
+   firstName: '',
+   lastName: '',
+   PersonalEmail: '',
+   phoneNumber: ''
+   };
+
+/// - show form to add contact
+
   $scope.addContact = function(){
-    console.log("We're adding a new contact here");
     $scope.contactGrid = true;
     $scope.resultWrap = false;
     $scope.postMessage = false;
-
   };
 
-  $scope.createContact = function(){
+  /// - use data from form to create new contact
+
+  $scope.createContact = function(contact){
     console.log("Contact was created");
     $scope.postMessage = true;
     $scope.resultWrap = false;
     $scope.contactGrid = false;
+    postContactFactory().success(function(contact){
+      console.log("here is the new contact", contact);
+    })
   };
 
-
-}); /// Ctrl
+}); 
 
