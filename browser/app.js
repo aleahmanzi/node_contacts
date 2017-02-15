@@ -29,39 +29,47 @@ myApp.factory('getContactsFactory', function($http){
 
   var fact = {}
 
-  fact.getContactData = function() {
+  fact.getContact = function() {
     return $http ({
       url: 'http://localhost:8080/contactInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
       maxResult: '10'
     })
-    .then(function(contactID){
-      return $http ({
-        url: 'http://localhost:8080' + contactID,
-        method: 'JSONP',
-        callback: 'JSON_CALLBACK'
-      })
-    })
   }
-});
+
+  fact.getContactData = function(contactID) {
+  return $http ({
+    url:'http://localhost:8080/contactInfo' + contactID,
+    method: 'GET',
+    params: {callback: 'JSON_CALLBACK'}
+  })
+  }
+  
+  return fact;
+})
+
+
 
 /// POST contact factory
 
 myApp.factory('postContactFactory', function($http){
 
-  return function(data){
-      return $http ({
-        url: 'http://localhost:8080',
-        dataType: 'JSON',
-        method: "POST", 
-        data: data,
-      })
+  var fact = {}
 
-      .success(function(addData) {
-        console.log("new contact added!", addData)
-      })
-    }
+  fact.postContact = function(data) {
+    return $http ({
+      url: '/',
+      dataType: 'JSON',
+      method: "POST", 
+      data: data,
+    })
+
+    .success(function(addData) {
+      console.log("new contact added!", addData)
+    })
+}
+    return fact;
 })
 
 ////////////// CONTROLLERS /////////////////
@@ -75,26 +83,27 @@ $scope.test = 'Angular is working!'
 $scope.contacts = [];
 $scope.postMessage = false;
 $scope.resultWrap = false;
+$scope.contacts = '';
+$scope.contactID = '';
 
 ///- return personal contacts
- 
- $scope.getContacts = function(){
-    console.log("empty contact list", $scope.contacts)
-    $scope.resultWrap = true;
-    $scope.postMessage = false;
-     getContactsFactory().success(function(result){
-          $scope.contacts = result.contactInfo;
-          console.log("response from GET request for contacts", $scope.contacts);
-      })
 
-      getContactsFactory($scope.contactID).success(function(contactData){
-        console.log("here is the extra contact data", contactData);
-        $scope.contactData = contactData;
+ getContactsFactory.getContact()
+    .then(function(result){
+      $scope.resultWrap = true;
+      $scope.postMessage = false;
+      console.log(result);
+      $scope.contacts = result.contactInfo;
+      console.log("response from GET request for contacts", $scope.contacts);
+      })  
+
+  getContactsFactory.getContactData()
+    .then(function(contactID){
+        console.log("here is the extra contact data");
     })
-  };
+
 
 }); 
-
 
 
 /// - POST new contact NewContactCtrl
@@ -122,15 +131,13 @@ $scope.contact = {
 
   /// - use data from form to create new contact
 
-  $scope.createContact = function(contact){
-    console.log("Contact was created");
-    $scope.postMessage = true;
-    $scope.resultWrap = false;
-    $scope.contactGrid = false;
-    postContactFactory($scope.contact).success(function(contact){
-      console.log("here is the new contact", contact);
-    })
-  };
+  postContactFactory.postContact()
+      .then(function(contact){
+        $scope.postMessage = true;
+        $scope.resultWrap = false;
+        $scope.contactGrid = false;
+        console.log("here is the new contact", contact);
+  });
 
 }); 
 

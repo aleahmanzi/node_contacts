@@ -29,7 +29,7 @@
   <section class="result_wrap">
     <div ng-show="resultWrap" ng-repeat="contact in contacts" >
       <div>
-      	Last Name:<a href="#/contacts/{{ contact.id }}"> {{ contact.name.lastName }}</a>
+      	Last Name:<a href="#/contactID/{{ contact.id }}"> {{ contact.name.lastName }}</a>
       </div>
     </div>
   </section><!-- . result_wrap - -->
@@ -71,7 +71,7 @@
     </table>
     <div>
       <div class="submit_button">
-        <button type="text" required ng-click="createContact()">Submit</button>
+        <button type="text" required ng-click="postContactFactory.postContact()">Submit</button>
       </div><!-- . submit_button - -->
     </div>
   </section><!-- . new_contact_wrap - -->
