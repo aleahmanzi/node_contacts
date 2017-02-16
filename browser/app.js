@@ -39,21 +39,21 @@ myApp.factory('getContactsFactory', function($http){
   }
 
   fact.getContactData = function(contactID) {
-  return $http ({
-    url:'http://localhost:8080/contactInfo' + contactID,
-    method: 'GET',
-    params: {callback: 'JSON_CALLBACK'}
-  })
+    return $http ({
+      url:'http://localhost:8080/contactInfo',
+      method: 'GET',
+      params: {callback: 'JSON_CALLBACK',
+      id: contactID }
+    })
   }
   
   return fact;
 })
 
 
-
 /// POST contact factory
 
-myApp.factory('postContactFactory', function($http){
+/*myApp.factory('postContactFactory', function($http){
 
   var fact = {}
 
@@ -70,7 +70,7 @@ myApp.factory('postContactFactory', function($http){
     })
 }
     return fact;
-})
+})*/
 
 ////////////// CONTROLLERS /////////////////
 
@@ -80,35 +80,50 @@ myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams) {
 $scope.test = 'Angular is working!'
 
 /// - default values
+
 $scope.contacts = [];
+$scope.contactID = '';
 $scope.postMessage = false;
 $scope.resultWrap = false;
-$scope.contacts = '';
-$scope.contactID = '';
+$scope.detailsWrap = false;
+
 
 ///- return personal contacts
 
- getContactsFactory.getContact()
-    .then(function(result){
-      $scope.resultWrap = true;
-      $scope.postMessage = false;
-      console.log(result);
-      $scope.contacts = result.contactInfo;
-      console.log("response from GET request for contacts", $scope.contacts);
-      })  
+$scope.getContacts = function(){
+  getContactsFactory.getContact()
+  .success(function(result){
 
-  getContactsFactory.getContactData()
-    .then(function(contactID){
-        console.log("here is the extra contact data");
-    })
+    $scope.resultWrap = true;
+    $scope.postMessage = false;
+    console.log(result);
+    $scope.contacts = result.contactInfo;
+  })
+}
 
 
-}); 
+/// - get contact details
+
+$scope.getContactDetails = function(contactID) {
+  $scope.resultWrap = false; 
+  $scope.detailsWrap = true;
+  console.log("the contactID is still available", contactID)
+  getContactsFactory.getContactData(contactID)
+  .success(function(data){
+    console.log("here is the new data", data);
+    $scope.contacts = data.contactInfo;
+    console.log(data.contactInfo)
+  })
+
+}
+ 
+
+});  
 
 
 /// - POST new contact NewContactCtrl
 
-myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
+/* myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
 $scope.test = 'Angular is working!'
  
 /// - default values
@@ -139,5 +154,5 @@ $scope.contact = {
         console.log("here is the new contact", contact);
   });
 
-}); 
+}); */
 

@@ -26,16 +26,30 @@
   <p>{{test}}</p>
 
   <button ng-click="getContacts()">Get Contacts</button>
+
   <section class="result_wrap">
     <div ng-show="resultWrap" ng-repeat="contact in contacts" >
       <div>
-      	Last Name:<a href="#/contactID/{{ contact.id }}"> {{ contact.name.lastName }}</a>
+        First Name:<a ng-click="getContactDetails( contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
+      	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
       </div>
     </div>
   </section><!-- . result_wrap - -->
-</div>
 
-<div ng-controller="NewContactCtrl">
+  <section class="details_wrap">
+    <div ng-show="detailsWrap">
+      <div>First Name: <p>{{ contact.name.firstName }}</p></div>
+      <div>Last Name: <p>{{ contact.name.lastName }}</p></div>
+      <div>Birthday: <p>{{ contact.birthday.date }}</p></div>
+      <div>Phone Number: <p>{{ contact.phoneNumber.mobile }}</p></div>
+      <div>Email: <p>{{ contact.email.personal }}</p></div>
+      <div>Company:<p>{{ contact.company }}</p></div>
+    </div>
+  </section><!-- . details_wrap - -->
+
+</div><!-- . Ctrl - -->
+
+<div>
 
   <p>{{test}}</p>
 
