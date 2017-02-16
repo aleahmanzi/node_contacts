@@ -38,12 +38,15 @@
 
   <section class="details_wrap">
     <div ng-show="detailsWrap">
-      <div>First Name: <p>{{ contact.name.firstName }}</p></div>
-      <div>Last Name: <p>{{ contact.name.lastName }}</p></div>
-      <div>Birthday: <p>{{ contact.birthday.date }}</p></div>
-      <div>Phone Number: <p>{{ contact.phoneNumber.mobile }}</p></div>
-      <div>Email: <p>{{ contact.email.personal }}</p></div>
-      <div>Company:<p>{{ contact.company }}</p></div>
+
+<div>{{ singleContact.id }}</div>
+
+      <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
+      <div>Last Name: <p>{{ singleContact.name.lastName }}</p></div>
+      <div>Birthday: <p>{{ singleContact.birthday.date }}</p></div>
+      <div>Phone Number: <p>{{ singleContact.phoneNumber.mobile }}</p></div>
+      <div>Email: <p>{{ singleContact.email.personal }}</p></div>
+      <div>Company:<p>{{ singleContact.company }}</p></div>
     </div>
   </section><!-- . details_wrap - -->
 

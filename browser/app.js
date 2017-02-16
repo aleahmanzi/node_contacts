@@ -76,7 +76,7 @@ myApp.factory('getContactsFactory', function($http){
 
 /// - GET contact Ctrl
 
-myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams) {
+myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams, $filter) {
 $scope.test = 'Angular is working!'
 
 /// - default values
@@ -86,6 +86,8 @@ $scope.contactID = '';
 $scope.postMessage = false;
 $scope.resultWrap = false;
 $scope.detailsWrap = false;
+$scope.singleContact = '';
+
 
 
 ///- return personal contacts
@@ -110,11 +112,19 @@ $scope.getContactDetails = function(contactID) {
   console.log("the contactID is still available", contactID)
   getContactsFactory.getContactData(contactID)
   .success(function(data){
-    console.log("here is the new data", data);
-    $scope.contacts = data.contactInfo;
-    console.log(data.contactInfo)
-  })
+    $scope.singleContact = data.contactInfo
 
+    for(var i = 0; i < data.contactInfo.length; i += 1){
+      var singleContact = data.contactInfo[i];      console.log(singleContact);
+
+      if(singleContact.id === contactID){
+        console.log("here is the single contact", singleContact);
+        $scope.singleContact = singleContact;
+        return singleContact;
+
+      }
+    }
+  })
 }
  
 
