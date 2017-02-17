@@ -53,30 +53,29 @@ myApp.factory('getContactsFactory', function($http){
 
 /// POST contact factory
 
-/*myApp.factory('postContactFactory', function($http){
+myApp.factory('postContactFactory', function($http){
 
   var fact = {}
 
-  fact.postContact = function(data) {
+  fact.postContact = function(contact) {
     return $http ({
-      url: '/',
+      url: 'http://localhost:8080/contactInfo',
       dataType: 'JSON',
       method: "POST", 
-      data: data,
+      data: contact,
     })
-
-    .success(function(addData) {
-      console.log("new contact added!", addData)
+    .success(function(contact) {
+      console.log("new contact added!", contact)
     })
 }
     return fact;
-})*/
+})
 
 ////////////// CONTROLLERS /////////////////
 
 /// - GET contact Ctrl
 
-myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams, $filter) {
+myApp.controller('Ctrl', function ($scope, getContactsFactory, $routeParams) {
 $scope.test = 'Angular is working!'
 
 /// - default values
@@ -93,6 +92,7 @@ $scope.singleContact = '';
 ///- return personal contacts
 
 $scope.getContacts = function(){
+  console.log("then were here");
   getContactsFactory.getContact()
   .success(function(result){
 
@@ -133,7 +133,7 @@ $scope.getContactDetails = function(contactID) {
 
 /// - POST new contact NewContactCtrl
 
-/* myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
+myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
 $scope.test = 'Angular is working!'
  
 /// - default values
@@ -141,28 +141,70 @@ $scope.contactGrid = false;
 $scope.postMessage = false;
 
 $scope.contact = {
-   firstName: '',
-   lastName: '',
-   PersonalEmail: '',
-   phoneNumber: ''
-   };
+  name: {
+    firstName: '',
+    lastName: ''
+  },
+  birthday: {
+    source: '',
+    date: '',
+    age: ''
+  },
+  phoneNumber: {
+    mobile: '',
+    work: '',
+    other: ''
+  },
+  email: {
+    personal: '',
+    work: '' 
+  },
+  company: ''
+}
 
 /// - show form to add contact
 
-  $scope.addContact = function(){
-    $scope.contactGrid = true;
-    $scope.postMessage = false;
-  };
+$scope.addContact = function(){
+  $scope.contactGrid = true;
+  $scope.postMessage = false;
+};
 
   /// - use data from form to create new contact
 
-  postContactFactory.postContact()
-      .then(function(contact){
+$scope.createContact = function(firstName, lastName, mobile, personal) {
+  console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
+  var contact = {
+  name: {
+      firstName: $scope.firstName,
+      lastName: $scope.lastName
+    },
+    birthday: {
+      source: '',
+      date: '',
+      age: ''
+    },
+    phoneNumber: {
+      mobile: $scope.mobile,
+      work: '',
+      other: ''
+    },
+    email: {
+      personal: $scope.personal,
+      work: '' 
+    },
+    company: ''
+  } 
+    postContactFactory.postContact(contact)
+      .then(function(){
+        console.log("this is the contact", contact)  
+
         $scope.postMessage = true;
         $scope.resultWrap = false;
         $scope.contactGrid = false;
         console.log("here is the new contact", contact);
-  });
+     });
+}
 
-}); */
+
+});
 
