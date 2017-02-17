@@ -18,9 +18,6 @@
 
 <login-bar></login-bar>
 
-
-<button ng-click="addGroup()">Add a Group</button>
-
 <div ng-controller="Ctrl">
 
   <p>{{test}}</p>
@@ -93,7 +90,58 @@
   <section class="post_message" ng-show="postMessage">
    <div>contact successfully created!</div>
   </section>
-</div>
+</div><!-- . newContactCtrl - -->
+
+
+
+<div ng-controller="getGroupCtrl">
+
+<p>{{test}}</p>
+<button ng-click="getGroups()">Get Your Groups</button>
+
+  <section class="group_wrap">
+    <div ng-show="groupWrap" ng-repeat="group in groups" >
+      <div>
+        Group Name:<a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
+      </div>
+    </div>
+  </section><!-- . group_wrap - -->
+
+  <section class="group_details">
+    <div ng-show="detailsWrap">
+      <div>Group Name: <p>{{ singleGroup.name }}</p></div>
+    </div>
+  </section><!-- . group_details - -->
+
+</div><!-- .getGroupsCtrl - -->
+
+
+<div ng-controller="NewGroupCtrl">
+
+  <p>{{test}}</p>
+  <button ng-click="addContact()">Add a Contact</button>
+
+    <section class="new_contact_wrap" ng-show="contactGrid">
+
+      <table name="new_group">
+        <tr>
+          <td class="label">Group Name</td>
+          <td class="input">
+            <input type="text" ng-model="groupName" required/>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <div class="submit_button">
+          <button type="text" required ng-click="createGroup()">Submit</button>
+        </div><!-- . submit_button - -->
+      </div>
+    </section><!-- . new_group - -->
+
+    <section class="post_message" ng-show="postMessage">
+     <div>group successfully created!</div>
+    </section>
+</div><!-- . newGroupCtrl - -->
 
 
 </body>
