@@ -1,0 +1,21 @@
+<div ng-controller="getGroupCtrl">
+
+<p>{{test}}</p>
+
+<button ng-click="getGroups()">Get Your Groups</button>
+
+  <section class="group_wrap">
+    <div ng-show="groupWrap" ng-repeat="group in groups" >
+      <div>
+        Group Name:<a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
+      </div>
+    </div>
+  </section><!-- . group_wrap - -->
+
+  <section class="group_details">
+    <div ng-show="detailsWrap">
+      <div>Group Name: <p>{{ singleGroup.name }}</p></div>
+    </div>
+  </section><!-- . group_details - -->
+
+</div><!-- .getGroupsCtrl - -->

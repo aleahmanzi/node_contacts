@@ -37,7 +37,7 @@ app.use('/auth/google', Google);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
 app.get('/', function(req, res){
-	res.sendFile(path.join(__dirname, '/browser/index.html'))
+	res.sendFile(path.join(__dirname, '/browser/js/index.html'))
 });
 
 function runServer() {

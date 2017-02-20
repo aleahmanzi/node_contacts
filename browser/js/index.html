@@ -7,10 +7,16 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.4.10/angular-animate.js" type="text/javascript"></script>
   <script src="https://code.angularjs.org/1.4.10/angular-route.js" type="text/javascript"></script>
-  <script type="text/javascript" src="../browser/app.js"></script>
+  <script type="text/javascript" src="../browser/js/app.js"></script>
+  <script type="text/javascript" src="../browser/js/browser_config.js"></script>
   <script type="text/javascript" src="/browser/directives/loginBar.js"></script>
+  <script type="text/javascript" src="../browser/js/contacts/Contacts.js"></script>
+  <script type="text/javascript" src="../browser/js/groups/Groups.js"></script>
+  <script type="text/javascript" src="../browser/js/factories/UserContacts.js"></script>
+  <script type="text/javascript" src="../browser/js/factories/UserGroups.js"></script>
 
-  <link href="../browser/main.css" rel="stylesheet">
+
+  <link href="../browser/css/main.css" rel="stylesheet">
 
 </head>
 <body>
@@ -18,33 +24,16 @@
 
 <login-bar></login-bar>
 
-<div ng-controller="Ctrl">
+<div class="temp_nav">
+  <ul>
+    <li><a>Home</a></li>
+    <li><a href="#/contactInfo">Contacts</a></li>
+    <li><a href="#/groupInfo">Groups</a></li>
+    <li><a>Activity</a></li>
+  </ul>
+</div><!-- .temp_nav -->
 
-  <p>{{test}}</p>
 
-  <button ng-click="getContacts()">Get Contacts</button>
-
-  <section class="result_wrap">
-    <div ng-show="resultWrap" ng-repeat="contact in contacts" >
-      <div>
-        First Name:<a ng-click="getContactDetails( contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
-      	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
-      </div>
-    </div>
-  </section><!-- . result_wrap - -->
-
-  <section class="details_wrap">
-    <div ng-show="detailsWrap">
-      <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
-      <div>Last Name: <p>{{ singleContact.name.lastName }}</p></div>
-      <div>Birthday: <p>{{ singleContact.birthday.date }}</p></div>
-      <div>Phone Number: <p>{{ singleContact.phoneNumber.mobile }}</p></div>
-      <div>Email: <p>{{ singleContact.email.personal }}</p></div>
-      <div>Company:<p>{{ singleContact.company }}</p></div>
-    </div>
-  </section><!-- . details_wrap - -->
-
-</div><!-- . Ctrl - -->
 
 <div ng-controller="NewContactCtrl">
 
@@ -94,34 +83,13 @@
 
 
 
-<div ng-controller="getGroupCtrl">
 
-<p>{{test}}</p>
-<button ng-click="getGroups()">Get Your Groups</button>
-
-  <section class="group_wrap">
-    <div ng-show="groupWrap" ng-repeat="group in groups" >
-      <div>
-        Group Name:<a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
-      </div>
-    </div>
-  </section><!-- . group_wrap - -->
-
-  <section class="group_details">
-    <div ng-show="detailsWrap">
-      <div>Group Name: <p>{{ singleGroup.name }}</p></div>
-    </div>
-  </section><!-- . group_details - -->
-
-</div><!-- .getGroupsCtrl - -->
-
-
-<div ng-controller="NewGroupCtrl">
+<div ng-controller="postGroupFactory">
 
   <p>{{test}}</p>
-  <button ng-click="addContact()">Add a Contact</button>
+  <button ng-click="addGroup()">Add a Group</button>
 
-    <section class="new_contact_wrap" ng-show="contactGrid">
+    <section class="new_group" ng-show="groupGrid">
 
       <table name="new_group">
         <tr>
@@ -141,8 +109,10 @@
     <section class="post_message" ng-show="postMessage">
      <div>group successfully created!</div>
     </section>
-</div><!-- . newGroupCtrl - -->
+</div><!-- . postGroupFactory - -->
 
+
+<div ng-view></div>
 
 </body>
 </html>

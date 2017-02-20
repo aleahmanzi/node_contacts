@@ -12,7 +12,6 @@ $scope.detailsWrap = false;
 $scope.singleContact = '';
 
 
-
 ///- return personal contacts
 
 $scope.getContacts = function(){
@@ -31,7 +30,7 @@ $scope.getContacts = function(){
 /// - get contact details
 
 $scope.getContactDetails = function(contactID) {
-  $scope.resultWrap = false; 
+  $scope.resultWrap = false;
   $scope.detailsWrap = true;
   console.log("the contactID is still available", contactID)
   getContactsFactory.getContactData(contactID)
