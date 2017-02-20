@@ -1,25 +1,23 @@
 <! LISTING CONTACTS>
 
-<div>
-
-  <section class="result_wrap">
+<section class="contact_result_wrap">
+  <div class="result_wrap">
     <div ng-show="resultWrap" ng-repeat="contact in contacts" >
       <div>
         First Name:<a href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
       	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
       </div>
     </div>
-  </section><!-- . result_wrap - -->
-  
-</div>
+  </div><!-- . result_wrap - -->
+</section><!-- .contact_result_wrap - -->
 
 <! CREATE CONTACT>
 
-<div ng-controller="NewContactCtrl">
+<section ng-controller="NewContactCtrl" class="add_contact_wrap">
 
-  <button ng-click="addContact()">Add a Contact</button>
+  <button class="add_contact_button" ng-click="addContact()">Add a Contact</button>
 
-  <section class="new_contact_wrap" ng-show="contactGrid">
+  <div class="new_contact_wrap" ng-show="contactGrid">
 
     <table name="new_contact">
       <tr>
@@ -48,16 +46,17 @@
       </tr>
     </table>
     <div>
-      <div class="submit_button">
-        <button type="text" required ng-click="createContact()">Submit</button>
+      <div class="button_wrap">
+        <button class="submit_button" type="text" required ng-click="createContact()">Submit</button>
       </div><!-- . submit_button - -->
     </div>
-  </section><!-- . new_contact_wrap - -->
+  </div><!-- . new_contact_wrap - -->
 
-  <section class="post_message" ng-show="postMessage">
+  <div class="post_message" ng-show="postMessage">
    <div>contact successfully created!</div>
-  </section>
-</div><!-- . newContactCtrl - -->
+  </div>
+
+</section><!-- . newContactCtrl - -->
 
 
 

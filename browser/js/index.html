@@ -21,24 +21,70 @@
   <script type="text/javascript" src="../browser/js/factories/AddContact.js"></script>
 
   <link href="../browser/css/main.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lobster|Hind:600,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 
 </head>
 <body>
 	
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
 <login-bar></login-bar>
 
-<div class="temp_nav">
-  <ul>
-    <li><a>Home</a></li>
-    <li><a href="#/contactInfo">Contacts</a></li>
-    <li><a href="#/groupInfo">Groups</a></li>
-  </ul>
-</div><!-- .temp_nav -->
+
+<div class="sidebar">
+
+  <div class="user">
+    <div class="profilePic">
+      <img src="">
+    </div>
+    <div class="hello">
+      <p>Welcome</p>
+    </div>
+  </div><!-- .user - -->
+
+<ul class="nav nav-sidebar">
+  <li class="active">
+    <a ng-href="#/">
+      <span class="menuText">Home</span>
+    </a>
+  </li>   
+
+  <li>
+    <a ng-href="#/contactInfo">
+      <span class="menuText">Contacts</span>
+    </a>
+  </li>       
+  <li>
+    <a ng-href="#/groupInfo">
+      <span class="menuText">Groups</span>
+    </a>  
+  </li>         
+</ul>
+
+</div><!-- .sidebar - -->
+
+
 
 <div ng-view></div>
-
+ 
 </body>
 </html>
+
 
 
 
