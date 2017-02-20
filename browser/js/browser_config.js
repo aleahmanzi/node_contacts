@@ -6,6 +6,10 @@ angular.module('myApp')
         templateUrl: './browser/js/contacts/Contacts.html',
         controller: 'Ctrl'
     })
+    .when('/contactInfo/:contactID', {
+    templateUrl: './browser/js/single_contact/SingleContact.html',
+    controller: 'ContactDetailsCtrl'
+    })
     .when('/groupInfo', {
         templateUrl: './browser/js/groups/Groups.html',
         controller: 'getGroupCtrl'

@@ -1,3 +1,18 @@
+<! LISTING CONTACTS>
+
+<div>
+
+  <section class="result_wrap">
+    <div ng-show="resultWrap" ng-repeat="contact in contacts" >
+      <div>
+        First Name:<a href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
+      	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
+      </div>
+    </div>
+  </section><!-- . result_wrap - -->
+  
+</div>
+
 <! CREATE CONTACT>
 
 <div ng-controller="NewContactCtrl">
@@ -46,31 +61,6 @@
 
 
 
-<! LISTING CONTACTS>
-
-<div ng-controller="Ctrl">
-
-  <section class="result_wrap">
-    <div ng-show="resultWrap" ng-repeat="contact in contacts" >
-      <div>
-        First Name:<a ng-click="getContactDetails( contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
-      	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
-      </div>
-    </div>
-  </section><!-- . result_wrap - -->
-
-  <section class="details_wrap">
-    <div ng-show="detailsWrap">
-      <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
-      <div>Last Name: <p>{{ singleContact.name.lastName }}</p></div>
-      <div>Birthday: <p>{{ singleContact.birthday.date }}</p></div>
-      <div>Phone Number: <p>{{ singleContact.phoneNumber.mobile }}</p></div>
-      <div>Email: <p>{{ singleContact.email.personal }}</p></div>
-      <div>Company:<p>{{ singleContact.company }}</p></div>
-    </div>
-  </section><!-- . details_wrap - -->
-
-</div><!-- . Ctrl - -->
 
 
 
