@@ -5,11 +5,12 @@ $scope.test = 'Angular is working!'
 
 /// - GET group Ctrl
 
-
 /// - default values
 
 $scope.groupWrap = false;
 $scope.detailsWrap = false;
+$scope.groupGrid = false;
+$scope.postMessage = false;
 
 ///- return personal groups
 
@@ -41,5 +42,37 @@ $scope.detailsWrap = false;
     }
   })
 }
+})
+
+/// - POST new group NewGroupCtrl
+
+myApp.controller('postGroupFactory', function ($scope, postGroupFactory, $routeParams) {
+ 
+$scope.group = {
+  name: ''
 }
-)
+
+/// - show form to add group
+
+$scope.addGroup = function(){
+  $scope.groupGrid = true;
+  $scope.postMessage = false;
+};
+
+  /// - use data from form to create new group
+
+$scope.createGroup = function(groupName) {
+  console.log("data", $scope.groupName );
+  var group = { name: $scope.groupName } 
+    postGroupFactory.postGroup(group)
+      .then(function(){
+        console.log("this is the group", group)  
+
+        $scope.postMessage = true;
+        $scope.groupGrid = false;
+        console.log("here is the new group", group);
+     });
+}
+
+
+});

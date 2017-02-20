@@ -22,7 +22,6 @@
 </head>
 <body>
 	
-
 <login-bar></login-bar>
 
 <div class="temp_nav">
@@ -30,88 +29,8 @@
     <li><a>Home</a></li>
     <li><a href="#/contactInfo">Contacts</a></li>
     <li><a href="#/groupInfo">Groups</a></li>
-    <li><a>Activity</a></li>
   </ul>
 </div><!-- .temp_nav -->
-
-
-
-<div ng-controller="NewContactCtrl">
-
-  <p>{{test}}</p>
-
-  <button ng-click="addContact()">Add a Contact</button>
-
-  <section class="new_contact_wrap" ng-show="contactGrid">
-
-    <table name="new_contact">
-      <tr>
-        <td class="label">First Name</td>
-        <td class="input">
-          <input type="text" ng-model="firstName" required/>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Last Name</td>
-        <td class="input">
-          <input type="text" ng-model="lastName" required/>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Phone Number</td>
-        <td class="input">
-          <input type="text" ng-model="mobile" required/>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Email</td>
-        <td class="input">
-          <input type="text" ng-model="personal" required/>
-        </td>
-      </tr>
-    </table>
-    <div>
-      <div class="submit_button">
-        <button type="text" required ng-click="createContact()">Submit</button>
-      </div><!-- . submit_button - -->
-    </div>
-  </section><!-- . new_contact_wrap - -->
-
-  <section class="post_message" ng-show="postMessage">
-   <div>contact successfully created!</div>
-  </section>
-</div><!-- . newContactCtrl - -->
-
-
-
-
-<div ng-controller="postGroupFactory">
-
-  <p>{{test}}</p>
-  <button ng-click="addGroup()">Add a Group</button>
-
-    <section class="new_group" ng-show="groupGrid">
-
-      <table name="new_group">
-        <tr>
-          <td class="label">Group Name</td>
-          <td class="input">
-            <input type="text" ng-model="groupName" required/>
-          </td>
-        </tr>
-      </table>
-      <div>
-        <div class="submit_button">
-          <button type="text" required ng-click="createGroup()">Submit</button>
-        </div><!-- . submit_button - -->
-      </div>
-    </section><!-- . new_group - -->
-
-    <section class="post_message" ng-show="postMessage">
-     <div>group successfully created!</div>
-    </section>
-</div><!-- . postGroupFactory - -->
-
 
 <div ng-view></div>
 
