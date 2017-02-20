@@ -57,6 +57,7 @@ $scope.group = {
 $scope.addGroup = function(){
   $scope.groupGrid = true;
   $scope.postMessage = false;
+  $scope.detailsWrap = false;
 };
 
   /// - use data from form to create new group

@@ -27,7 +27,7 @@
 
 
 </head>
-<body>
+<body ng-controller="NewContactCtrl">
 	
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -39,6 +39,11 @@
         <span class="icon-bar"></span>
       </button>
     </div>
+  </div>
+   <div class="plus_wrap" >
+      <div class="plus_img_wrap">
+        <p class="contact_plus" ng-click="addContact()"><b>+</b></p>
+      </div>  
   </div>
 </nav>
 

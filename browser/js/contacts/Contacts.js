@@ -2,7 +2,8 @@ angular.module('myApp').controller('Ctrl',
    function ($scope, getContactsFactory, $routeParams) {
 
 /// - default values
-
+$scope.contactGrid = false;
+$scope.postMessage = false;
 $scope.contacts = [];
 $scope.contactID = [];
 $scope.contactID = ''
@@ -28,13 +29,9 @@ getContactsFactory.getContact()
 
 /// - POST new contact NewContactCtrl
 
-myApp.controller('NewContactCtrl', function ($scope, postContactFactory, $routeParams) {
-$scope.test = 'Angular is working!'
+angular.module('myApp').controller('NewContactCtrl', 
+  function ($scope, postContactFactory, $routeParams) {
  
-/// - default values
-$scope.contactGrid = false;
-$scope.postMessage = false;
-
 $scope.contact = {
   name: {
     firstName: '',
@@ -60,6 +57,7 @@ $scope.contact = {
 /// - show form to add contact
 
 $scope.addContact = function(){
+  $scope.resultWrap = false;
   $scope.contactGrid = true;
   $scope.postMessage = false;
 };
