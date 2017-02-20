@@ -20,50 +20,6 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
 
 });
 
-////////// FACTORIES ////////////////
-
-
-/// POST contact factory
-
-myApp.factory('postContactFactory', function($http){
-
-  var fact = {}
-
-  fact.postContact = function(contact) {
-    return $http ({
-      url: 'http://localhost:8080/contactInfo',
-      dataType: 'JSON',
-      method: "POST", 
-      data: contact,
-    })
-    .success(function(contact) {
-      console.log("new contact added!", contact)
-    })
-}
-    return fact;
-})
-
-/// POST group factory 
-
-myApp.factory('postGroupFactory', function($http){
-
-  var fact = {}
-
-  fact.postGroup = function(group) {
-    return $http ({
-      url: 'http://localhost:8080/groupInfo',
-      dataType: 'JSON',
-      method: "POST", 
-      data: group,
-    })
-    .success(function(group) {
-      console.log("new group added!", group)
-    })
-}
-    return fact;
-})
-
-////////////// CONTROLLERS /////////////////
 
 /// - POST new contact NewContactCtrl
 

@@ -14,9 +14,7 @@ $scope.singleContact = '';
 
 ///- return personal contacts
 
-$scope.getContacts = function(){
-  console.log("then were here");
-  getContactsFactory.getContact()
+getContactsFactory.getContact()
   .success(function(result){
 
     $scope.resultWrap = true;
@@ -24,7 +22,6 @@ $scope.getContacts = function(){
     console.log(result);
     $scope.contacts = result.contactInfo;
   })
-}
 
 
 /// - get contact details

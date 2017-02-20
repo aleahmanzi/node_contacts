@@ -13,16 +13,13 @@ $scope.detailsWrap = false;
 
 ///- return personal groups
 
-  $scope.getGroups = function(){
-    console.log("we're getting Groups");
-    getGroupFactory.getGroups()
+  getGroupFactory.getGroups()
     .success(function(result){
         $scope.groupWrap = true;
       console.log(result);
       $scope.groups = result.groupInfo;
       console.log("groups", $scope.groups)
     })
-  }
 
   $scope.getGroupDetails = function(groupID) {
   $scope.groupWrap = false; 
