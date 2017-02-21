@@ -27,11 +27,17 @@
 
     <div class="new_group" ng-show="groupGrid">
 
-      <table name="new_group">
+      <table class="table">
         <tr>
-          <td class="label">Group Name</td>
+          <th class="label">Group Name</th>
           <td class="input">
             <input type="text" ng-model="groupName" required/>
+          </td>
+        </tr>
+        <tr>
+          <th class="label">Contact</th>
+          <td class="input">
+            <input type="text" ng-model="groupContacts" required/>
           </td>
         </tr>
       </table>

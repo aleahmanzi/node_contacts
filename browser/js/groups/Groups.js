@@ -49,7 +49,8 @@ $scope.postMessage = false;
 myApp.controller('postGroupFactory', function ($scope, postGroupFactory, $routeParams) {
  
 $scope.group = {
-  name: ''
+  name: '',
+  contacts: ''
 }
 
 /// - show form to add group
@@ -62,9 +63,9 @@ $scope.addGroup = function(){
 
   /// - use data from form to create new group
 
-$scope.createGroup = function(groupName) {
-  console.log("data", $scope.groupName );
-  var group = { name: $scope.groupName } 
+$scope.createGroup = function(groupName, groupContacts) {
+  console.log("data", $scope.groupName, $scope.groupContacts );
+  var group = { name: $scope.groupName, contacts: $scope.groupContacts } 
     postGroupFactory.postGroup(group)
       .then(function(){
         console.log("this is the group", group)  
