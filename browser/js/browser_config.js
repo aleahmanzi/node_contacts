@@ -18,4 +18,9 @@ angular.module('myApp')
         templateUrl: './browser/js/groups/Groups.html',
         controller: 'getGroupCtrl'
     })
+    .when('/groupInfo/:groupID', {
+    templateUrl: './browser/js/single_group/SingleGroup.html',
+    controller: 'GroupDetailsCtrl'
+    })
  }]); /// - config
+
