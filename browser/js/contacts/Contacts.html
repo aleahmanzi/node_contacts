@@ -2,9 +2,12 @@
 
 <section class="contact_result_wrap" ng-show="resultWrap">
   
-  <form class="navbar-form navbar-right">
-    <input type="text" class="form-control">
-  </form>
+  <div class="input-group changethisone">
+    <input type="text"  class="form-control" placeholder="Contact Search"/>
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+  </div>
 
   <div class="result_wrap">
     <div class="all_contacts" ng-repeat="contact in contacts">

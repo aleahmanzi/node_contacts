@@ -25,7 +25,9 @@
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
 .add_contact_button, .submit_button, .add_group_button { background-color: #FFC538; }
 
-.result_wrap { outline: 0px solid red; display: inline-block; width: 90%; }
+.input-group { margin-left: 30px; width: 75%; }
+
+.result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; }
 .all_contacts { outline: 0px solid black; display: inline-block; width: 150px; }
 .list_contacts { margin-left: 20px; margin-bottom: 25px; }
 .list_contacts img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
@@ -39,15 +41,13 @@
 .address_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
 
 
-
-
 /* Groups */
 .table { color: black; style: none; background-color: #777; margin-right: 40px; }
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
 	.navbar { width: 80%; float: right; }
-	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap { width: 70%; float: right; }
+	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
 
 }
