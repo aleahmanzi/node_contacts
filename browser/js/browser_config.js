@@ -22,5 +22,9 @@ angular.module('myApp')
     templateUrl: './browser/js/single_group/SingleGroup.html',
     controller: 'GroupDetailsCtrl'
     })
+    .when('/contactUpload', {
+    templateUrl: './browser/js/upload/upload.html',
+    controller: 'contactUpload'
+    })
  }]); /// - config
 
