@@ -23,6 +23,15 @@ angular.module('myApp')
       id: contactID }
     })
   }
+
+  fact.getAddressData = function(contactAddress) {
+    return $http ({
+      url:'http://localhost:8080/addressInfo',
+      method: 'GET',
+      params: {callback: 'JSON_CALLBACK',
+      id: contactAddress }
+    })  
+  }
   
   return fact;
 })

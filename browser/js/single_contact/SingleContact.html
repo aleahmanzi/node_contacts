@@ -7,5 +7,17 @@
       <div>Email: <p>{{ singleContact.email.personal }}</p></div>
       <div>Company:<p>{{ singleContact.company }}</p></div>
     </div>
+
+    <div>
+      <p ng-click="showAddress()" class="show_more"><b>Show More</b></p>
+      <div ng-show="addressDetails">
+        <div>Street1: <p>{{ address.street1 }}</p></div>
+        <div>Street2: <p>{{ address.street2 }}</p></div>
+        <div>City: <p>{{ address.city }}</p></div>
+        <div>State: <p>{{ address.state }}</p></div>
+        <div>Zip: <p>{{ address.zip }}</p></div>
+        <div>Country:<p>{{ address.country }}</p></div>
+      </div>
+    </div>
   </section><!-- . details_wrap - -->
 

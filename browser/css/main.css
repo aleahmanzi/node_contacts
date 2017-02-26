@@ -13,10 +13,14 @@
 .nav-sidebar > li > a { padding: 20px; padding-right: 20px; padding-left: 20px; color: #32353B; background-color: #e6e2e8; border: 1px solid #F1F2FA; margin: 0; width: 100%; }
 .menuText { display: inline-block; }
 .user { width: 100%; margin: 0 auto; }
+.profilePic { outline: 0px solid white; margin-bottom: 40px; margin-top: 25px; }
+.profile_img_wrap { outline: 0px dotted white; width: 80px; height: 80px; margin: 0 auto; }
+.profilePic img { outline: 0px solid red; height: 80px; border-radius: 50%; margin-top: 5px; margin-right: 5px; }
 
 /* Contacts */
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
 .add_contact_button, .submit_button, .add_group_button { background-color: #FFC538; }
+.show_more { cursor: pointer; }
 
 
 /* Groups */

@@ -40,7 +40,15 @@ router.post('/', (req, res) => {
   contactInfo
     .create({
       name: req.body.name,
-      email: req.body.email
+      email: req.body.email,
+      birthday: req.body.birthday,
+      phoneNumber: req.body.phoneNumber,
+      company: req.body.company,
+      groups: req.body.groups,
+      pictures: req.body.pictures,
+      address: req.body.address,
+      spouse: req.body.spouse,
+      connections: req.body.connections
     })
     .then(
       contactInfo => res.status(201).json(contactInfo.apiRepr()))
