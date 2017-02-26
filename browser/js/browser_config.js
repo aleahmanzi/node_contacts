@@ -26,5 +26,9 @@ angular.module('myApp')
     templateUrl: './browser/js/upload/upload.html',
     controller: 'contactUpload'
     })
+    .when('/addContact', {
+    templateUrl: './browser/js/add_contact/add.html',
+    controller: 'NewContactCtrl'
+    })
  }]); /// - config
 

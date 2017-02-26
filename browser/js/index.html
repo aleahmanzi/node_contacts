@@ -16,6 +16,7 @@
   <script type="text/javascript" src="../browser/js/single_contact/SingleContact.js"></script>
   <script type="text/javascript" src="../browser/js/single_group/SingleGroup.js"></script>
   <script type="text/javascript" src="../browser/js/upload/upload.js"></script>
+  <script type="text/javascript" src="../browser/js/add_contact/add.js"></script>
 
   <script type="text/javascript" src="../browser/js/factories/GetContacts.js"></script>
   <script type="text/javascript" src="../browser/js/factories/UserGroups.js"></script>
@@ -90,57 +91,12 @@
     </a>  
   </li>         
 </ul>
-<div>
-  <div class="addMenu"><a ng-click="addContact()" href="#"><i class="fa fa-plus-circle fa-2x" class="icon"></a></i></div>
+<div ng-controller="NewContactCtrl">
+  <div class="addMenu"><a ng-click="addContact()" href="#/addContact"><i class="fa fa-plus-circle fa-2x" class="icon"></a></i></div>
 </div> 
 
 
 </div><!-- .sidebar - -->
-
-
-
-<! CREATE CONTACT>
-
-<section class="add_contact_wrap" ng-show="contactGrid">
-    
-    <div class="new_contact_wrap">
-      <table class="table">
-        <tr>
-          <td class="label">First Name</td>
-          <td class="input">
-            <input type="text" ng-model="firstName" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Last Name</td>
-          <td class="input">
-            <input type="text" ng-model="lastName" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Phone Number</td>
-          <td class="input">
-            <input type="text" ng-model="mobile" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Email</td>
-          <td class="input">
-            <input type="text" ng-model="personal" required/>
-          </td>
-        </tr>
-      </table>
-      <div>
-        <div class="button_wrap">
-          <button class="submit_button" type="text" required ng-click="createContact()">Submit</button>
-        </div><!-- . submit_button - -->
-      </div>
-  </div><!-- . new_contact_wrap - -->
-
-  <div class="post_message" ng-show="postMessage">
-   <div>contact successfully created!</div>
-  </div>
-</section><!-- . add_contact_wrap - -->
 
 
 <div ng-view></div>

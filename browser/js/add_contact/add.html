@@ -1,0 +1,40 @@
+<section class="add_contact_wrap">
+    
+    <div class="new_contact_wrap">
+      <table class="table">
+        <tr>
+          <td class="label">First Name</td>
+          <td class="input">
+            <input type="text" ng-model="firstName" required/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Last Name</td>
+          <td class="input">
+            <input type="text" ng-model="lastName" required/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Phone Number</td>
+          <td class="input">
+            <input type="text" ng-model="mobile" required/>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="input">
+            <input type="text" ng-model="personal" required/>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <div class="button_wrap">
+          <button class="submit_button" type="text" required ng-click="createContact()">Submit</button>
+        </div><!-- . submit_button - -->
+      </div>
+  </div><!-- . new_contact_wrap - -->
+
+  <div class="post_message" ng-show="postMessage">
+   <div>contact successfully created!</div>
+  </div>
+</section><!-- . add_contact_wrap - -->
