@@ -7,11 +7,20 @@
   </form>
 
   <div class="result_wrap">
-    <div ng-repeat="contact in contacts" >
-      <div>
-        First Name:<a href="#/contactInfo/{{ contact.id }}"> {{ contact.name.firstName }}</a>
-      	Last Name:<a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}"> {{ contact.name.lastName }}</a>
-      </div>
-    </div>
+    <div class="all_contacts" ng-repeat="contact in contacts">
+      <div class="list_contacts">
+
+        <a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
+          <img src="../browser/public/blank_photo.png"/><br/>
+        </a>
+
+        <a class="contact_full_name" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
+          <div class="contact_name">{{ contact.name.firstName }}</div>
+      	  <div class="contact_name">{{ contact.name.lastName }}</div>
+        </a><!-- . contact_name - -->
+
+      </div><!-- . list_contacts - -->
+    </div><!-- . all_contacts - -->
   </div><!-- . result_wrap - -->
+
 </section><!-- .contact_result_wrap - -->

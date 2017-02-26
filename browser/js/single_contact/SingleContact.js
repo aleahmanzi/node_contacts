@@ -16,7 +16,7 @@ getContactsFactory.getContactData($scope.contactID)
 .success(function(data){
   $scope.singleContact = data.contactInfo
   
-  for(var i = 0; i < data.contactInfo.length; i += 1){
+  for(var i = 0; i < data.contactInfo.length; i++){
     var singleContact = data.contactInfo[i];      
     console.log(singleContact);
 

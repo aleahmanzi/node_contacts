@@ -1,14 +1,21 @@
   <section class="details_wrap">
-    <div>
+  
+    <div class="contact_pic_wrap">
+      <div class="contact_pic">
+        <img src="../browser/public/blank_photo.png">
+      </div>
+    </div><!-- . contact_pic_wrap - -->
+
+    <div class="core_data_wrap">
       <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
       <div>Last Name: <p>{{ singleContact.name.lastName }}</p></div>
       <div>Birthday: <p>{{ singleContact.birthday.date }}</p></div>
       <div>Phone Number: <p>{{ singleContact.phoneNumber.mobile }}</p></div>
       <div>Email: <p>{{ singleContact.email.personal }}</p></div>
       <div>Company:<p>{{ singleContact.company }}</p></div>
-    </div>
+    </div><!-- .core_data_wrap - -->
 
-    <div>
+    <div class="address_wrap">
       <p ng-click="showAddress()" class="show_more"><b>Show More</b></p>
       <div ng-show="addressDetails">
         <div>Street1: <p>{{ address.street1 }}</p></div>
@@ -18,6 +25,7 @@
         <div>Zip: <p>{{ address.zip }}</p></div>
         <div>Country:<p>{{ address.country }}</p></div>
       </div>
-    </div>
+    </div><!-- . address_wrap - -->
+
   </section><!-- . details_wrap - -->
 
