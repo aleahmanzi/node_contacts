@@ -3,11 +3,17 @@
 <section ng-controller="getGroupCtrl" class="group_result_wrap">
 
   <div class="group_wrap">
-    <div ng-show="groupWrap" ng-repeat="group in groups" >
-      <div>
-        Group Name:<a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
-      </div>
-    </div>
+    <div class="groups" ng-show="groupWrap" ng-repeat="group in groups" >
+
+      <a ng-click="getContactDetails(contact.id )" href="#/groupInfo/{{ group.id }}">
+          <img src="../browser/public/blank_group.png"/><br/>
+      </a>
+
+      <div class="group_name">
+        <a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
+      </div><!-- . group_name - -->
+
+    </div><!-- . groups - -->
   </div><!-- . group_wrap - -->
 
   <div class="group_details">

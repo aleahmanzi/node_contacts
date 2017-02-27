@@ -35,7 +35,7 @@
 
 .show_more { cursor: pointer; }
 .contact_pic_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
-.contact_pic { outline: 0px solid black; width: 95% margin-left: 2px; }
+.contact_pic { outline: 0px solid black; width: 95%; }
 .contact_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
 .core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
 .address_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
@@ -43,6 +43,11 @@
 
 /* Groups */
 .table { color: black; style: none; background-color: #777; margin-right: 40px; }
+
+.group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; }
+.groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }
+.group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
+.group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }

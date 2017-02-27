@@ -3,14 +3,14 @@
 <section class="contact_result_wrap" ng-show="resultWrap">
   
   <div class="input-group changethisone">
-    <input type="text"  class="form-control" placeholder="Contact Search"/>
+    <input type="text"  class="form-control" placeholder="Contact Search" ng-model="name"/>
     <span class="input-group-addon">
         <i class="glyphicon glyphicon-search"></i>
     </span>
   </div>
 
   <div class="result_wrap">
-    <div class="all_contacts" ng-repeat="contact in contacts">
+    <div class="all_contacts" ng-repeat="contact in contacts | filter: name">
       <div class="list_contacts">
 
         <a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
