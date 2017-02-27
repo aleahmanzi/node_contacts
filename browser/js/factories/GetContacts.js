@@ -32,6 +32,31 @@ angular.module('myApp')
       id: contactAddress }
     })  
   }
+
+    fact.editContact = function(contact){
+      return $http ({
+      url: 'http://localhost:8080/contactInfo',
+      dataType: 'JSON',
+      method: "PUT", 
+      data: contact,
+    })
+    .success(function(contact) {
+      console.log("contact edited!", contact)
+    })
+  }
+
+  fact.deleteContact = function(contactID){
+      return $http ({
+      url: 'http://localhost:8080/contactInfo/' + contactID,
+      dataType: 'JSON',
+      method: "DELETE", 
+      data: contactID,
+    })
+    .success(function(contact) {
+      console.log("contact deleted!", contactID)
+    })
+
+  }
   
   return fact;
 })

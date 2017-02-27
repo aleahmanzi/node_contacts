@@ -16,6 +16,8 @@ angular.module('myApp')
     .success(function(contact) {
       console.log("new contact added!", contact)
     })
-}
-    return fact;
+  }
+
+  return fact;
+
 })

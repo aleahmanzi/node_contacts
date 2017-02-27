@@ -27,5 +27,18 @@
       </div>
     </div><!-- . address_wrap - -->
 
+    <div class="edit_wrap">
+      <div>
+        <p ng-click="updateContact()"><b>UPDATE CONTACT</b></p>
+      </div>
+      <div>
+        <p ng-click="deleteContact()"><b>DELETE CONTACT</b></p>
+      </div>
+    </div><!-- .edit_wrap - -->
+
+    <div class="alert alert-success" ng-show="contactDeleted">
+      <strong>Success!</strong> Contact has been deleted!
+    </div>
+
   </section><!-- . details_wrap - -->
 

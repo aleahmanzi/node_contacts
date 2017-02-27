@@ -40,6 +40,8 @@
 .core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
 .address_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
 
+.edit_wrap { color: red; cursor: pointer; }
+.alert, .alert-success { width: 75%; }
 
 /* Groups */
 .table { color: black; style: none; background-color: #777; margin-right: 40px; }

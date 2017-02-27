@@ -8,6 +8,7 @@ $scope.singleContact = '';
 $scope.contactID = $routeParams.contactID;
 $scope.contactAddress;
 $scope.addressDetails = false;
+$scope.contactDeleted = false;
 
 
 /// - get contact detail
@@ -53,5 +54,28 @@ $scope.showAddress = function(contactAddress){
     }
   })
 }
+
+/// - edit contact details
+
+$scope.updateContact = function() {
+
+  getContactsFactory.editContact()
+  .success(function(){
+
+  })
+}
+
+/// - delete contact 
+
+$scope.deleteContact = function(singleContact) {
+  console.log("contactID", $scope.singleContact)
+
+  getContactsFactory.deleteContact($scope.singleContact.id)
+  .success(function(){
+    $scope.contactDeleted = true;
+
+  })
+}
+
 
 })
