@@ -9,6 +9,8 @@ $scope.contactID = $routeParams.contactID;
 $scope.contactAddress;
 $scope.addressDetails = false;
 $scope.contactDeleted = false;
+$scope.contactEdited = false;
+$scope.editGrid = false;
 
 
 /// - get contact detail
@@ -57,25 +59,55 @@ $scope.showAddress = function(contactAddress){
 
 /// - edit contact details
 
-$scope.updateContact = function() {
+$scope.updateContact = function(singleContact) {
+  console.log("contactID", $scope.singleContact)
+    $scope.editGrid = true;
+} 
 
-  getContactsFactory.editContact()
-  .success(function(){
+$scope.submitEdit = function(firstName, lastName, mobile, personal){
+  console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
 
-  })
+  var contact = {
+    name: {
+        firstName: $scope.firstName,
+        lastName: $scope.lastName
+      },
+      birthday: {
+        source: '',
+        date: '',
+        age: ''
+      },
+      phoneNumber: {
+        mobile: $scope.mobile,
+        work: '',
+        other: ''
+      },
+      email: {
+        personal: $scope.personal,
+        work: '' 
+      },
+      company: ''
+  };
+
+  console.log("here is the contact before request", contact)
+  
+  getContactsFactory.editContact($scope.singleContact.id, contact)
+    .success(function(){
+      console.log("here is the contact", contact)
+      $scope.contactEdited = true;
+    })
 }
 
 /// - delete contact 
-
+      
 $scope.deleteContact = function(singleContact) {
   console.log("contactID", $scope.singleContact)
-
+  
   getContactsFactory.deleteContact($scope.singleContact.id)
-  .success(function(){
-    $scope.contactDeleted = true;
+    .success(function(){
+       $scope.contactDeleted = true;
+    });
+};
 
-  })
-}
-
-
+  
 })

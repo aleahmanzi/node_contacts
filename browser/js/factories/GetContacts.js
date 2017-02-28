@@ -33,19 +33,19 @@ angular.module('myApp')
     })  
   }
 
-    fact.editContact = function(contact){
+    fact.editContact = function(contactID){
       return $http ({
-      url: 'http://localhost:8080/contactInfo',
+      url: 'http://localhost:8080/contactInfo/' + contactID,
       dataType: 'JSON',
       method: "PUT", 
-      data: contact,
+      data: contactID,
     })
     .success(function(contact) {
       console.log("contact edited!", contact)
     })
   }
 
-  fact.deleteContact = function(contactID){
+  fact.deleteContact = function(contactID, contact){
       return $http ({
       url: 'http://localhost:8080/contactInfo/' + contactID,
       dataType: 'JSON',
@@ -53,7 +53,7 @@ angular.module('myApp')
       data: contactID,
     })
     .success(function(contact) {
-      console.log("contact deleted!", contactID)
+      console.log("contact deleted!", contact)
     })
 
   }
