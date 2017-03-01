@@ -2,9 +2,9 @@ angular.module('myApp')
 
  .config(['$routeProvider', function($routeProvider){
     $routeProvider
-    .when('/#/', {
-        templateUrl: './browser/js/index.html',
-        controller: 'NewContactCtrl'
+    .when('/home', {
+        templateUrl: './browser/js/home/home.html',
+        controller: 'HomeCtrl'
     })
     .when('/contactInfo', {
         templateUrl: './browser/js/contacts/Contacts.html',

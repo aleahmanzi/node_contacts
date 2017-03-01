@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const seeder = require('mongoose-seeder');
 const path = require('path');
+var moment = require('moment');
+
 
 require('./models/AddressInfo');
 require('./models/ContactInfo');
