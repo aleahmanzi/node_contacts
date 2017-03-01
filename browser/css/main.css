@@ -51,6 +51,14 @@
 .group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
 .group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
 
+/* Birthdays */
+.birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
+.birthday_pic { outline: 0px solid black; width: 95%; }
+.birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
+.birthday_contact p { display: inline-block; }
+
+
+
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
 	.navbar { width: 80%; float: right; }

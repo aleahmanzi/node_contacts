@@ -5,10 +5,15 @@
   </div><!-- . birthday_title - -->
 
   <div class="birthday_results" ng-repeat="birthday in currentBirthday">
+
+    <a class="birthday_pic" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
+      <img src="../browser/public/blank_photo.png"/><br/>
+    </a>
+
     <div class="birthday_contact">
       <p>{{ birthday.name.firstName }}</p>
       <p>{{ birthday.name.lastName }}</p>
-      <p>{{ birthday.birthday.date }}</p>
+      <br/><p>{{ birthday.birthday.date | date: MM:dd}}</p>
     </div>
   </div><!-- . birthday_results - -->
 
