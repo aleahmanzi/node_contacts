@@ -4,9 +4,11 @@
     <p>Upcoming Birthdays</p>
   </div><!-- . birthday_title - -->
 
-  <div class="birthday_results" ng-repeat="contact in birthdays">
+  <div class="birthday_results" ng-repeat="birthday in currentBirthday">
     <div class="birthday_contact">
-      <p>{{ contact }}</p>
+      <p>{{ birthday.name.firstName }}</p>
+      <p>{{ birthday.name.lastName }}</p>
+      <p>{{ birthday.birthday.date }}</p>
     </div>
   </div><!-- . birthday_results - -->
 

@@ -9,6 +9,8 @@ var start = new Date(now.getFullYear(), 0, 0);
 var currentDate = new Date(now)
 var currentMonth = currentDate.getMonth()+1
 var currentDay = currentDate.getDate()
+$scope.currentBirthday = [];
+
 
 
 /// - birtday comparison to current date
@@ -20,6 +22,7 @@ var currentDay = currentDate.getDate()
 
     	for ( i = 0; i < $scope.singleContact.length; i++){
     		singleContact = result.contactInfo[i];
+    		console.log("result", result.contactInfo[i])
     		$scope.singleBirthday = singleContact.birthday.date;
 
     		birthday = new Date($scope.singleBirthday);
@@ -29,8 +32,16 @@ var currentDay = currentDate.getDate()
 
 
 	    	if( birthdayMonth === currentMonth && birthdayDay >= currentDay){	
-	    		console.log("BIRTHDAY COMING!!!!!", singleContact.birthday.date, singleContact.name.firstName)
-	    	} else if ( birthdayMonth ===  currentMonth +1 && )
+
+	    		console.log("BIRTHDAY COMING!!!!!", singleContact.birthday.date, singleContact.id)
+					$scope.currentBirthday.push(singleContact)
+					console.log("birthday array", $scope.currentBirthday);
+
+	    	} 
+	    	else if ( birthdayMonth ===  currentMonth +1 && (currentDay - birthdayDay > 15)) {
+	    		console.log("MORE BIRTHDAYYYYYYSSSS!!!!", singleContact.birthday.date, singleContact.id)
+					$scope.currentBirthday.push(singleContact)
+				}
     	}
 	  })
 
