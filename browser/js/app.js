@@ -10,7 +10,11 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
     return $http.get('/session').then(onSuccessfullLogin)
   };
   this.isAuthenticated = function(){
-    return !!Store.user;
+    if(Store.user){
+      return true
+    } else {
+      return $q.reject('Not Authenticated');
+    }
   };
 
   function onSuccessfullLogin(response){

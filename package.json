@@ -19,11 +19,12 @@
     "connect-mongo": "^1.3.2",
     "express": "^4.14.0",
     "express-session": "^1.15.1",
+    "moment": "^2.17.1",
     "mongoose": "^4.7.2",
-    "morgan": "^1.7.0",
     "mongoose-seeder": "v1.2.1",
-    "passport-google-oauth": "~0.1.5",
-    "passport": "latest"
+    "morgan": "^1.7.0",
+    "passport": "latest",
+    "passport-google-oauth": "~0.1.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",
