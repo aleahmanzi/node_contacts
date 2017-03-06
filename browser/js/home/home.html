@@ -10,7 +10,7 @@
       <img src="../browser/public/blank_photo.png"/><br/>
     </a>
 
-    <div class="birthday_contact">
+    <div class="birthday_contact" ng-click="getContactDetails(contact.id )">
       <p>{{ birthday.name.firstName }}</p>
       <p>{{ birthday.name.lastName }}</p>
       <br/><p>{{ birthday.birthday.date | date: MM:dd}}</p>

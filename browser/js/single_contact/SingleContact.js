@@ -67,8 +67,11 @@ $scope.updateContact = function(singleContact) {
 $scope.submitEdit = function(firstName, lastName, mobile, personal){
   console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
 
+
+
   var contact = {
-    name: {
+      id: $scope.singleContact.id,
+      name: {
         firstName: $scope.firstName,
         lastName: $scope.lastName
       },
@@ -90,17 +93,20 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
   };
 
   console.log("here is the contact before request", contact)
-  
+
   getContactsFactory.editContact($scope.singleContact.id, contact)
+
     .success(function(){
       console.log("here is the contact", contact)
       $scope.contactEdited = true;
+      $scope.editGrid = false;
     })
 }
 
 /// - delete contact 
       
 $scope.deleteContact = function(singleContact) {
+
   console.log("contactID", $scope.singleContact)
   
   getContactsFactory.deleteContact($scope.singleContact.id)
