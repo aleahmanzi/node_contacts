@@ -1,6 +1,28 @@
   <section class="details_wrap">
+
     <div>
       <div>Name: <p>{{ singleGroup.name }}</p></div>
       <div>Contacts: <p>{{ singleGroup.contacts }}</p></div>
     </div>
+
+    <div class="edit_group_wrap">
+      <p ng-click="updateGroup()"><button class="btn btn-warning">UPDATE GROUP</button></p>
+      
+      <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-danger"></button></p>
+      <br />
+      <br />
+      <span ng-bind = "Message"></span>
+
+    </div><!-- .edit_group_wrap - -->
+
+    <div class="alert alert-success" ng-show="groupDeleted">
+      <strong>Success!</strong> Group has been deleted!
+    </div>
+
+
+    <div class="alert alert-success" ng-show="groupEdited">
+      <strong>Success!</strong> Group has been updated!
+    </div>
+
   </section><!-- . details_wrap - -->
+

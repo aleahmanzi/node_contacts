@@ -1,11 +1,13 @@
 angular.module('myApp').controller('GroupDetailsCtrl', 
-   function ($scope, getGroupFactory, $routeParams) {
+   function ($scope, getGroupFactory, $routeParams, $window) {
 
 
 /// - default values
 
 $scope.singleGroup = '';
 $scope.groupID = $routeParams.groupID;
+$scope.groupDeleted = false;
+$scope.groupEdited = false;
 
 
 /// - get single group
@@ -25,4 +27,20 @@ getGroupFactory.getGroupData($scope.groupID)
     }
   }
 })
+
+
+/// - delete group 
+      
+$scope.ShowGroupConfirm = function () {
+    if ($window.confirm("Are you sure you want to delete this group?")) {
+      console.log("single group", $scope.singleGroup)
+
+      getGroupFactory.deleteGroup($scope.singleGroup.id)
+        .success(function(){
+           $scope.contactDeleted = true;
+        });
+    } 
+}
+
+
 })

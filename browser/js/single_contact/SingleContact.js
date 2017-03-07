@@ -110,7 +110,7 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
       
 
 $scope.ShowConfirm = function () {
-    if ($window.confirm("Please confirm?")) {
+    if ($window.confirm("Are you sure that you want to delete this contact?")) {
       console.log("contactID", $scope.singleContact)
       getContactsFactory.deleteContact($scope.singleContact.id)
         .success(function(){

@@ -24,5 +24,30 @@ angular.module('myApp')
     })
   }
 
+  fact.editGroup = function(contactID, toUpdate){
+    return $http ({
+    url: 'http://localhost:8080/contactInfo/' + contactID,
+    dataType: 'JSON',
+    method: "PUT", 
+    data: toUpdate,
+  })
+  .success(function(contact) {
+    console.log("contact edited!", contact)
+  })
+}
+
+  fact.deleteGroup = function(groupID, singleGroup){
+      return $http ({
+      url: 'http://localhost:8080/groupInfo/' + groupID,
+      dataType: 'JSON',
+      method: "DELETE", 
+      data: groupID,
+    })
+    .success(function(contact) {
+      console.log("contact deleted!", singleGroup)
+    })
+
+  }
+
   return fact;
 })
