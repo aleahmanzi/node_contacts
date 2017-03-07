@@ -33,6 +33,7 @@ const contactInfo = new Schema({
     date: {type: Date},
     photos: []
   }],
+  userId: String
 });
 
 contactInfo.methods.apiRepr = function() {
