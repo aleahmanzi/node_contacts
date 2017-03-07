@@ -44,7 +44,7 @@
 .alert, .alert-success { width: 75%; }
 
 /* Groups */
-.table { color: black; style: none; background-color: #777; margin-right: 40px; }
+.table { color: black; background-color: #777; margin-right: 40px; }
 
 .group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; }
 .groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }

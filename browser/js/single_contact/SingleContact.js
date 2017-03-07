@@ -61,13 +61,16 @@ $scope.showAddress = function(contactAddress){
 
 $scope.updateContact = function(singleContact) {
   console.log("contactID", $scope.singleContact)
+
+    $scope.firstName = $scope.singleContact.name.firstName;
+    $scope.lastName = $scope.singleContact.name.lastName;
+    $scope.mobile = $scope.singleContact.phoneNumber.mobile;
+    $scope.personal = $scope.singleContact.email.personal;
     $scope.editGrid = true;
 } 
 
 $scope.submitEdit = function(firstName, lastName, mobile, personal){
   console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
-
-
 
   var contact = {
       id: $scope.singleContact.id,
@@ -91,8 +94,6 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
       },
       company: ''
   };
-
-  console.log("here is the contact before request", contact)
 
   getContactsFactory.editContact($scope.singleContact.id, contact)
 

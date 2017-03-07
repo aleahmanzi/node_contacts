@@ -18,7 +18,7 @@ $scope.handleFile = function(e){
   
   console.log("event: ", e);
 
-  console.log("Get Text", fileReader.readAsText(e[1]))
+  console.log("Get Text", fileReader.readAsText(e[0]))
 
 }
 

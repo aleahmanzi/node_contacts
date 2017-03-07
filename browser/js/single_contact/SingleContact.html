@@ -31,12 +31,10 @@
 
 
     <div class="edit_wrap">
-      <div>
-        <p ng-click="updateContact()"><b>UPDATE CONTACT</b></p>
-      </div>
-      <div>
-        <p ng-click="deleteContact()"><button class="btn btn-success">DELETE CONTACT (one click!)</b></p>
-      </div>
+      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</p>
+
+      <p ng-click="deleteContact()"><button class="btn btn-danger">DELETE CONTACT (one click!)</p>
+
     </div><!-- .edit_wrap - -->
 
 
@@ -51,37 +49,34 @@
 
 
     <div class="edit_contact_wrap" ng-show="editGrid">
-      <table class="table">
-        <tr>
-          <td class="label">First Name</td>
-          <td class="input">
-            <input type="text" ng-model="firstName"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Last Name</td>
-          <td class="input">
-            <input type="text" ng-model="lastName"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Phone Number</td>
-          <td class="input">
-            <input type="text" ng-model="mobile"/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Email</td>
-          <td class="input">
-            <input type="text" ng-model="personal"/>
-          </td>
-        </tr>
-      </table>
-      <div>
-        <div class="button_wrap">
-          <button class="submit_button" type="text" required ng-click="submitEdit()">Submit</button>
-        </div><!-- . submit_button - -->
-      </div>
+      <form class="form-group" name="contactEditForm">
+
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="firstName" ng-model="firstName"/>
+        </div>
+
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lastName" ng-model="lastName"/>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" name="mobile" ng-model="mobile"/>
+        </div>
+
+        <div class="form-group"> 
+          <label>Email</label>
+          <input type="text" class="form-control" name="personal" ng-model="personal"/>
+        </div>
+
+      </form>
+
+      <div class="button_wrap">
+        <button class="btn btn-primary" type="submit" required ng-click="submitEdit()">Submit</button>
+      </div><!-- . submit_button - -->
+
   </div><!-- . edit_contact_wrap - -->
 
   </section><!-- . details_wrap - -->
