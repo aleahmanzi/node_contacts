@@ -11,7 +11,6 @@ angular.module('myApp')
       url: 'http://localhost:8080/contactInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
-      maxResult: '10'
     })
   }
 

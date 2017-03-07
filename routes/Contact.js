@@ -22,7 +22,23 @@ router.get('/', (req, res) => {
       err => {
         console.error(err);
         res.status(500).json({message: 'Internal server error'});
-    });
+      });
+});
+
+router.get('/:userId', (req, res) => {
+  contactInfo
+    .find()
+    .then(contactInfo => {
+      res.json({
+        contactInfo: contactInfo.map(
+          (contactInfo) => contactInfo.apiRepr())
+      });
+    })
+    .catch(
+      err => {
+        console.error(err);
+        res.status(500).json({message: 'Internal server error'});
+      });
 });
 
 
@@ -39,6 +55,7 @@ router.post('/', (req, res) => {
 
   contactInfo
     .create({
+      userId: req.body.id,
       name: req.body.name,
       email: req.body.email,
       birthday: req.body.birthday,
