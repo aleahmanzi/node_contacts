@@ -31,9 +31,12 @@
 
 
     <div class="edit_wrap">
-      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</p>
-
-      <p ng-click="deleteContact()"><button class="btn btn-danger">DELETE CONTACT (one click!)</p>
+      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</button></p>
+      
+      <p ng-click="ShowConfirm()"><input type="button" value="DELETE CONTACT" class="btn btn-danger"></button></p>
+      <br />
+      <br />
+      <span ng-bind = "Message"></span>
 
     </div><!-- .edit_wrap - -->
 

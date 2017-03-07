@@ -1,5 +1,5 @@
 angular.module('myApp').controller('ContactDetailsCtrl', 
-   function ($scope, getContactsFactory, $routeParams) {
+   function ($scope, getContactsFactory, $routeParams, $window) {
 
 
 /// - default values
@@ -11,6 +11,8 @@ $scope.addressDetails = false;
 $scope.contactDeleted = false;
 $scope.contactEdited = false;
 $scope.editGrid = false;
+$scope.status = '  ';
+$scope.customFullscreen = false;
 
 
 /// - get contact detail
@@ -102,19 +104,20 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
       $scope.contactEdited = true;
       $scope.editGrid = false;
     })
-}
+};
 
 /// - delete contact 
       
-$scope.deleteContact = function(singleContact) {
 
-  console.log("contactID", $scope.singleContact)
-  
-  getContactsFactory.deleteContact($scope.singleContact.id)
-    .success(function(){
-       $scope.contactDeleted = true;
-    });
-};
+$scope.ShowConfirm = function () {
+    if ($window.confirm("Please confirm?")) {
+      console.log("contactID", $scope.singleContact)
+      getContactsFactory.deleteContact($scope.singleContact.id)
+        .success(function(){
+           $scope.contactDeleted = true;
+        });
+    } 
+}
 
   
 })
