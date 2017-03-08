@@ -1,4 +1,4 @@
-myApp.directive('loginBar', function(AuthService, Store){
+myApp.directive('loginBar', function(AuthService, Store){  
   return {
     restrict: 'E',
     templateUrl: 'browser/directives/loginBar.html',

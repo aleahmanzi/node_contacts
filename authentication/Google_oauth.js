@@ -30,6 +30,7 @@ passport.use(new GoogleStrategy({
 
         if (user) {
           return user;
+          
         } else {
           return userInfo.create({
             name: profile.name.givenName,

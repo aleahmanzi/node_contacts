@@ -13,12 +13,15 @@ $scope.handleFile = function(e){
 
     console.log("onload event triggered, context is \n", file);
     $scope.file = file.currentTarget.result;
-
+    console.log("here's the file", $scope.file)
   };
   
   console.log("event: ", e);
-
   console.log("Get Text", fileReader.readAsText(e[0]))
+
+}
+
+$scope.uploadFile = function() {
 
 }
 

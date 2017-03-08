@@ -2,13 +2,13 @@ angular.module('myApp')
 
 /// GET contacts factory
 
-.factory('getContactsFactory', function($http){
+.factory('getContactsFactory',  function($http){
 
   var fact = {}
 
-  fact.getContact = function() {
+  fact.getContact = function(userId) {
     return $http ({
-      url: 'http://localhost:8080/contactInfo',
+      url: 'http://localhost:8080/contactInfo/' + userId,
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
     })
@@ -54,8 +54,7 @@ fact.deleteContact = function(contactID, contact){
   .success(function(contact) {
     console.log("contact deleted!", contact)
   })
+}
 
-  }
-  
   return fact;
 })
