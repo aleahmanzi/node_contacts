@@ -24,7 +24,6 @@ getContactsFactory.getContactData($scope.contactID)
   
   for(var i = 0; i < data.contactInfo.length; i++){
     var singleContact = data.contactInfo[i];      
-    console.log(singleContact);
 
     if(singleContact.id === $scope.contactID){
       console.log("here is the single contact", singleContact);
@@ -80,7 +79,33 @@ $scope.updateContact = function(singleContact) {
 
 $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company, street1, street2, city, state, zip, country){
 
-  var contact = {
+  
+
+  var address = {
+    id: $scope.address.id,
+    street1: $scope.street1,
+    street2: $scope.street2,
+    city: $scope.city,
+    state: $scope.state,
+    zip: $scope.zip,
+    country: $scope.coutry
+  }
+
+  if($scope.singleContact.address.length === 0){
+    console.log("singleContact address length", $scope.singleContact.address.length)
+    
+    getContactsFactory.postAddress(address)
+      .success(function(result) {
+        console.log("address", result)
+        console.log("resultID", result.id)
+        $scope.street1 = '';
+        $scope.street2 = '';
+        $scope.city = '';
+        $scope.state = '';
+        $scope.zip = '';
+        $scope.country = '';
+
+     var contact = {
       id: $scope.singleContact.id,
       name: {
         firstName: $scope.firstName,
@@ -97,32 +122,24 @@ $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, per
         personal: $scope.personal,
         work: $scope.workMail
       },
-      company: $scope.company
-  };
+      company: $scope.company,
+      address: result.id
+  };   
 
-  var address = {
-    id: $scope.address.id,
-    street1: $scope.street1,
-    street2: $scope.street2,
-    city: $scope.city,
-    state: $scope.state,
-    zip: $scope.zip,
-    country: $scope.coutry
+    getContactsFactory.editContact($scope.singleContact.id, contact)
+      .success(function(){
+        console.log("here is the contact", contact)
+        $scope.contactEdited = true;
+        $scope.editGrid = false;
+    })
+    }) 
+  } else {
+    getContactsFactory.editAddress($scope.address.id, address)
+      .success(function(){
+        console.log("here is the address", address)
+      })
   }
 
-  getContactsFactory.editContact($scope.singleContact.id, contact)
-
-    .success(function(){
-      console.log("here is the contact", contact)
-      $scope.contactEdited = true;
-      $scope.editGrid = false;
-    })
-
-  getContactsFactory.editAddress($scope.address.id, address)
-
-    .success(function(){
-      console.log("here is the address", address)
-    })
 };
 
 /// - delete contact 

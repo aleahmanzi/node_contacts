@@ -56,6 +56,17 @@ fact.editAddress = function(addressID, addressUpdate){
   })
 }
 
+fact.postAddress = function(address) {
+  return $http ({
+    url: 'http://localhost:8080/addressInfo',
+    dataType: 'JSON',
+    method: "POST", 
+    data: address,
+  })
+  .success(function(postedAddress) {
+  })
+}
+
 fact.deleteContact = function(contactID, contact){
     return $http ({
     url: 'http://localhost:8080/contactInfo/' + contactID,
