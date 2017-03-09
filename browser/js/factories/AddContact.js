@@ -18,6 +18,17 @@ angular.module('myApp')
     })
   }
 
+  fact.postAddress = function(address) {
+    return $http ({
+      url: 'http://localhost:8080/addressInfo',
+      dataType: 'JSON',
+      method: "POST", 
+      data: address,
+    })
+    .success(function(postedAddress) {
+    })
+  }
+
   return fact;
 
 })
