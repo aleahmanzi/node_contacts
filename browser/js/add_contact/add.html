@@ -1,32 +1,50 @@
 <section class="add_contact_wrap">
     
     <div class="new_contact_wrap">
-      <table class="table">
-        <tr>
-          <td class="label">First Name</td>
-          <td class="input">
-            <input type="text" ng-model="firstName" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Last Name</td>
-          <td class="input">
-            <input type="text" ng-model="lastName" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Phone Number</td>
-          <td class="input">
-            <input type="text" ng-model="mobile" required/>
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Email</td>
-          <td class="input">
-            <input type="text" ng-model="personal" required/>
-          </td>
-        </tr>
-      </table>
+      <form class="form-group" name="addContact">
+
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" name="firstName" ng-model="firstName"/>
+        </div>
+
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lastName" ng-model="lastName"/>
+        </div>
+
+        <div class="form-group">
+          <label>Birthday</label>
+          <input type="text" class="form-control" name="birthday" ng-model="birthday"/>
+        </div>
+
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="text" class="form-control" name="mobile" ng-model="mobile"/>
+        </div>
+
+        <div class="form-group">
+          <label>Work Number</label>
+          <input type="text" class="form-control" name="workNum" ng-model="workNum"/>
+        </div>
+
+        <div class="form-group"> 
+          <label>Personal Email</label>
+          <input type="text" class="form-control" name="personal" ng-model="personal"/>
+        </div>
+
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="text" class="form-control" name="workMail" ng-model="workMail"/>
+        </div>
+
+        <div class="form-group">
+          <label>Company</label>
+          <input type="text" class="form-control" name="company" ng-model="company"/>
+        </div>
+
+      </form>
+
       <div>
         <div class="button_wrap">
           <button class="submit_button" type="text" required ng-click="createContact()">Submit</button>
@@ -34,7 +52,7 @@
       </div>
   </div><!-- . new_contact_wrap - -->
 
-  <div class="post_message" ng-show="postMessage">
-   <div>contact successfully created!</div>
+  <div class="alert alert-success" ng-show="contactCreated">
+    <strong>Success!</strong> Contact has been created!
   </div>
 </section><!-- . add_contact_wrap - -->

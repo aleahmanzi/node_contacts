@@ -7,11 +7,14 @@ $scope.contact = {
     lastName: ''
   },
   birthday: {
-    date: ''
+    source: '',
+    date: '',
+    age: ''
   },
   phoneNumber: {
     mobile: '',
-    work: ''
+    work: '',
+    other: ''
   },
   email: {
     personal: '',
@@ -25,43 +28,43 @@ $scope.contact = {
 
 $scope.addContact = function(){
   $scope.resultWrap = false;
-  $scope.contactCreated = false;
+  $scope.postMessage = false;
 };
 
   /// - use data from form to create new contact
 
-$scope.createContact = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company) {
+$scope.createContact = function(firstName, lastName, mobile, personal) {
+  console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
   var contact = {
   name: {
       firstName: $scope.firstName,
       lastName: $scope.lastName
     },
     birthday: {
-      date: $scope.birthday
+      source: '',
+      date: '',
+      age: ''
     },
     phoneNumber: {
       mobile: $scope.mobile,
-      work: $scope.workNum
+      work: '',
+      other: ''
     },
     email: {
       personal: $scope.personal,
-      work: $scope.workMail
+      work: '' 
     },
-    company: $scope.company
+    company: ''
   } 
     postContactFactory.postContact(contact)
       .then(function(){
         console.log("this is the contact", contact)  
-        $scope.contactCreated = true;
+        $scope.postMessage = true;
         console.log("here is the new contact", contact);
         $scope.firstName = '';
         $scope.lastName = '';
         $scope.mobile = '';
         $scope.personal = '';
-        $scope.birthday = '';
-        $scope.workNum = '';
-        $scope.workMail = '';
-        $scope.company = '';
 
      });
 }

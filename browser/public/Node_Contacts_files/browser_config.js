@@ -12,7 +12,7 @@ angular.module('myApp')
     .when('/contactInfo', {
         templateUrl: './browser/js/contacts/Contacts.html',
         controller: 'Ctrl',
-        /*resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]*/
+        resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
     })
 
     .when('/contactInfo/:contactID', {

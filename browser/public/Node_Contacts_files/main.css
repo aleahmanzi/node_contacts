@@ -1,0 +1,74 @@
+/* Header */
+.navbar { background-color: #e6e2e8; height: 50px; }
+.navbar-header { float: left; padding-left: 10px; }
+.plus_wrap { outline: 0px solid black; float: right; width: 50px; height: 50px;  margin-bottom: 50px; }
+.plus_img_wrap { outline: 0px solid blue; width: 40px; margin-bottom: 20px; margin: 0 auto; height: 50px; }
+.contact_plus { cursor: pointer; color: #ff4400; margin-left: 7px; font-size: 40px; }
+
+/* Sidebar */
+
+.sidebar { display: none; text-align: right; box-shadow: 2px 2px 2px #888888; }
+.hello { color: white; }
+.nav-sidebar { margin-right: -21px; margin-bottom: 20px; margin-left: -20px; }
+.nav-sidebar > li > a { padding: 20px; padding-right: 20px; padding-left: 20px; color: #32353B; background-color: #4A8BCA; border: 1px solid #F1F2FA; padding-botton: 2px; margin: 0; }
+.menuText { display: inline-block; }
+.user { width: 100%; margin: 0 auto; }
+.profilePic { outline: 0px solid white; margin-bottom: 40px; margin-top: 25px; }
+.profile_img_wrap { outline: 0px dotted white; width: 80px; height: 80px; margin: 0 auto; }
+.profilePic img { outline: 0px solid red; height: 80px; border-radius: 50%; margin-top: 5px; margin-right: 5px; }
+
+.addMenu_wrap { outline: 0px solid; margin-top: 50px; }
+.add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
+
+
+/* Contacts */
+.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
+.add_contact_button, .submit_button, .add_group_button { background-color: #F2635F; }
+
+.input-group { margin-left: 30px; width: 75%; }
+
+.result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; }
+.all_contacts { outline: 0px solid black; display: inline-block; width: 150px; }
+.list_contacts { margin-left: 20px; margin-bottom: 25px; }
+.list_contacts img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
+.contact_name { display: inline-block; margin: 0 auto; }
+
+.show_more { cursor: pointer; }
+.contact_pic_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
+.contact_pic { outline: 0px solid black; width: 95%; }
+.contact_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
+.core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
+.address_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
+
+.edit_wrap { color: red; cursor: pointer; }
+.alert, .alert-success { width: 75%; }
+
+/* Groups */
+.table { color: black; background-color: #777; margin-right: 40px; }
+
+.group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; }
+.groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }
+.group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
+.group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
+
+/* Birthdays */
+.birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
+.birthday_pic { outline: 0px solid black; width: 95%; }
+.birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
+.birthday_contact p { display: inline-block; }
+
+
+
+@media (min-width: 768px) {
+	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
+	.navbar { width: 80%; float: right; }
+	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap { width: 75%; float: right; }
+	.addMenu { margin-right: 60px; margin-top: 50px; }
+
+}
+
+
+
+
+
+
