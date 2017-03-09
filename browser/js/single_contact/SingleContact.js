@@ -5,6 +5,7 @@ angular.module('myApp').controller('ContactDetailsCtrl',
 /// - default values
 
 $scope.singleContact = '';
+$scope.contactAddress = '';
 $scope.contactID = $routeParams.contactID;
 $scope.contactAddress;
 $scope.addressDetails = false;
@@ -29,14 +30,12 @@ getContactsFactory.getContactData($scope.contactID)
       console.log("here is the single contact", singleContact);
       $scope.singleContact = singleContact;
       $scope.contactAddress = singleContact.address[0];
-      return singleContact;
     }
   }
 })
 
 /// - get address detail 
 
-$scope.showAddress = function(contactAddress){
 
   getContactsFactory.getAddressData($scope.contactAddress)
   .success(function(data){
@@ -51,28 +50,35 @@ $scope.showAddress = function(contactAddress){
         console.log("here is the address", address);
         $scope.address = address;
         $scope.contactAddress = address.address;
-        console.log("here is the address", $scope.contactAddress)
         console.log("here's street1", address.street1)
-        return address;
       }
     }
   })
-}
+
 
 /// - edit contact details
 
 $scope.updateContact = function(singleContact) {
   console.log("contactID", $scope.singleContact)
-
+    
+    $scope.editGrid = true;
     $scope.firstName = $scope.singleContact.name.firstName;
     $scope.lastName = $scope.singleContact.name.lastName;
+    $scope.birthday = $scope.singleContact.birthday.date;
     $scope.mobile = $scope.singleContact.phoneNumber.mobile;
+    $scope.workNum = $scope.singleContact.phoneNumber.work;
     $scope.personal = $scope.singleContact.email.personal;
-    $scope.editGrid = true;
+    $scope.workMail = $scope.singleContact.email.work;
+    $scope.company = $scope.singleContact.company;
+    $scope.street1 = $scope.address.street1;
+    $scope.street2 = $scope.address.street2;
+    $scope.city = $scope.address.city;
+    $scope.state = $scope.address.state;
+    $scope.zip = $scope.address.zip;
+    $scope.country = $scope.address.country;
 } 
 
-$scope.submitEdit = function(firstName, lastName, mobile, personal){
-  console.log("data", $scope.firstName, $scope.lastName, $scope.mobile, $scope.personal );
+$scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company, street1, street2, city, state, zip, country){
 
   var contact = {
       id: $scope.singleContact.id,
@@ -81,21 +87,28 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
         lastName: $scope.lastName
       },
       birthday: {
-        source: '',
-        date: '',
-        age: ''
+        date: $scope.birthday
       },
       phoneNumber: {
         mobile: $scope.mobile,
-        work: '',
-        other: ''
+        work: $scope.workNum
       },
       email: {
         personal: $scope.personal,
-        work: '' 
+        work: $scope.workMail
       },
-      company: ''
+      company: $scope.company
   };
+
+  var address = {
+    id: $scope.address.id,
+    street1: $scope.street1,
+    street2: $scope.street2,
+    city: $scope.city,
+    state: $scope.state,
+    zip: $scope.zip,
+    country: $scope.coutry
+  }
 
   getContactsFactory.editContact($scope.singleContact.id, contact)
 
@@ -103,6 +116,12 @@ $scope.submitEdit = function(firstName, lastName, mobile, personal){
       console.log("here is the contact", contact)
       $scope.contactEdited = true;
       $scope.editGrid = false;
+    })
+
+  getContactsFactory.editAddress($scope.address.id, address)
+
+    .success(function(){
+      console.log("here is the address", address)
     })
 };
 

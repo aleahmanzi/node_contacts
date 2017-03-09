@@ -34,13 +34,25 @@ angular.module('myApp')
 
   fact.editContact = function(contactID, toUpdate){
     return $http ({
-    url: 'http://localhost:8080/contactInfo/' + contactID,
-    dataType: 'JSON',
-    method: "PUT", 
-    data: toUpdate,
-  })
+      url: 'http://localhost:8080/contactInfo/' + contactID,
+      dataType: 'JSON',
+      method: "PUT", 
+      data: toUpdate
+    })
   .success(function(contact) {
     console.log("contact edited!", contact)
+  })
+  }
+
+fact.editAddress = function(addressID, addressUpdate){
+    return $http ({
+    url: 'http://localhost:8080/addressInfo/' + addressID,
+    dataType: 'JSON',
+    method: "PUT", 
+    data: addressUpdate,
+  })
+  .success(function(address) {
+    console.log("address edited!", address)
   })
 }
 
