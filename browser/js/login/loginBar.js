@@ -3,7 +3,7 @@ angular.module('myApp').controller('LoginCtrl',
 
   return {
     restrict: 'E',
-    templateUrl: 'browser/directives/loginBar.html',
+    templateUrl: 'browser/js/loginBar.html',
     link: function(scope) {
       scope.isAuthenticated = false;
 

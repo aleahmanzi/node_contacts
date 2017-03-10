@@ -1,4 +1,7 @@
-myApp.factory('Store', function(){
+angular.module('myApp')
+
+
+.factory('Store', function(){
   return { user: null };
 });
 
