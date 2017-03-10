@@ -19,17 +19,24 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
     return $http.get('/session').then(onSuccessfullLogin)
   };
 
-  this.isAuthenticated = function(){    
+  this.isAuthenticated = function(){
     if(!!Store.user) {
+      console.log('auth!');
       return Store.user;
     } else {
+      console.log('no auth');
       return $q.reject("not authenticated");
     }
   };
 
   function onSuccessfullLogin(response){
+    console.log("ON SUCCESSFULL LOGIN TRIGGERED");
     Store.user = response;
     return response;
   }
 
+});
+
+myApp.run(function(AuthService){
+  return AuthService.getLoggedInUser();
 });

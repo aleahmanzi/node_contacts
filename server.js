@@ -14,6 +14,11 @@ require('./models/UserInfo');
 
 const app = express();
 
+app.post('/evil', function(req, res){
+	console.log("got evil things, ", req.body);
+	res.status(200).send("you hacked your firends facebook!");
+});
+
 require('./authentication')(app);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 

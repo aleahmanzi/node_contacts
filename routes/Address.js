@@ -29,9 +29,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
+  console.log("got to post addressInfo/");
+
   const requiredFields = ['street1', 'city', 'state'];
   requiredFields.forEach(field => {
     if (! (field in req.body && req.body[field])) {
+      console.log("no required fields, refusing to update");
       return res.status(400).json({message: `Must specify value for ${field}`});
     }
   });
@@ -49,9 +52,12 @@ router.post('/', (req, res) => {
       contact: req.body.contact
     })
     .then(
-      addressInfo => res.status(201).json(addressInfo.apiRepr()))
+      addressInfo => {
+        console.log("got to creation success");
+        res.status(201).json(addressInfo.apiRepr())
+      })
     .catch(err => {
-      console.error(err);
+      console.error("ERRRRROR:", err);
       res.status(500).json({message: 'Internal server error'});
     });
 });

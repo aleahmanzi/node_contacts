@@ -1,9 +1,9 @@
-angular.module('myApp').controller('LoginCtrl', 
+angular.module('myApp').controller('LoginCtrl',
   function ($scope, getContactsFactory, $routeParams, AuthService, Store) {
 
   return {
     restrict: 'E',
-    templateUrl: 'browser/js/loginBar.html',
+    templateUrl: 'browser/js/login/loginBar.html',
     link: function(scope) {
       scope.isAuthenticated = false;
 
@@ -25,11 +25,4 @@ angular.module('myApp').controller('LoginCtrl',
     }
 
   };
-
-
-
-
-
-
-
 });
