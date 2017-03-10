@@ -83,7 +83,6 @@ $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, per
 
   var address = {
     id: $scope.address.id,
-    street1: $scope.street1,
     street2: $scope.street2,
     city: $scope.city,
     state: $scope.state,
