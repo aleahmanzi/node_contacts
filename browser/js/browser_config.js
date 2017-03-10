@@ -41,7 +41,7 @@ angular.module('myApp')
     .when('/contactUpload', {
         templateUrl: './browser/js/upload/upload.html',
         controller: 'contactUpload',
-        //resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
+        // resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
     })
 
     .when('/addContact', {
