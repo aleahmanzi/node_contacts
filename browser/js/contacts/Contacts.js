@@ -1,8 +1,6 @@
 angular.module('myApp').controller('Ctrl', 
    function ($scope, getContactsFactory, $routeParams) {
 
-
-
 /// - default values
 
 $scope.contactGrid = false;

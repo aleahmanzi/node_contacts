@@ -1,4 +1,6 @@
-myApp.directive('loginBar', function(AuthService, Store){  
+angular.module('myApp').controller('LoginCtrl', 
+  function ($scope, getContactsFactory, $routeParams, AuthService, Store) {
+
   return {
     restrict: 'E',
     templateUrl: 'browser/directives/loginBar.html',
@@ -7,6 +9,7 @@ myApp.directive('loginBar', function(AuthService, Store){
 
       if(AuthService.isAuthenticated()){
         scope.isAuthenticated = true;
+
         scope.user = Store.user;
       } else {
         AuthService.getLoggedInUser()
@@ -14,10 +17,19 @@ myApp.directive('loginBar', function(AuthService, Store){
             console.log("getting res user from backend", res);
             if(res.data.user) {
               scope.isAuthenticated = true;
+
               scope.user = res.data.user;
             }
           })
       }
     }
-  }
+
+  };
+
+
+
+
+
+
+
 });
