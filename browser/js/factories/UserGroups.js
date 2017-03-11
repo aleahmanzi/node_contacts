@@ -24,6 +24,26 @@ angular.module('myApp')
     })
   }
 
+  fact.postGroup = function(group) {
+    return $http ({
+      url: 'http://localhost:8080/groupInfo',
+      dataType: 'JSON',
+      method: "POST", 
+      data: group,
+    })
+    .success(function(group) {
+      console.log("new group added!", group)
+    })
+  }
+  
+  fact.getContact = function(userId) {
+    return $http ({
+      url: 'http://localhost:8080/contactInfo/' + userId,
+      method: 'GET',
+      params: {callback: 'JSON_CALLBACK'},
+    })
+  } 
+
   fact.editGroup = function(contactID, toUpdate){
     return $http ({
     url: 'http://localhost:8080/contactInfo/' + contactID,

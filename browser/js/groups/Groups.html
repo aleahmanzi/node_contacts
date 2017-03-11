@@ -1,62 +1,81 @@
-<! LISTING GROUPS>
+<section>
 
-<section ng-controller="getGroupCtrl" class="group_result_wrap">
+<!-- LISTING GROUPS -->
 
-  <div class="group_wrap">
-    <div class="groups" ng-show="groupWrap" ng-repeat="group in groups" >
+  <div class="group_result_wrap" ng-show="groupResult">
 
-      <a ng-click="getContactDetails(contact.id )" href="#/groupInfo/{{ group.id }}">
-          <img src="../browser/public/blank_group.png"/><br/>
-      </a>
+    <div class="group_wrap">
+      <div class="groups" ng-show="groupWrap" ng-repeat="group in groups" >
 
-      <div class="group_name">
-        <a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
-      </div><!-- . group_name - -->
+        <a ng-click="getContactDetails(contact.id )" href="#/groupInfo/{{ group.id }}">
+            <img src="../browser/public/blank_group.png"/><br/>
+        </a>
 
-    </div><!-- . groups - -->
-  </div><!-- . group_wrap - -->
+        <div class="group_name">
+          <a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
+        </div><!-- . group_name - -->
 
-  <div class="group_details">
-    <div ng-show="detailsWrap">
-      <div>Group Name: <p>{{ singleGroup.name }}</p></div>
-    </div>
-  </div><!-- . group_details - -->
+      </div><!-- . groups - -->
+    </div><!-- . group_wrap - -->
 
-</section><!-- .getGroupsCtrl - -->
-
-
-<! ADD A GROUP>
-
-<section ng-controller="postGroupFactory" class="add_group_wrap">
-
-  <button class="add_group_button" ng-click="addGroup()">Add a Group</button>
-
-    <div class="new_group" ng-show="groupGrid">
-
-      <table class="table">
-        <tr>
-          <th class="label">Group Name</th>
-          <td class="input">
-            <input type="text" ng-model="groupName" required/>
-          </td>
-        </tr>
-        <tr>
-          <th class="label">Contact</th>
-          <td class="input">
-            <input type="text" ng-model="groupContacts" required/>
-          </td>
-        </tr>
-      </table>
-      <div>
-        <div class="button_wrap">
-          <button class="submit_button" type="text" required ng-click="createGroup()">Submit</button>
-        </div><!-- . button_wrap - -->
+    <div class="group_details">
+      <div ng-show="detailsWrap">
+        <div>Group Name: <p>{{ singleGroup.name }}</p></div>
       </div>
-    </div><!-- . new_group - -->
+    </div><!-- . group_details - -->
 
-    <div class="post_message" ng-show="postMessage">
-     <div>group successfully created!</div>
+  </div><!-- .getGroupsCtrl - -->
+
+
+  <!-- ADD A GROUP -->
+
+  <div class="add_group_wrap">
+
+    <button class="add_group_button" ng-click="addGroup()">Add a Group</button>
+
+
+      <div class="add_group_wrap" ng-show="addGroupGrid">
+        <form class="form-group" name="contactEditForm">
+
+          <div class="form-group">
+            <label>Group Name</label>
+            <input type="text" class="form-control" name="groupName" ng-model="groupName"/>
+          </div>
+
+          <div class="form-group">
+            <label>Select Contacts to Add</label>
+
+              <div class="input-group changethisone">
+                <input type="text"  class="form-control" placeholder="Contact Search" ng-model="name"/>
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                </span>
+              </div>
+
+            <div class="availiable_contacts" ng-repeat="contact in contacts | filter: name">
+              <input type="checkbox" class="group_contacts" name="contact" ng-model="name" ng-checked="name" ng-true-value="1" ng-false-value="0">
+                <img class="group_contact" src="../browser/public/blank_photo.png"/>
+                {{ contact.name.firstName }} {{ contact.name.lastName }} {{name}}
+              </input>
+              {{formData}}
+            </div>
+          </div >
+
+        </form>  
+
+        <div>
+          <div class="button_wrap">
+            <button class="submit_button" type="text" required ng-click="createGroup(contacts)">Submit</button>
+          </div><!-- . button_wrap - -->
+        </div>
+      </div><!-- . new_group - -->
+
+    <div class="alert alert-success" ng-show="groupSuccess">
+      <strong>Success!</strong> Group has been added!
     </div>
-</section><!-- . postGroupFactory - -->
 
+  </div><!--  add_group_wrap -->
+
+
+</section>
 

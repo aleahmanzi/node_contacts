@@ -9,8 +9,10 @@ $scope.test = 'Angular is working!'
 
 $scope.groupWrap = false;
 $scope.detailsWrap = false;
-$scope.groupGrid = false;
-$scope.postMessage = false;
+$scope.addGroupGrid = false;
+$scope.groupSuccess = false;
+$scope.groupResult = true;
+$scope.groupContacts = [];
 
 ///- return personal groups
 
@@ -23,11 +25,8 @@ $scope.postMessage = false;
     })
 
 
-});
-
 /// - POST new group NewGroupCtrl
 
-myApp.controller('postGroupFactory', function ($scope, postGroupFactory, $routeParams) {
  
 $scope.group = {
   name: '',
@@ -37,25 +36,46 @@ $scope.group = {
 /// - show form to add group
 
 $scope.addGroup = function(){
-  $scope.groupGrid = true;
+  $scope.groupResult = false;
+  $scope.addGroupGrid = true;
   $scope.postMessage = false;
   $scope.detailsWrap = false;
+
+  getGroupFactory.getContact()
+    .success(function(result){
+
+      console.log(result);
+      $scope.contacts = result.contactInfo;
+
+    });
 };
 
   /// - use data from form to create new group
 
-$scope.createGroup = function(groupName, groupContacts) {
-  console.log("data", $scope.groupName, $scope.groupContacts );
-  var group = { name: $scope.groupName, contacts: $scope.groupContacts } 
-    postGroupFactory.postGroup(group)
+$scope.createGroup = function(groupName, groupContacts, data) {
+  console.log("data", $scope.groupName, $scope.groupContacts);
+
+    for(var i in data){
+      if(data[i] === '1'){
+        console.log("pushing", data)
+        groupContacts.push(data[i].id);
+      }
+    }
+
+    var group = { 
+      name: $scope.groupName, 
+      contacts: $scope.groupContacts 
+    } 
+
+    getGroupFactory.postGroup(group)
       .then(function(){
         console.log("this is the group", group)  
 
-        $scope.postMessage = true;
-        $scope.groupGrid = false;
+        $scope.groupSuccess = true;
+        $scope.addGroupGrid = false;
         console.log("here is the new group", group);
      });
 }
 
-
 });
+

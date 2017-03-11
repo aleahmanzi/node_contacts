@@ -25,7 +25,7 @@
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
 .add_contact_button, .submit_button, .add_group_button { background-color: #F2635F; }
 
-.input-group { margin-left: 30px; width: 75%; }
+.input-group { margin-left: 30px; width: 75%; padding-bottom: 25px; }
 
 .result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; }
 .all_contacts { outline: 0px solid black; display: inline-block; width: 150px; }
@@ -57,6 +57,8 @@
 .groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }
 .group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
 .group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
+.availiable_contacts { margin-bottom: 25px; }
+.group_contact { height: 100px; border-radius: 50%; }
 
 /* Birthdays */
 .birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
