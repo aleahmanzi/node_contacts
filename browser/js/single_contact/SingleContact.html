@@ -1,11 +1,14 @@
   <section class="details_wrap">
   
+  <!-- contact photo -->
+
     <div class="contact_pic_wrap">
       <div class="contact_pic">
         <img src="../browser/public/blank_photo.png">
       </div>
     </div><!-- . contact_pic_wrap - -->
 
+  <!-- contact basic data -->
 
     <div class="core_data_wrap">
       <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
@@ -21,11 +24,14 @@
       </div>
       <div>Company:<p>{{ singleContact.company }}</p></div>
     </div><!-- .core_data_wrap - -->
+  
+  <!-- edit button -->
 
     <div class="edit_wrap">
       <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</button></p>
     </div><!-- .edit_wrap - -->
 
+  <!-- address data -->
 
     <div class="address_wrap" >
 
@@ -48,12 +54,14 @@
       <div class="add_wrap">
         <div class="add_info">
           <div class="add">
-            <a ng-click="addAddress()"><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
+            <a ng-click="newAddress()""><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
           </div>
         </div>
       </div><!-- add_wrap -->
 
     </div><!-- . address_wrap -->
+
+  <!-- delete button -->
 
     <div class="edit_wrap">
       
@@ -63,7 +71,8 @@
       <span ng-bind = "Message"></span>
 
     </div><!-- .edit_wrap - -->
-
+  
+  <!-- success messages -->
 
     <div class="alert alert-success" ng-show="contactDeleted">
       <strong>Success!</strong> Contact has been deleted!
@@ -74,6 +83,7 @@
       <strong>Success!</strong> Contact has been updated!
     </div>
 
+  <!-- edit contact grid -->
 
     <div class="edit_contact_wrap" ng-show="editGrid">
       <form class="form-group" name="contactEditForm">
@@ -126,6 +136,8 @@
 
   </div><!-- . edit_contact_wrap - -->
 
+  <!-- edit address grid -->
+
     <div class="edit_address_wrap" ng-show="editAddressGrid">
       <form class="form-group" name="addressEditForm">
 
@@ -165,9 +177,54 @@
         <button class="btn btn-primary" type="submit" required ng-click="submitAddressEdit()">Submit</button>
       </div><!-- submit_button -->
 
-  </div><!-- edit_address_wrap -->
-  
+  <!-- new address grid -->
 
+  </div><!-- add_address_wrap -->
+  
+    <div class="new_address_wrap" ng-show="addressAdded">
+      <form class="form-group" name="addAddress">
+
+        <div class="form-group">
+          <label>Street1</label>
+          <input type="text" class="form-control" name="street1" ng-model="street1"/>
+        </div>
+
+        <div class="form-group">
+          <label>Street2</label>
+          <input type="text" class="form-control" name="street2" ng-model="street2"/>
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" class="form-control" name="city" ng-model="city"/>
+        </div>
+
+        <div class="form-group"> 
+          <label>State</label>
+          <input type="text" class="form-control" name="state" ng-model="state"/>
+        </div>
+
+        <div class="form-group">
+          <label>Zip</label>
+          <input type="text" class="form-control" name="zip" ng-model="zip"/>
+        </div>
+
+        <div class="form-group">
+          <label>Country</label>
+          <input type="text" class="form-control" name="country" ng-model="country"/>
+        </div>
+      </form>
+
+      <div>
+        <div class="button_wrap">
+          <button class="submit_button" type="text" required ng-click="createAddress()">Submit</button>
+        </div><!-- . submit_button - -->
+      </div>
+  </div><!-- . new_address_wrap - -->
+
+  <div class="alert alert-success" ng-show="addressSuccess">
+    <strong>Success!</strong> Address has been added!
+  </div>
 
   </section><!-- . details_wrap - -->
 

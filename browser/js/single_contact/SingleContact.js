@@ -15,6 +15,8 @@ $scope.editGrid = false;
 $scope.status = '  ';
 $scope.customFullscreen = false;
 $scope.editAddressGrid = false;
+$scope.addressAdded = false;
+$scope.addressSuccess = false;
 $scope.allAddresses = [];
 
 
@@ -119,7 +121,6 @@ $scope.editAddress = function(oneAddress){
   $scope.country = $scope.oneAddress.country;
 }
 
-
 $scope.submitAddressEdit = function(street1, street2, city, state, zip, country){
   var address = {
     id: $scope.oneAddress.id,
@@ -136,6 +137,38 @@ $scope.submitAddressEdit = function(street1, street2, city, state, zip, country)
       console.log("here is the address", address)
     })
 };
+
+
+/// - add address to contact
+
+$scope.newAddress = function(){
+  console.log('were added an address!')
+  $scope.addressAdded = true;
+}
+
+$scope.createAddress = function(street1, street2, city, state, zip, country){
+  var newData = {
+    id: $scope.oneAddress.id,
+    street1: $scope.street1,
+    street2: $scope.street2,
+    city: $scope.city,
+    state: $scope.state,
+    zip: $scope.zip,
+    country: $scope.country
+  }
+  console.log("what were passing", newData)
+  getContactsFactory.postAddress(newData)
+    .success(function(result){
+      console.log("here is the address ID", result.id)
+      $scope.street1 = '';
+      $scope.street2 = '';
+      $scope.city = '';
+      $scope.state = '';
+      $scope.zip = '';
+      $scope.country = '';
+    })
+}
+
 
 /// - delete contact 
       
