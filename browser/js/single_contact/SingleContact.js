@@ -14,6 +14,7 @@ $scope.contactEdited = false;
 $scope.editGrid = false;
 $scope.status = '  ';
 $scope.customFullscreen = false;
+$scope.editAddressGrid = false;
 $scope.allAddresses = [];
 
 
@@ -70,38 +71,9 @@ $scope.updateContact = function(singleContact) {
     $scope.personal = $scope.singleContact.email.personal;
     $scope.workMail = $scope.singleContact.email.work;
     $scope.company = $scope.singleContact.company;
-    $scope.street1 = $scope.address.street1;
-    $scope.street2 = $scope.address.street2;
-    $scope.city = $scope.address.city;
-    $scope.state = $scope.address.state;
-    $scope.zip = $scope.address.zip;
-    $scope.country = $scope.address.country;
 } 
 
-$scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company, street1, street2, city, state, zip, country){
-
-  var address = {
-    id: $scope.address.id,
-    street2: $scope.street2,
-    city: $scope.city,
-    state: $scope.state,
-    zip: $scope.zip,
-    country: $scope.coutry
-  }
-
-  if($scope.singleContact.address.length === 0){
-    console.log("singleContact address length", $scope.singleContact.address.length)
-    
-    getContactsFactory.postAddress(address)
-      .success(function(result) {
-        console.log("address", result)
-        console.log("resultID", result.id)
-        $scope.street1 = '';
-        $scope.street2 = '';
-        $scope.city = '';
-        $scope.state = '';
-        $scope.zip = '';
-        $scope.country = '';
+$scope.submitContactEdit = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company){
 
      var contact = {
       id: $scope.singleContact.id,
@@ -120,9 +92,8 @@ $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, per
         personal: $scope.personal,
         work: $scope.workMail
       },
-      company: $scope.company,
-      address: result.id
-  };   
+      company: $scope.company
+    };   
 
     getContactsFactory.editContact($scope.singleContact.id, contact)
       .success(function(){
@@ -130,15 +101,22 @@ $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, per
         $scope.contactEdited = true;
         $scope.editGrid = false;
     })
-    }) 
-  } else {
-    getContactsFactory.editAddress($scope.address.id, address)
-      .success(function(){
-        console.log("here is the address", address)
-      })
-  }
-
 };
+
+
+/// - edit address
+
+$scope.editAddress = function(allAddresses){
+  console.log("single", $scope.allAddresses)
+
+  $scope.street1 = $scope.allAddresses.street1;
+  $scope.street2 = $scope.allAddresses.street2;
+  $scope.city = $scope.allAddresses.city;
+  $scope.state = $scope.allAddresses.state;
+  $scope.zip = $scope.allAddresses.zip;
+  $scope.country = $scope.allAddresses.country;
+}
+
 
 /// - delete contact 
       

@@ -22,6 +22,12 @@ angular.module('myApp')
         //resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
     })
 
+    .when('/addressInfo/:addressID', {
+        templateUrl: './browser/js/edit_address/editAddress.html',
+        controller: 'AddressCtrl',
+        //resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
+    })
+
     .when('/groupInfo', {
         templateUrl: './browser/js/groups/Groups.html',
         controller: 'getGroupCtrl',

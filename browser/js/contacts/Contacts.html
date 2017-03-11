@@ -12,7 +12,7 @@
     <div class="all_contacts" ng-repeat="contact in contacts | filter: name">
       <div class="list_contacts">
 
-        <a ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
+        <a ng-click="getContactDetails(contact.id )" ng-href="#/contactInfo/{{ contact.id }}">
           <img src="../browser/public/blank_photo.png"/><br/>
         </a>
 
