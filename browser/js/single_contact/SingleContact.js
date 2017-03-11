@@ -48,9 +48,7 @@ getContactsFactory.getContactData($scope.contactID)
 
       for(var a = 0; a < $scope.contactAddresses.length; a++){
           if(addressId === $scope.contactAddresses[a]){
-            console.log("address pushing", address)
             $scope.allAddresses.push(address);
-            console.log($scope.allAddresses.length)
             console.log("allAddresses", $scope.allAddresses)
         }
       }

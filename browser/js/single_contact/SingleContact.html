@@ -22,9 +22,18 @@
       <div>Company:<p>{{ singleContact.company }}</p></div>
     </div><!-- .core_data_wrap - -->
 
+    <div class="edit_wrap">
+      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</button></p>
+    </div><!-- .edit_wrap - -->
 
-    <div class="address_wrap" ng-repeat="address in allAddresses">
-      <div class="address_info">
+
+    <div class="address_wrap" >
+
+      <div class="address_info" ng-repeat="address in allAddresses">
+        <div class="edit_icon" ng-click="editAddress()">
+          <img src="../browser/public/edit.svg"/>
+        </div>
+
         <div ng-show="addressDetails">
           <div>Street1: <p>{{ address.street1 }}</p></div>
           <div>Street2: <p>{{ address.street2 }}</p></div>
@@ -33,11 +42,19 @@
           <div>Zip: <p>{{ address.zip }}</p></div>
           <div>Country:<p>{{ address.country }}</p></div>
         </div>
-      </div>
-    </div><!-- . address_wrap - -->
+      </div><!-- address_info -->
+
+      <div class="add_wrap">
+        <div class="add_info">
+          <div class="add">
+            <a ng-click="addAddress()" href="#/addAddress"><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
+          </div>
+        </div>
+      </div><!-- add_wrap -->
+
+    </div><!-- . address_wrap -->
 
     <div class="edit_wrap">
-      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</button></p>
       
       <p ng-click="ShowConfirm()"><input type="button" value="DELETE CONTACT" class="btn btn-danger"></button></p>
       <br />

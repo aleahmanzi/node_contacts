@@ -44,8 +44,11 @@
 .alert, .alert-success { width: 75%; }
 
 /* Address */
-.address_info {outline: 1px solid #eee; }
-
+.address_wrap { outline: 0px solid black; display: inline-block; }
+.address_info {outline: 1px solid #eee; background-color: #eee; margin-right: 25px; display: inline-block; width: 300px; margin-bottom: 25px; }
+.edit_icon { outline: 0px solid red; width: 25px; float: right; cursor: pointer;}
+.edit_icon img { height: 15px; }
+.add_wrap { outline: 0px solid red; display: inline-block; }
 
 /* Groups */
 .table { color: black; background-color: #777; margin-right: 40px; }
