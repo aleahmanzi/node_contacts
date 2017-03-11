@@ -14,24 +14,25 @@ $scope.contactEdited = false;
 $scope.editGrid = false;
 $scope.status = '  ';
 $scope.customFullscreen = false;
+$scope.allAddresses = [];
 
 
 /// - get contact detail
 
 getContactsFactory.getContactData($scope.contactID)
-.success(function(data){
-  $scope.singleContact = data.contactInfo
+  .success(function(data){
+    $scope.singleContact = data.contactInfo
 
-  for(var i = 0; i < data.contactInfo.length; i++){
-    var singleContact = data.contactInfo[i];      
+    for(var i = 0; i < data.contactInfo.length; i++){
+      var singleContact = data.contactInfo[i];      
 
-    if(singleContact.id === $scope.contactID){
-      console.log("here is the single contact", singleContact);
-      $scope.singleContact = singleContact;
-      $scope.contactAddress = singleContact.address[0];
+      if(singleContact.id === $scope.contactID){
+        $scope.singleContact = singleContact;
+        console.log("here is the single contact", $scope.singleContact);
+        $scope.contactAddresses = singleContact.address;
+      }
     }
-  }
-})
+  })
 
 /// - get address detail
 
@@ -41,13 +42,17 @@ getContactsFactory.getContactData($scope.contactID)
     $scope.addressOptions = data.addressInfo
     $scope.addressDetails = true;
 
-    for(var i = 0; i < data.addressInfo.length; i++){
-      var address = data.addressInfo[i]; 
-      var addressId = address.id 
-      if(addressId === $scope.contactAddress){
-        console.log("here is the address", address);
-        $scope.address = address;
-        $scope.contactAddress = address.address;
+    for(var i = 0; i < $scope.addressOptions.length; i++){
+        var address = data.addressInfo[i]; 
+        var addressId = address.id ;
+
+      for(var a = 0; a < $scope.contactAddresses.length; a++){
+          if(addressId === $scope.contactAddresses[a]){
+            console.log("address pushing", address)
+            $scope.allAddresses.push(address);
+            console.log($scope.allAddresses.length)
+            console.log("allAddresses", $scope.allAddresses)
+        }
       }
     }
   })
@@ -76,8 +81,6 @@ $scope.updateContact = function(singleContact) {
 } 
 
 $scope.submitEdit = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company, street1, street2, city, state, zip, country){
-
-  
 
   var address = {
     id: $scope.address.id,
