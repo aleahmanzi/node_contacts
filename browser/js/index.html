@@ -35,7 +35,7 @@
 </head>
 <body ng-controller="NewContactCtrl">
 	
-<! HEADER NAV>
+<!-- HEADER NAV -->
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -52,12 +52,13 @@
 
 
 
-<! LOGIN >
+<!-- LOGIN -->
 
 <login-bar></login-bar>
 
 
-<! SIDEBAR>
+
+<!-- SIDEBAR -->
 
 <div class="sidebar">
 
@@ -68,9 +69,9 @@
       </div>
     </div>
     <div class="hello">
-      <p>Welcome.</p>
+      <p>Welcome {{user.email}}.</p>
     </div>
-  </div><!-- . user - -->
+  </div><!-- user -->
 
 <ul class="nav nav-sidebar">
   <li class="active">
@@ -103,7 +104,7 @@
   </div>
 </div> 
 
-</div><!-- . sidebar - -->
+</div><!-- sidebar -->
 
 
 <div ng-view></div>

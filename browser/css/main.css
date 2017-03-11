@@ -43,6 +43,10 @@
 .edit_wrap { color: red; cursor: pointer; }
 .alert, .alert-success { width: 75%; }
 
+/* Address */
+.address_info {outline: 1px solid #eee; }
+
+
 /* Groups */
 .table { color: black; background-color: #777; margin-right: 40px; }
 

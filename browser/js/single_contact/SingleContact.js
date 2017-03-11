@@ -21,7 +21,7 @@ $scope.customFullscreen = false;
 getContactsFactory.getContactData($scope.contactID)
 .success(function(data){
   $scope.singleContact = data.contactInfo
-  
+
   for(var i = 0; i < data.contactInfo.length; i++){
     var singleContact = data.contactInfo[i];      
 
@@ -33,9 +33,9 @@ getContactsFactory.getContactData($scope.contactID)
   }
 })
 
-/// - get address detail 
+/// - get address detail
 
-
+      
   getContactsFactory.getAddressData($scope.contactAddress)
   .success(function(data){
     $scope.addressOptions = data.addressInfo
@@ -44,12 +44,10 @@ getContactsFactory.getContactData($scope.contactID)
     for(var i = 0; i < data.addressInfo.length; i++){
       var address = data.addressInfo[i]; 
       var addressId = address.id 
-
       if(addressId === $scope.contactAddress){
         console.log("here is the address", address);
         $scope.address = address;
         $scope.contactAddress = address.address;
-        console.log("here's street1", address.street1)
       }
     }
   })
