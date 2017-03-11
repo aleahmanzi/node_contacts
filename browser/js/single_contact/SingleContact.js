@@ -146,7 +146,7 @@ $scope.newAddress = function(){
   $scope.addressAdded = true;
 }
 
-$scope.createAddress = function(street1, street2, city, state, zip, country){
+$scope.createAddress = function(firstName, lastName, birthday, mobile, workNum, personal, workMail, company, street1, street2, city, state, zip, country){
   var newData = {
     id: $scope.oneAddress.id,
     street1: $scope.street1,
@@ -154,19 +154,31 @@ $scope.createAddress = function(street1, street2, city, state, zip, country){
     city: $scope.city,
     state: $scope.state,
     zip: $scope.zip,
-    country: $scope.country
+    country: $scope.country,
+    contact: $scope.singleContact.id
   }
   console.log("what were passing", newData)
   getContactsFactory.postAddress(newData)
     .success(function(result){
-      console.log("here is the address ID", result.id)
+      console.log("here is the address ID", result)
       $scope.street1 = '';
       $scope.street2 = '';
       $scope.city = '';
       $scope.state = '';
       $scope.zip = '';
       $scope.country = '';
+    
+        var contact = {
+          id: $scope.singleContact.id,
+          address: [$scope.allAddresses.push(result)]
+        };  
+
+        getContactsFactory.editContact($scope.singleContact.id, contact)
+          .success(function(){
+            console.log("here is the contact with ADDRESS", contact)
+        })
     })
+
 }
 
 

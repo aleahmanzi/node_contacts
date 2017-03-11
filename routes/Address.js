@@ -48,6 +48,7 @@ router.post('/', (req, res) => {
       coordinates: req.body.coordinates,
       phone: req.body.phone,
       contact: req.body.contact
+      
     })
     .then(
       addressInfo => res.status(201).json(addressInfo.apiRepr()))
@@ -70,7 +71,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['street1', 'street2', 'city', 'state', 'zip', 'country'];
+  const updateableFields = ['street1', 'street2', 'city', 'state', 'zip', 'country', 'contact'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
