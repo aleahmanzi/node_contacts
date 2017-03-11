@@ -51,6 +51,7 @@ getContactsFactory.getContactData($scope.contactID)
           if(addressId === $scope.contactAddresses[a]){
             $scope.allAddresses.push(address);
             console.log("allAddresses", $scope.allAddresses)
+            $scope.oneAddress = $scope.allAddresses[0];
         }
       }
     }
@@ -106,17 +107,35 @@ $scope.submitContactEdit = function(firstName, lastName, birthday, mobile, workN
 
 /// - edit address
 
-$scope.editAddress = function(allAddresses){
-  console.log("single", $scope.allAddresses)
+$scope.editAddress = function(oneAddress){
+  console.log("single", $scope.oneAddress)
 
-  $scope.street1 = $scope.allAddresses.street1;
-  $scope.street2 = $scope.allAddresses.street2;
-  $scope.city = $scope.allAddresses.city;
-  $scope.state = $scope.allAddresses.state;
-  $scope.zip = $scope.allAddresses.zip;
-  $scope.country = $scope.allAddresses.country;
+  $scope.editAddressGrid = true;
+  $scope.street1 = $scope.oneAddress.street1;
+  $scope.street2 = $scope.oneAddress.street2;
+  $scope.city = $scope.oneAddress.city;
+  $scope.state = $scope.oneAddress.state;
+  $scope.zip = $scope.oneAddress.zip;
+  $scope.country = $scope.oneAddress.country;
 }
 
+
+$scope.submitAddressEdit = function(street1, street2, city, state, zip, country){
+  var address = {
+    id: $scope.oneAddress.id,
+    street1: $scope.street1,
+    street2: $scope.street2,
+    city: $scope.city,
+    state: $scope.state,
+    zip: $scope.zip,
+    country: $scope.country
+  }
+  console.log("what were passing", address)
+  getContactsFactory.editAddress($scope.oneAddress.id, address)
+    .success(function(){
+      console.log("here is the address", address)
+    })
+};
 
 /// - delete contact 
       

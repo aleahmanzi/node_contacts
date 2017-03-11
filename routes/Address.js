@@ -38,6 +38,7 @@ router.post('/', (req, res) => {
 
   addressInfo
     .create({
+      addressID: req.body.id,
       street1: req.body.street1,
       street2: req.body.street2,
       city: req.body.city,
@@ -69,7 +70,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['street1', 'street2', 'city', 'state', 'zip', 'coutry'];
+  const updateableFields = ['street1', 'street2', 'city', 'state', 'zip', 'country'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {

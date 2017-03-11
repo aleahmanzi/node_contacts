@@ -13,7 +13,8 @@ const addressInfo = new Schema({
     locLong: String
   },
   phone: String,
-  contact: [{type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}]
+  contact: [{type: mongoose.Schema.Types.ObjectId, ref: 'contactInfo'}],
+  addressID: String
 });
 
 addressInfo.methods.apiRepr = function() {
