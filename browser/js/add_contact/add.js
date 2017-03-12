@@ -82,7 +82,7 @@ $scope.createContact = function(firstName, lastName, birthday, mobile, workNum, 
         company: $scope.company,
         address: result.id
     } 
-
+    console.log("contact", contact)
     postContactFactory.postContact(contact)
       .then(function(){
         console.log("this is the contact", contact)  

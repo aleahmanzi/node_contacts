@@ -50,19 +50,13 @@ angular.module('myApp').controller('getGroupCtrl',
 
     /// - use data from form to create new group
 
-  $scope.createGroup = function(groupName, groupContacts) {
+  $scope.createGroup = function(groupName) {
 
-    for (var i = 0; i < $scope.contacts.length - 1; i++) {
-        var item = $scope.contacts[i];
-
-        $scope.selected[$scope.contacts.id] = true;
-        $scope.idToAdd = Object.keys($scope.selected);
-      }
       console.log("testing", Object.keys($scope.selected))
 
       var group = { 
         name: $scope.groupName, 
-        contacts: $scope.idToAdd
+        contacts: Object.keys($scope.selected)
       } 
       console.log("group were adding", group)
       getGroupFactory.postGroup(group)
