@@ -53,11 +53,10 @@
               </div>
 
             <div class="availiable_contacts" ng-repeat="contact in contacts | filter: name">
-              <input type="checkbox" class="group_contacts" name="contact" ng-model="name" ng-checked="name" ng-true-value="1" ng-false-value="0">
-                <img class="group_contact" src="../browser/public/blank_photo.png"/>
-                {{ contact.name.firstName }} {{ contact.name.lastName }} {{name}}
-              </input>
-              {{formData}}
+              <label>
+                <input type="checkbox" class="group_contacts" ng-model="selected[contact.id]">
+                <img class="group_contact" src="../browser/public/blank_photo.png"/>{{ contact.name.firstName }} {{ contact.name.lastName }}
+              </label>
             </div>
           </div >
 
@@ -65,7 +64,7 @@
 
         <div>
           <div class="button_wrap">
-            <button class="submit_button" type="text" required ng-click="createGroup(contacts)">Submit</button>
+            <button class="submit_button" type="text" required ng-click="createGroup()">Submit</button>
           </div><!-- . button_wrap - -->
         </div>
       </div><!-- . new_group - -->

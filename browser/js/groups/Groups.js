@@ -13,6 +13,10 @@ $scope.addGroupGrid = false;
 $scope.groupSuccess = false;
 $scope.groupResult = true;
 $scope.groupContacts = [];
+$scope.selected = {};
+$scope.contacts;
+
+
 
 ///- return personal groups
 
@@ -50,26 +54,26 @@ $scope.addGroup = function(){
     });
 };
 
+
   /// - use data from form to create new group
 
-$scope.createGroup = function(groupName, groupContacts, data) {
-  console.log("data", $scope.groupName, $scope.groupContacts);
+$scope.createGroup = function(groupName, groupContacts) {
 
-    for(var i in data){
-      if(data[i] === '1'){
-        console.log("pushing", data)
-        groupContacts.push(data[i].id);
-      }
+  for (var i = 0; i < $scope.contacts.length - 1; i++) {
+      var item = $scope.contacts[i];
+
+      $scope.selected[$scope.contacts.id] = true;
+      $scope.idToAdd = Object.keys($scope.selected);
     }
+    console.log("testing", Object.keys($scope.selected))
 
     var group = { 
       name: $scope.groupName, 
-      contacts: $scope.groupContacts 
+      contacts: $scope.idToAdd
     } 
 
     getGroupFactory.postGroup(group)
       .then(function(){
-        console.log("this is the group", group)  
 
         $scope.groupSuccess = true;
         $scope.addGroupGrid = false;
