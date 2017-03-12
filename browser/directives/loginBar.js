@@ -3,6 +3,7 @@ myApp.directive('loginBar', function(AuthService, Store){
     restrict: 'E',
     templateUrl: 'browser/directives/loginBar.html',
     link: function(scope) {
+      
       scope.isAuthenticated = false;
 
       if(AuthService.isAuthenticated()){

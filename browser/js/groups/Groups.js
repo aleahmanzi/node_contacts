@@ -64,7 +64,7 @@ angular.module('myApp').controller('getGroupCtrl',
         name: $scope.groupName, 
         contacts: $scope.idToAdd
       } 
-
+      console.log("group were adding", group)
       getGroupFactory.postGroup(group)
         .then(function(){
 

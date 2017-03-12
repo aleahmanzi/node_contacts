@@ -25,7 +25,8 @@ myApp.service('AuthService', function($http, $rootScope, $q, Store){
       return Store.user;
     } else {
       console.log('no auth')
-      return $q.reject("not authenticated");
+      $q.reject("not authenticated");
+      return null;
     }
   };
 
