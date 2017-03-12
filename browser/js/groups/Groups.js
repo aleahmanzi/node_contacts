@@ -1,85 +1,79 @@
 angular.module('myApp').controller('getGroupCtrl', 
    function ($scope, getGroupFactory, $routeParams) {
 
-$scope.test = 'Angular is working!'
+  /// - default values
 
-/// - GET group Ctrl
-
-/// - default values
-
-$scope.groupWrap = false;
-$scope.detailsWrap = false;
-$scope.addGroupGrid = false;
-$scope.groupSuccess = false;
-$scope.groupResult = true;
-$scope.groupContacts = [];
-$scope.selected = {};
-$scope.contacts;
-
-
-
-///- return personal groups
-
-  getGroupFactory.getGroups()
-    .success(function(result){
-        $scope.groupWrap = true;
-      console.log(result);
-      $scope.groups = result.groupInfo;
-      console.log("groups", $scope.groups)
-    })
-
-
-/// - POST new group NewGroupCtrl
-
- 
-$scope.group = {
-  name: '',
-  contacts: ''
-}
-
-/// - show form to add group
-
-$scope.addGroup = function(){
-  $scope.groupResult = false;
-  $scope.addGroupGrid = true;
-  $scope.postMessage = false;
+  $scope.groupWrap = false;
   $scope.detailsWrap = false;
-
-  getGroupFactory.getContact()
-    .success(function(result){
-
-      console.log(result);
-      $scope.contacts = result.contactInfo;
-
-    });
-};
+  $scope.addGroupGrid = false;
+  $scope.groupSuccess = false;
+  $scope.groupResult = true;
+  $scope.groupContacts = [];
+  $scope.selected = {};
+  $scope.contacts;
 
 
-  /// - use data from form to create new group
+  ///- return personal groups
 
-$scope.createGroup = function(groupName, groupContacts) {
+    getGroupFactory.getGroups()
+      .success(function(result){
+          $scope.groupWrap = true;
+        console.log(result);
+        $scope.groups = result.groupInfo;
+        console.log("groups", $scope.groups)
+      })
 
-  for (var i = 0; i < $scope.contacts.length - 1; i++) {
-      var item = $scope.contacts[i];
 
-      $scope.selected[$scope.contacts.id] = true;
-      $scope.idToAdd = Object.keys($scope.selected);
-    }
-    console.log("testing", Object.keys($scope.selected))
+  /// - POST new group NewGroupCtrl
+   
+  $scope.group = {
+    name: '',
+    contacts: ''
+  }
 
-    var group = { 
-      name: $scope.groupName, 
-      contacts: $scope.idToAdd
-    } 
 
-    getGroupFactory.postGroup(group)
-      .then(function(){
+  /// - show form to add group
 
-        $scope.groupSuccess = true;
-        $scope.addGroupGrid = false;
-        console.log("here is the new group", group);
-     });
-}
+  $scope.addGroup = function(){
+    $scope.groupResult = false;
+    $scope.addGroupGrid = true;
+    $scope.postMessage = false;
+    $scope.detailsWrap = false;
+
+    getGroupFactory.getContact()
+      .success(function(result){
+        console.log(result);
+        $scope.contacts = result.contactInfo;
+      });
+  };
+
+
+    /// - use data from form to create new group
+
+  $scope.createGroup = function(groupName, groupContacts) {
+
+    for (var i = 0; i < $scope.contacts.length - 1; i++) {
+        var item = $scope.contacts[i];
+
+        $scope.selected[$scope.contacts.id] = true;
+        $scope.idToAdd = Object.keys($scope.selected);
+      }
+      console.log("testing", Object.keys($scope.selected))
+
+      var group = { 
+        name: $scope.groupName, 
+        contacts: $scope.idToAdd
+      } 
+
+      getGroupFactory.postGroup(group)
+        .then(function(){
+
+          $scope.groupSuccess = true;
+          $scope.addGroupGrid = false;
+          console.log("here is the new group", group);
+       });
+  }
+
 
 });
 

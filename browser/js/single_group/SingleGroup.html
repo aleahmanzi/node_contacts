@@ -1,28 +1,65 @@
-  <section class="details_wrap">
+<section class="details_wrap">
 
-    <div>
-      <div>Name: <p>{{ singleGroup.name }}</p></div>
-      <div>Contacts: <p>{{ singleGroup.contacts }}</p></div>
-    </div>
+  <div class="group_details" ng-show="groupDetails">
+    <div>Name: <p>{{ singleGroup.name }}</p></div>
+    <div>Contacts: <p>{{ singleGroup.contacts }}</p></div>
+  </div>
 
-    <div class="edit_group_wrap">
-      <p ng-click="updateGroup()"><button class="btn btn-warning">UPDATE GROUP</button></p>
-      
-      <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-danger"></button></p>
-      <br />
-      <br />
-      <span ng-bind = "Message"></span>
+  <div class="edit_group_wrap" ng-show="editGroupButtons">
+    <p ng-click="updateGroup()"><button class="btn btn-warning">UPDATE GROUP</button></p>
+    
+    <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-danger"></button></p>
+    <br />
+    <br />
+    <span ng-bind = "Message"></span>
 
-    </div><!-- .edit_group_wrap - -->
+  </div><!-- .edit_group_wrap - -->
 
-    <div class="alert alert-success" ng-show="groupDeleted">
-      <strong>Success!</strong> Group has been deleted!
-    </div>
+  <div class="alert alert-success" ng-show="groupDeleted">
+    <strong>Success!</strong> Group has been deleted!
+  </div>
 
 
-    <div class="alert alert-success" ng-show="groupEdited">
-      <strong>Success!</strong> Group has been updated!
-    </div>
+  <div class="alert alert-success" ng-show="groupEdited">
+    <strong>Success!</strong> Group has been updated!
+  </div>
 
-  </section><!-- . details_wrap - -->
+
+
+  <div class="edit_Group" ng-show="editGroupGrid">
+    
+    <form class="form-group" name="editGroup">
+
+      <div class="form-group">
+        <label>Group Name</label>
+        <input type="text" class="form-control" name="groupName" ng-model="groupName"/>
+      </div>
+
+      <div class="form-group">
+        <label>Select Contacts to Add</label>
+
+          <div class="input-group changethisone">
+            <input type="text"  class="form-control" placeholder="Contact Search" ng-model="name"/>
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+          </div>
+
+        <div class="availiable_contacts" ng-repeat="contact in contacts | filter: name">
+          <label>
+            <input type="checkbox" class="group_contacts" ng-model="selected[contact.id]">
+            <img class="group_contact" src="../browser/public/blank_photo.png"/>{{ contact.name.firstName }} {{ contact.name.lastName }}
+          </label>
+        </div>
+      </div >
+
+    </form>  
+
+    <div class="button_wrap">
+      <button class="submit_button" type="text" required ng-click="submitEdit()">Submit</button>
+    </div><!-- button_wrap -->
+
+  </div><!-- new_group -->
+
+</section><!--  details_wrap -->
 

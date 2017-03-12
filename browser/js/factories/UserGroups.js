@@ -44,9 +44,9 @@ angular.module('myApp')
     })
   } 
 
-  fact.editGroup = function(contactID, toUpdate){
+  fact.editGroup = function(groupID, toUpdate){
     return $http ({
-    url: 'http://localhost:8080/contactInfo/' + contactID,
+    url: 'http://localhost:8080/groupInfo/' + groupID,
     dataType: 'JSON',
     method: "PUT", 
     data: toUpdate,
