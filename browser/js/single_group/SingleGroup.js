@@ -4,7 +4,7 @@ angular.module('myApp').controller('GroupDetailsCtrl',
 
 /// - default values
 
-$scope.singleGroup = '';
+$scope.singleGroup;
 $scope.groupID = $routeParams.groupID;
 $scope.groupDeleted = false;
 $scope.groupEdited = false;
@@ -13,6 +13,7 @@ $scope.editGroupButtons = true;
 $scope.groupDetails = true;
 $scope.selected = {};
 $scope.contacts;
+$scope.groupContacts = [];
 
 
 
@@ -24,21 +25,31 @@ getGroupFactory.getGroupData($scope.groupID)
   $scope.singleGroup = data.groupInfo
 
   for(var i = 0; i < data.groupInfo.length; i += 1){
-    var singleGroup = data.groupInfo[i];      
+    $scope.singleGroup = data.groupInfo[i];      
 
-    if(singleGroup.id === $scope.groupID){
-      console.log("here is the single group", singleGroup);
+    if($scope.singleGroup.id === $scope.groupID){
+      console.log("here is the single group", $scope.singleGroup);
     }
   }
-  
-    for(var a=0; a < singleGroup.contacts.length; a++){
-    
-    getGroupFactory.getContact(singleGroup.contacts[a])
+      
+    getGroupFactory.getContact()
     .success(function(result){
       console.log(result);
-      $scope.singleGroup = singleGroup;
+      var contactList = result.contactInfo
+
+      for(var a=0; a < $scope.singleGroup.contacts.length; a++){
+      var groupContact = $scope.singleGroup.contacts[a]
+
+        for(var b=0; b < contactList.length; b++){
+          
+          if(groupContact === contactList[b].id){
+            console.log("match!", contactList[b])
+            $scope.groupContacts.push(contactList[b]);
+            console.log("array of contacts", $scope.groupContacts)
+          }
+        }
+      }
     });
-  }
 })
 
 

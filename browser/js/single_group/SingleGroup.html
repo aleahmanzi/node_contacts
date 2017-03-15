@@ -2,7 +2,15 @@
 
   <div class="group_details" ng-show="groupDetails">
     <div>Name: <p>{{ singleGroup.name }}</p></div>
-    <div>Contacts: <p>{{ singleGroup.contacts }}</p></div>
+    <div ng-repeat="contact in groupContacts" class="group_contact_name">
+      <a>
+        <img src="../browser/public/blank_photo.png"/><br/>
+      </a>
+      <a>
+        <div class="">{{ contact.name.firstName }}</div>
+        <div class="">{{ contact.name.lastName }}</div>
+      </a>  
+    </div>  
   </div>
 
   <div class="edit_group_wrap" ng-show="editGroupButtons">

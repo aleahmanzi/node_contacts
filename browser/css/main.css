@@ -61,6 +61,7 @@
 .group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
 .availiable_contacts { margin-bottom: 25px; }
 .group_contact { height: 100px; border-radius: 50%; }
+.group_contact_name img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
 
 /* Birthdays */
 .birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
