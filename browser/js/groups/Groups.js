@@ -1,5 +1,5 @@
 angular.module('myApp').controller('getGroupCtrl', 
-   function ($scope, getGroupFactory, $routeParams) {
+   function ($scope, getGroupFactory, $routeParams, $route) {
 
   /// - default values
 
@@ -66,7 +66,9 @@ angular.module('myApp').controller('getGroupCtrl',
           $scope.addGroupGrid = false;
           console.log("here is the new group", group);
        });
-  }
+
+      $route.reload();
+    }
 
 
 });
