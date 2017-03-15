@@ -3,9 +3,9 @@
     <div class="new_contact_wrap">
       <form class="form-group" name="addContact">
 
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" class="form-control" name="firstName" ng-model="firstName"/>
+        <div class="form-group form-group has-warning">
+          <label class="control-label" for="inputWarning1">First Name</label>
+          <input type="text" class="form-control" id="inputWarning1" name="firstName" ng-model="firstName" required="true"/>
         </div>
 
         <div class="form-group">
@@ -30,7 +30,7 @@
 
         <div class="form-group"> 
           <label>Personal Email</label>
-          <input type="text" class="form-control" name="personal" ng-model="personal"/>
+          <input type="text" class="form-control" name="personal" ng-model="personal" ng-required="required"/>
         </div>
 
         <div class="form-group">
@@ -45,7 +45,7 @@
 
         <div class="form-group">
           <label>Street1</label>
-          <input type="text" class="form-control" name="street1" ng-model="street1"/>
+          <input type="text" class="form-control" name="street1" ng-model="street1" ng-required="required"/>
         </div>
 
         <div class="form-group">
@@ -55,12 +55,12 @@
 
         <div class="form-group">
           <label>City</label>
-          <input type="text" class="form-control" name="city" ng-model="city"/>
+          <input type="text" class="form-control" name="city" ng-model="city" ng-required="required"/>
         </div>
 
         <div class="form-group"> 
           <label>State</label>
-          <input type="text" class="form-control" name="state" ng-model="state"/>
+          <input type="text" class="form-control" name="state" ng-model="state" ng-required="required"/>
         </div>
 
         <div class="form-group">
@@ -76,7 +76,7 @@
 
       <div>
         <div class="button_wrap">
-          <button class="submit_button" type="text" required ng-click="createContact()">Submit</button>
+          <button class="submit_button" type="text" ng-click="createContact()">Submit</button>
         </div><!-- . submit_button - -->
       </div>
   </div><!-- . new_contact_wrap - -->
