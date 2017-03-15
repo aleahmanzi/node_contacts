@@ -36,7 +36,7 @@ angular.module('myApp')
 
     .when('/contactUpload', {
         templateUrl: './browser/js/upload/upload.html',
-        controller: 'contactUpload',
+        controller: 'UploadCtrl',
         //resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]
     })
 

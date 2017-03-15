@@ -64,7 +64,7 @@ angular.module('myApp')
       data: groupID,
     })
     .success(function(contact) {
-      console.log("contact deleted!", singleGroup)
+      console.log("deleted group")
     })
 
   }

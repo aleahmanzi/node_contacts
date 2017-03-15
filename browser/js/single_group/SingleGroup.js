@@ -44,7 +44,7 @@ $scope.ShowGroupConfirm = function () {
 
       getGroupFactory.deleteGroup($scope.singleGroup.id)
         .success(function(){
-           $scope.contactDeleted = true;
+           $scope.groupDeleted = true;
         });
     } 
 }
@@ -56,7 +56,7 @@ $scope.updateGroup = function(){
   $scope.editGroupGrid = true;
   $scope.editGroupButtons = false;
   $scope.groupDetails = false;
-  $scope.groupName = $scope.singleGroup.groupName;
+  $scope.groupName = $scope.singleGroup.name;
   $scope.contacts = $scope.singleGroup.contacts;
 
     getGroupFactory.getContact()
@@ -67,24 +67,20 @@ $scope.updateGroup = function(){
 }
 
 $scope.submitEdit = function(groupName, contacts){
-   for (var i = 0; i < $scope.contacts.length - 1; i++) {
-          var item = $scope.contacts[i];
 
-          $scope.selected[$scope.contacts.id] = true;
-          $scope.idToAdd = Object.keys($scope.selected);
-        }
-        console.log("testing", Object.keys($scope.selected))
-
+  console.log("testing", Object.keys($scope.selected))
   var group = {
     id: $scope.singleGroup.id,
     name: $scope.groupName,
-    contacts: $scope.idToAdd
+    contacts: Object.keys($scope.selected)
   }
   console.log("here is the group before the request", group)
   
   getGroupFactory.editGroup($scope.singleGroup.id, group)
     .success(function(){
       console.log("here's the updated group", group)
+      $scope.editGroupGrid = false;
+      $scope.groupEdited = true;
     })
 }
 
