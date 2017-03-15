@@ -29,6 +29,18 @@ angular.module('myApp')
     })
   }
 
+  fact.editAddress = function(addressID, addressUpdate){
+    return $http ({
+    url: 'http://localhost:8080/addressInfo/' + addressID,
+    dataType: 'JSON',
+    method: "PUT", 
+    data: addressUpdate,
+  })
+  .success(function(address) {
+    console.log("address edited!", address)
+  })
+}
+
   return fact;
 
 })

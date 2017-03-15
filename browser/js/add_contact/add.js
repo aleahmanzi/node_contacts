@@ -64,6 +64,7 @@ $scope.createContact = function(firstName, lastName, birthday, mobile, workNum, 
 
 
     var contact = {
+      id: "",
       name: {
           firstName: $scope.firstName,
           lastName: $scope.lastName
@@ -81,11 +82,12 @@ $scope.createContact = function(firstName, lastName, birthday, mobile, workNum, 
         },
         company: $scope.company,
         address: result.id
-    } 
-    console.log("contact", contact)
+    }
+
     postContactFactory.postContact(contact)
-      .then(function(){
-        console.log("this is the contact", contact)  
+      .then(function(contact){
+        $scope.updatedContact = contact.contactInfo;
+        console.log("contact", contact.data.id)
         $scope.contactCreated = true;
         $scope.firstName = '';
         $scope.lastName = '';
@@ -95,10 +97,23 @@ $scope.createContact = function(firstName, lastName, birthday, mobile, workNum, 
         $scope.workNum = '';
         $scope.workMail = '';
         $scope.company = '';
+          
+    var updatedAdd = {
+      id: contact.data.address[0],
+      contact: contact.data.id
+    }
 
+    postContactFactory.editAddress(contact.data.address, updatedAdd)
+      .success(function(data) {              
+        console.log("updatedAdd", data);
+      });
      }); 
   });
 };
+
+
+
+
 });
 
 
