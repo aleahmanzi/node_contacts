@@ -18,6 +18,7 @@ $scope.editAddressGrid = false;
 $scope.addressAdded = false;
 $scope.addressSuccess = false;
 $scope.allAddresses = [];
+$scope.addressEdited = false;
 
 
 /// - get contact detail
@@ -135,6 +136,9 @@ $scope.submitAddressEdit = function(street1, street2, city, state, zip, country)
   getContactsFactory.editAddress($scope.oneAddress.id, address)
     .success(function(){
       console.log("here is the address", address)
+      $scope.addressEdited = true;
+      $scope.editAddressGrid = false;
+
     })
 };
 
