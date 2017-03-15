@@ -4,7 +4,7 @@
 
     <div class="contact_pic_wrap">
       <div class="contact_pic">
-        <img src="../browser/public/blank_photo.png">
+        <img class="contact_photo" src="../browser/public/blank_photo.png">
       </div>
     </div><!-- . contact_pic_wrap - -->
 
@@ -229,6 +229,13 @@
   <div class="alert alert-success" ng-show="addressSuccess">
     <strong>Success!</strong> Address has been added!
   </div>
+
+
+
+<input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
+<img id="imgElem"></img>
+
+
 
   </section><!-- . details_wrap - -->
 

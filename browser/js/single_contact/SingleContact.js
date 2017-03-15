@@ -199,5 +199,29 @@ $scope.ShowConfirm = function () {
     } 
 }
 
+
+
+
+/// - upload photo
+
+
+$scope.handleFile = function(e){
+
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    image = reader.result;
+    console.log("img", reader.result)
+    imgElem.setAttribute('src', image);
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+    console.log("not a img")
+  }
+}  
+
   
 })
