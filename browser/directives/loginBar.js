@@ -9,8 +9,8 @@ myApp.directive('loginBar', function(AuthService, Store){
       if(AuthService.isAuthenticated()){
         scope.isAuthenticated = true;
         scope.user = Store.user;
-        scope.user = scope.user.data;
-        console.log("user email", scope.user.userEmail)
+        scope.userData = scope.user.data.user;
+        console.log("user email", scope.userData.email)
       } else {
         AuthService.getLoggedInUser()
           .then(function(res){
