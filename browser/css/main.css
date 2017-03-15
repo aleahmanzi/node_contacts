@@ -24,7 +24,7 @@
 
 /* Contacts */
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
-.add_contact_button, .submit_button, .add_group_button { background-color: #F2635F; }
+.add_contact_button, .submit_button { background-color: #F2635F; }
 
 .input-group { margin-left: 30px; width: 75%; padding-bottom: 25px; }
 
@@ -43,6 +43,7 @@
 
 .edit_wrap { color: red; cursor: pointer; }
 .alert, .alert-success { width: 75%; }
+.button_wrap { margin-bottom: 25px; }
 
 /* Address */
 .address_wrap { outline: 0px solid black; display: inline-block; }
@@ -66,8 +67,9 @@
 .birthday_pic { outline: 0px solid black; width: 95%; }
 .birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
 .birthday_contact p { display: inline-block; }
+.add_group_button { margin-bottom: 25px; }
 
-
+/* upload */
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }

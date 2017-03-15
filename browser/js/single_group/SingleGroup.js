@@ -24,14 +24,20 @@ getGroupFactory.getGroupData($scope.groupID)
   $scope.singleGroup = data.groupInfo
 
   for(var i = 0; i < data.groupInfo.length; i += 1){
-    var singleGroup = data.groupInfo[i];      console.log(singleGroup);
+    var singleGroup = data.groupInfo[i];      
 
     if(singleGroup.id === $scope.groupID){
       console.log("here is the single group", singleGroup);
-      $scope.singleGroup = singleGroup;
-      return singleGroup;
-
     }
+  }
+  
+    for(var a=0; a < singleGroup.contacts.length; a++){
+    
+    getGroupFactory.getContact(singleGroup.contacts[a])
+    .success(function(result){
+      console.log(result);
+      $scope.singleGroup = singleGroup;
+    });
   }
 })
 

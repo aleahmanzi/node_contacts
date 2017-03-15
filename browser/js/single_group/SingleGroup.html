@@ -6,9 +6,9 @@
   </div>
 
   <div class="edit_group_wrap" ng-show="editGroupButtons">
-    <p ng-click="updateGroup()"><button class="btn btn-warning">UPDATE GROUP</button></p>
+    <p ng-click="updateGroup()"><button class="btn btn-default">UPDATE GROUP</button></p>
     
-    <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-danger"></button></p>
+    <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-default"></button></p>
     <br />
     <br />
     <span ng-bind = "Message"></span>
@@ -56,7 +56,7 @@
     </form>  
 
     <div class="button_wrap">
-      <button class="submit_button" type="text" required ng-click="submitEdit()">Submit</button>
+      <button class="btn btn-default" type="text" required ng-click="submitEdit()">Submit</button>
     </div><!-- button_wrap -->
 
   </div><!-- new_group -->

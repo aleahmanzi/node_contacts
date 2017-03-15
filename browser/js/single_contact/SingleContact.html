@@ -28,7 +28,7 @@
   <!-- edit button -->
 
     <div class="edit_wrap">
-      <p ng-click="updateContact()"><button class="btn btn-warning">UPDATE CONTACT</button></p>
+      <p ng-click="updateContact()"><button class="btn btn-default">UPDATE</button></p>
     </div><!-- .edit_wrap - -->
 
   <!-- address data -->
@@ -65,7 +65,7 @@
 
     <div class="edit_wrap">
       
-      <p ng-click="ShowConfirm()"><input type="button" value="DELETE CONTACT" class="btn btn-danger"></button></p>
+      <p ng-click="ShowConfirm()"><input type="button" value="DELETE" class="btn btn-default"></button></p>
       <br />
       <br />
       <span ng-bind = "Message"></span>
@@ -131,7 +131,7 @@
       </form>
 
       <div class="button_wrap">
-        <button class="btn btn-primary" type="submit" required ng-click="submitContactEdit()">Submit</button>
+        <button class="btn btn-default" type="submit" required ng-click="submitContactEdit()">Submit</button>
       </div><!-- . submit_button - -->
 
   </div><!-- . edit_contact_wrap - -->
@@ -174,7 +174,7 @@
       </form>
 
       <div class="button_wrap">
-        <button class="btn btn-primary" type="submit" required ng-click="submitAddressEdit()">Submit</button>
+        <button class="btn btn-default" type="submit" required ng-click="submitAddressEdit()">Submit</button>
       </div><!-- submit_button -->
 
   <!-- new address grid -->
@@ -217,7 +217,7 @@
 
       <div>
         <div class="button_wrap">
-          <button class="submit_button" type="text" required ng-click="createAddress()">Submit</button>
+          <button class="submit_button btn btn-default" type="text" required ng-click="createAddress()">Submit</button>
         </div><!-- . submit_button - -->
       </div>
   </div><!-- . new_address_wrap - -->
