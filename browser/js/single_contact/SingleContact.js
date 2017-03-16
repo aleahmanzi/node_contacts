@@ -206,21 +206,14 @@ $scope.ShowConfirm = function () {
 
 
 $scope.handleFile = function(e){
-
-  var preview = document.querySelector('img');
-  var file    = document.querySelector('input[type=file]').files[0];
   var reader  = new FileReader();
-
   reader.addEventListener("load", function () {
+      console.log("got hererrrrrr!!!!!!")
     image = reader.result;
-    console.log("img", reader.result)
-    imgElem.setAttribute('src', image);
-  }, false);
 
-  if (file) {
-    reader.readAsDataURL(file);
-    console.log("not a img")
-  }
+    console.log("img", image)
+    imgElem.setAttribute('src', image.toString());
+  }, false);
 }  
 
   

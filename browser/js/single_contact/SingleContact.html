@@ -3,10 +3,23 @@
   <!-- contact photo -->
 
     <div class="contact_pic_wrap">
+      
       <div class="contact_pic">
-        <img class="contact_photo" src="../browser/public/blank_photo.png">
+        <!-- /<img src="../browser/public/blank_photo.png"><br/> -->
+        <i class="fa fa-upload upload_image" aria-hidden="true" ng-click="uploadImg()"></i>
       </div>
+
+      <div class='img_upload'>
+        <input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
+        <img id="imgElem">
+      </div>
+
     </div><!-- . contact_pic_wrap - -->
+
+
+
+
+
 
   <!-- contact basic data -->
 
@@ -229,13 +242,6 @@
   <div class="alert alert-success" ng-show="addressSuccess">
     <strong>Success!</strong> Address has been added!
   </div>
-
-
-
-<input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
-<img id="imgElem"></img>
-
-
 
   </section><!-- . details_wrap - -->
 
