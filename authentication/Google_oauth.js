@@ -24,6 +24,8 @@ passport.use(new GoogleStrategy({
   
   function(accessToken, refreshToken, profile, done) {
 
+    console.log("the entire structure ", profile);
+
     userInfo.findOne({'email': profile._json.email}).exec()
 
       .then(function (user) {
@@ -56,6 +58,7 @@ passport.use(new GoogleStrategy({
 
 router.get('/', passport.authenticate('google', { 
 	scope: [
+	'https://www.googleapis.com/auth/plus.login',
 	'https://www.googleapis.com/auth/userinfo.email'
 	]
 	}));
