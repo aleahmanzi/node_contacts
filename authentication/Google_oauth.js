@@ -23,18 +23,23 @@ passport.use(new GoogleStrategy({
   },
   
   function(accessToken, refreshToken, profile, done) {
+            
+    console.log("then entire structure", profile)
 
     userInfo.findOne({'email': profile._json.email}).exec()
 
       .then(function (user) {
 
         if (user) {
+          console.log("old user entire structure", profile)
           return user;
           
         } else {
+          console.log("old user entire structure", profile)
           return userInfo.create({
             name: profile.name.givenName,
             email: profile.emails[0].value,
+            picture: profile.picture,
             google: {
               id: profile.id
             }
@@ -56,6 +61,7 @@ passport.use(new GoogleStrategy({
 
 router.get('/', passport.authenticate('google', { 
 	scope: [
+  'https://www.googleapis.com/auth/plus.login',
 	'https://www.googleapis.com/auth/userinfo.email'
 	]
 	}));
