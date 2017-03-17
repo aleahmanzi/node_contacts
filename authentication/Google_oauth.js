@@ -22,20 +22,19 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://127.0.0.1:8080/auth/google/callback",
   },
   
+
   function(accessToken, refreshToken, profile, done) {
-            
-    console.log("then entire structure", profile)
+    
+    console.log("the entire structure ", profile);
 
     userInfo.findOne({'email': profile._json.email}).exec()
 
       .then(function (user) {
 
         if (user) {
-          console.log("old user entire structure", profile)
           return user;
           
         } else {
-          console.log("old user entire structure", profile)
           return userInfo.create({
             name: profile.name.givenName,
             email: profile.emails[0].value,

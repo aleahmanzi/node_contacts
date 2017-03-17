@@ -40,6 +40,8 @@
 <!-- regular nav -->
 
 <div ng-controller="CollapseDemoCtrl">
+<span ng-init="myDialog()"></span>
+
 
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
@@ -59,7 +61,6 @@
       </ul>
     </div>
   </nav>
-  <login-bar></login-bar>
 </div>
 
 
@@ -71,6 +72,7 @@
   <div class="user">
     <div class="profilePic">
       <div class="profile_img_wrap">
+        <div>{{imgUrl}}</div>
         <img src="../browser/public/blank_photo.png">
       </div>
     </div>
@@ -110,7 +112,12 @@
   </div>
 </div> 
 
-</div><!-- sidebar -->
+</div><!-- LOGIN -->
+
+<login-bar class="login_bar"></login-bar>
+
+{{userData.picture}}
+
 
 
 <div ng-view></div>

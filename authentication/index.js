@@ -33,6 +33,7 @@ module.exports = function(app) {
       res.status(200).send({user: req.user});
     } else {
       res.status(404).send();
+
     }
   });
 

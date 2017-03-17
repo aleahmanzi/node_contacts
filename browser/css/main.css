@@ -22,6 +22,7 @@
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
 
 
+
 /* Contacts */
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
 .add_contact_button, .submit_button { background-color: #F2635F; }
@@ -77,7 +78,7 @@
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
 	.navbar { width: 80%; float: right; }
 	.login_wrap { float: right; }
-	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap { width: 75%; float: right; }
+	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap, .login_bar { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
 
 }

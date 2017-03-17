@@ -1,4 +1,4 @@
-myApp.directive('loginBar', function(AuthService, Store){  
+myApp.directive('loginBar', function(AuthService, Store, $location){  
   return {
     restrict: 'E',
     templateUrl: 'browser/directives/loginBar.html',
@@ -11,6 +11,7 @@ myApp.directive('loginBar', function(AuthService, Store){
         scope.user = Store.user;
         scope.userData = scope.user.data.user;
         console.log("user", scope.userData)
+        $location.path("/contactInfo")
       } else {
         AuthService.getLoggedInUser()
           .then(function(res){
@@ -18,6 +19,7 @@ myApp.directive('loginBar', function(AuthService, Store){
             if(res.data.user) {
               scope.isAuthenticated = true;
               scope.user = res.data.user;
+              $location.path("/contactInfo")
             }
           })
       }

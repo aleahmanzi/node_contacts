@@ -5,8 +5,6 @@ const userInfo = new Schema({
     firstName: String,
     lastName: String
   },
-  username: String,
-  password: String,
   email: String,
   picture: String,
   coordinates: {
