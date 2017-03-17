@@ -37,6 +37,8 @@
 	
 <!-- HEADER NAV -->
 
+<!-- regular nav -->
+
 <div ng-controller="CollapseDemoCtrl">
   <nav class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
@@ -74,6 +76,35 @@
     </div>
   </nav>
   <login-bar></login-bar>
+</div>
+
+<!-- dropdown nav -->
+
+<div class="dropdown clearfix" ng-class="{open: open}">
+  <a class="btn dropdown-toggle" href="#" ng-click="open=!open">DROPDOWN<span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    <li class="active">
+      <a ng-href="#/home">
+        <span class="menuText">Home</span>
+      </a>
+    </li>   
+
+    <li>
+      <a ng-href="#/contactInfo">
+        <span class="menuText">Contacts</span>
+      </a>
+    </li>       
+    <li>
+      <a ng-href="#/groupInfo">
+        <span class="menuText">Groups</span>
+      </a>  
+    </li> 
+    <li>
+      <a ng-href="#/contactUpload">
+        <span class="menuText">Upload Contacts</span>
+      </a>  
+    </li>  
+  </ul>
 </div>
 
 <!-- SIDEBAR -->
@@ -123,7 +154,6 @@
 </div> 
 
 </div><!-- sidebar -->
-
 
 
 <div ng-view></div>
