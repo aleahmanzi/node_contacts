@@ -3,9 +3,9 @@
     <div class="new_contact_wrap">
       <form class="form-group" name="addContact">
 
-        <div class="form-group input-group">
+        <div class="form-group input-group control-label">
           <span class="input-group-addon"><label class="fa fa-user fa-10x"></label></span>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="First Name" name="firstName" ng-model="firstName" required="true"/>
+          <input type="text" class="form-control" id="exampleInputEmail1 inputWarning1" placeholder="First Name" name="firstName" ng-model="firstName" required/>
         </div>
 
         <div class="form-group input-group">
@@ -30,12 +30,12 @@
 
         <div class="form-group input-group"> 
           <span class="input-group-addon"><label class="fa fa-envelope fa-10x"></label></span>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Personal Email" required="required" name="personal" ng-model="personal"/>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Personal Email" name="personal" ng-model="personal"/>
         </div>
 
         <div class="form-group input-group">
           <span class="input-group-addon"><label class="fa fa-envelope fa-10x"></label></span>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Work Email" required="required" name="workMail" ng-model="workMail"/>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Work Email" name="workMail" ng-model="workMail"/>
         </div>
 
         <div class="form-group input-group">
@@ -45,7 +45,7 @@
 
         <div class="form-group input-group">
           <span class="input-group-addon"><label class="fa fa-map-marker fa-10x"></label></span>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Street1" name="street1" ng-model="street1" ng-required="required"/>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Street1" name="street1" ng-model="street1" required/>
         </div>
 
         <div class="form-group input-group">
@@ -55,12 +55,12 @@
 
         <div class="form-group input-group">
           <span class="input-group-addon"><label class="fa fa-map-marker fa-10x"></label></span>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="City" name="city" ng-model="city" ng-required="required"/>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="City" name="city" ng-model="city" required/>
         </div>
 
         <div class="form-group input-group"> 
           <span class="input-group-addon"><label class="fa fa-map-marker fa-10x"></label></span>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="State" name="state" ng-model="state" ng-required="required"/>
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="State" name="state" ng-model="state" required/>
         </div>
 
         <div class="form-group input-group">
@@ -72,13 +72,15 @@
           <span class="input-group-addon"><label class="fa fa-map-marker fa-10x"></label></span>
           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Country" name="country" ng-model="country"/>
         </div>
+
+        <div>
+          <div class="button_wrap">
+            <button class="submit_button btn btn-default" type="submit" ng-click="createContact()">Submit</button>
+          </div><!-- . submit_button - -->
+        </div>
       </form>
 
-      <div>
-        <div class="button_wrap">
-          <button class="submit_button btn btn-default" type="button" ng-click="createContact()">Submit</button>
-        </div><!-- . submit_button - -->
-      </div>
+
   </div><!-- . new_contact_wrap - -->
 
   <div class="alert alert-success" ng-show="contactCreated">

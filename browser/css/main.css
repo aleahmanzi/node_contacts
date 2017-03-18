@@ -46,6 +46,7 @@
 .alert, .alert-success { width: 75%; }
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
+.form-group .required .control-label:after { content:"*";color:red; }
 
 /* Address */
 .address_wrap { outline: 0px solid black; display: inline-block; }

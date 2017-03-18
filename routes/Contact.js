@@ -46,7 +46,7 @@ router.get('/:userId', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  const requiredFields = ['name', 'email'];
+  const requiredFields = ['name'];
   requiredFields.forEach(field => {
     if (! (field in req.body && req.body[field])) {
       return res.status(400).json({message: `Must specify value for ${field}`});
