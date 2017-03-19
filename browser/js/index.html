@@ -35,13 +35,11 @@
 
 
 </head>
-<body>
+<body ng-controller="CollapseDemoCtrl">
 	
 <!-- HEADER NAV -->
 
-<!-- regular nav -->
-
-<div ng-controller="CollapseDemoCtrl">
+<div>
 <span ng-init="myDialog()"></span>
 
 
@@ -56,11 +54,14 @@
     </div>
     <div class="collapse navbar-collapse" data-toggle="collapse" data-target=".navbar-responsive-collapse" uib-collapse="isNavCollapsed">
       <ul class="nav navbar-nav">
-        <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/home">Home<span class="sr-only menuText">(current)</span></a></li> 
         <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/contactInfo">Contacts<span class="sr-only">(current)</span></a></li> 
-        <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/groupInfo">Groups<span class="sr-only">(current)</span></a></li> 
+        <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/groupInfo">Groups<span class="sr-only">(current)</span></a></li>
+        <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/activity">Activity<span class="sr-only menuText">(current)</span></a></li> 
         <li class="active navlist visible-xs-block" ng-click="isNavCollapsed = !isNavCollapsed"><a class="clink" ng-href="#/contactUpload">Upload Contacts<span class="sr-only">(current)</span></a></li>         
       </ul>
+    </div>
+    <div class="login">
+      <login-bar class="login_bar" ng-click="hideMsg()"></login-bar>
     </div>
   </nav>
 </div>
@@ -113,9 +114,17 @@
     </div>
   </div>
 </div> 
-<login-bar class="login_bar"></login-bar>
 
 </div>
+
+<!-- LOGIN -->
+
+<div class="login_msg" ng-show="login_msg">
+  <div class="login_wording">
+    <p>Please login to access your personal contacts and information!</p>
+  </div>
+</div>
+
 
 
 

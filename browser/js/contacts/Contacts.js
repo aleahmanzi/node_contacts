@@ -1,5 +1,5 @@
 angular.module('myApp').controller('Ctrl', 
-   function ($scope, getContactsFactory, $routeParams) {
+   function ($scope, getContactsFactory, $routeParams, $rootScope) {
 
 /// - default values
 
@@ -7,8 +7,7 @@ $scope.contactGrid = false;
 $scope.resultWrap = false;
 $scope.detailsWrap = false;
 $scope.postMessage = false;
-
-
+$rootScope.login_msg = false;
 $scope.contacts = [];
 $scope.contactID = [];
 $scope.contactID = ''

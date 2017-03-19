@@ -4,7 +4,13 @@
 .plus_wrap { outline: 0px solid black; float: right; width: 50px; height: 50px;  margin-bottom: 50px; }
 .plus_img_wrap { outline: 0px solid blue; width: 40px; margin-bottom: 20px; margin: 0 auto; height: 50px; }
 .contact_plus { cursor: pointer; color: #ff4400; margin-left: 7px; font-size: 40px; }
-.login_wrap { float: right; }
+.login { z-index: -100;  }
+.login_wrap { float: right; margin-top: 25px; }
+.login_msg { width: 90%; margin-left: 15px; text-align: center; margin-top: 75px; position: fixed; z-index: -100; }
+.login_wording { outline: 1px solid #eee; background-color: #eee; width: 300px; height: 200px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; margin: 0 auto; padding-top: 45px; }
+.login_wording p { font-family: Arvo; font-size: 25px; }
+.navbar-nav { width: 150px; }
+
 
 /* Sidebar */
 
@@ -22,8 +28,8 @@
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
 
 
-
 /* Contacts */
+
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; font-family: Oswald;}
 
 .add_contact_button, .submit_button { background-color: #F2635F; }
@@ -38,6 +44,7 @@
 
 
 /* Single Contact */
+
 .page_header { font-family: Arvo; font-size: 20px; }
 .contact_pic_wrap { outline: 0px solid blue; width: 95%; margin-left: 20px; }
 .contact_pic { outline: 0px solid black; width: 200px; margin: 0 auto; padding-top: 30px; }
@@ -63,14 +70,19 @@
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
 
+
 /* CSV Page */
+
 .upload_wrap { font-family: Oswald; width: 90%; margin-left: 15px; }
+.csv_body { font-size: 15px; }
 .csv_header { font-family: Arvo; font-size: 20px; }
 .header_list {outline: 1px solid #eee; background-color: #eee; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; height: 250px; -webkit-column-count: 2; padding-top: 15px; }
-.header_list p { margin-left: 10px; }
+.header_list p { margin-left: 10px; font-size: 15px; }
 .upload { margin-bottom: 15px; }
 
+
 /* Groups */
+
 .table { color: black; background-color: #777; margin-right: 40px; }
 
 .group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; font-size: 15px; }
@@ -81,7 +93,9 @@
 .group_contact { height: 100px; border-radius: 50%; }
 .group_contact_name img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
 
+
 /* Group Details*/
+
 .details_wrap { width: 95%; margin-left: 25px; }
 .group_details { font-family: Oswald; }
 .group_details p { font-family: Arvo; font-size: 20px; outline: 0px solid red; }
@@ -90,8 +104,10 @@
 .edit_group_wrap { margin-top: 25px; outline: 0px solid red; height: 200px; }
 .edit_group_wrap input { margin: 0 auto; }
 
+
 /* Activity */
-.birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; font-size: 15px; }
+
+.birthday_wrap { outline: 0px solid blue; width: 90%; margin-left: 15px; font-size: 15px; }
 .birthday_title { font-family: Arvo; }
 .birthday_results { display: inline-block; font-family: Oswald; margin-left: 30px; }
 .birthday_pic { outline: 0px solid black; width: 95%; }
@@ -100,13 +116,12 @@
 .add_group_button { margin-bottom: 25px; }
 
 
-
+/* @media */
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
-	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap, .login_bar { width: 75%; float: right; }
+	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
-
 }
 
 
