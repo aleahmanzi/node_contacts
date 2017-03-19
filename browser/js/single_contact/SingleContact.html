@@ -21,55 +21,53 @@
 
     </div><!-- . contact_pic_wrap - -->
 
-<div class="info_wrap">
+<div class="all_info">
+  <div class="info_wrap">
 
+    <!-- contact basic data -->
 
-  <!-- contact basic data -->
+      <div class="core_data_wrap">
 
-    <div class="core_data_wrap">
-
-      <div class="edit_icon"  ng-click="updateContact()">
-        <img src="../browser/public/edit.svg" />
-      </div>
-
-      <div class="data_elements">
-        <div class="element">Birthday: <span class="data">{{ singleContact.birthday.date | date: MM:dd}}</span></div>
-        <div class="element">Mobile: <span class="data">{{ singleContact.phoneNumber.mobile }}</span></div>
-        <div class="element">Work: <span class="data">{{ singleContact.phoneNumber.workNum }}</span></div>
-        <div class="element">Personal: <span class="data">{{ singleContact.email.personal }}</span></div>
-        <div class="element">Work: <span class="data">{{ singleContact.email.workMail }}</span></div>
-        <div class="element">Company:<span class="data">{{ singleContact.company }}</span></div>
-      </div>
-    </div><!-- .core_data_wrap - -->
-  
-
-
-  <!-- address data -->
-
-    <div class="address_wrap" >
-
-      <div class="address_info" ng-repeat="address in allAddresses">
-
-        <div class="edit_icon"  ng-click="editAddress()">
+        <div class="edit_icon"  ng-click="updateContact()">
           <img src="../browser/public/edit.svg" />
         </div>
 
-        <div ng-show="addressDetails">
-          <div class="data_elements">
-            <div class="element">Street1:<span class="data"> {{ address.street1 }}</span></div>
-            <div class="element">Street2: <span class="data">{{ address.street2 }}</span></div>
-            <div class="element">City: <span class="data">{{ address.city }}</span></div>
-            <div class="element">State:<span class="data">{{ address.state }}</span></div>
-            <div class="element">Zip: <span class="data">{{ address.zip }}</span></div>
-            <div class="element">Country: <span class="data">{{ address.country }}</span></div>
-           </div> 
+        <div class="data_elements">
+          <div class="element">Birthday: <span class="data">{{ singleContact.birthday.date | date: MM:dd}}</span></div>
+          <div class="element">Mobile: <span class="data">{{ singleContact.phoneNumber.mobile }}</span></div>
+          <div class="element">Work: <span class="data">{{ singleContact.phoneNumber.workNum }}</span></div>
+          <div class="element">Personal: <span class="data">{{ singleContact.email.personal }}</span></div>
+          <div class="element">Work: <span class="data">{{ singleContact.email.workMail }}</span></div>
+          <div class="element">Company:<span class="data">{{ singleContact.company }}</span></div>
         </div>
-      </div><!-- address_info -->
+      </div><!-- .core_data_wrap - -->
 
-    </div><!-- address_wrap -->
+    <!-- address data -->
 
-</div> <!-- info_wrap -->
+      <div class="address_wrap" >
 
+        <div class="address_info" ng-repeat="address in allAddresses">
+
+          <div class="edit_icon"  ng-click="editAddress()">
+            <img src="../browser/public/edit.svg" />
+          </div>
+
+          <div ng-show="addressDetails">
+            <div class="data_elements">
+              <div class="element">Street1:<span class="data"> {{ address.street1 }}</span></div>
+              <div class="element">Street2: <span class="data">{{ address.street2 }}</span></div>
+              <div class="element">City: <span class="data">{{ address.city }}</span></div>
+              <div class="element">State:<span class="data">{{ address.state }}</span></div>
+              <div class="element">Zip: <span class="data">{{ address.zip }}</span></div>
+              <div class="element">Country: <span class="data">{{ address.country }}</span></div>
+             </div> 
+          </div>
+        </div><!-- address_info -->
+
+      </div><!-- address_wrap -->
+
+  </div> <!-- info_wrap -->
+</div> <!-- all_info  -->
 
     <div class="add_wrap">
       <div class="add_info">

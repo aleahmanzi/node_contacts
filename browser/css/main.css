@@ -1,6 +1,3 @@
-.btn { color: #F2A104; }
-.btn { color: #73A2C0; }
-
 /* Header */
 .navbar { background-color: #e6e2e8; height: 50px; }
 .navbar-header { float: left; padding-left: 10px; }
@@ -42,16 +39,17 @@
 
 /* Single Contact */
 
-.contact_pic_wrap { outline: 0px solid blue; width: 90%; margin-left: 20px; }
+.contact_pic_wrap { outline: 0px solid blue; width: 95%; margin-left: 20px; }
 .contact_pic { outline: 0px solid black; width: 200px; margin: 0 auto; padding-top: 30px; }
 .contact_pic img { outline: 0px solid red; height: 150px; border-radius: 50%; margin-left: 25px; }
 .name { outline: 0px solid black; font-size: 25px; }
 .name p { margin: 0 auto; }
 
-.info_wrap { display: inline-block; outline: 0px solid red; widht: 90%; margin-left: 40px; font-family: Oswald; margin-top: 25px; }
-.core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; outline: 1px solid #eee; background-color: #eee; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; display: inline-block;}
+.all_info { outline: 0px solid blue; width: 90%; margin-top: 25px; display: inline-block; }
+.info_wrap { outline: 0px solid red; font-family: Oswald; margin: 0 auto; width: 100%; }
+.core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; outline: 1px solid #eee; background-color: #eee; width: 250px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; display: inline-block; }
 .address_wrap { outline: 0px solid blue; display: inline-block; }
-.address_info {outline: 1px solid #eee; background-color: #eee; margin-right: 25px; display: inline-block; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; }
+.address_info {outline: 1px solid #eee; background-color: #eee; margin-right: 25px; display: inline-block; width: 250px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; }
 .edit_icon { outline: 0px solid red; width: 25px; float: right; cursor: pointer;}
 .edit_icon img { height: 15px; }
 .add_wrap { outline: 0px solid red; cursor: pointer; width: 90%; margin-left: 25px; margin-bottom: 20px; }
@@ -65,7 +63,12 @@
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
 
-
+/* CSV Page */
+.upload_wrap { font-family: Oswald; width: 90%; margin-left: 15px; }
+.csv_header { font-family: Arvo; font-size: 20px; }
+.header_list {outline: 1px solid #eee; background-color: #eee; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; height: 250px; -webkit-column-count: 2; padding-top: 15px; }
+.header_list p { margin-left: 10px; }
+.upload { margin-bottom: 15px; }
 
 /* Groups */
 .table { color: black; background-color: #777; margin-right: 40px; }
@@ -85,12 +88,11 @@
 .birthday_contact p { display: inline-block; }
 .add_group_button { margin-bottom: 25px; }
 
-/* upload */
+
+
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
-	.navbar { width: 80%; float: right; }
-	.login_wrap { float: right; }
 	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap, .login_bar { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
 

@@ -1,6 +1,24 @@
 <section class="upload_wrap">
+  <p class="csv_header"><b>File Upload</b></p>	
+  <p>This section gives you the ability to upload a CSV file of all your contacts at once.  Be sure to include headers for all data elements into your file or it will likely fail!  Below is a list of all required headers!</p>
+  <div class="header_list">
+	  <p class="data">First Name</p>
+	  <p class="data">Last Name</p>
+	  <p class="data">Birthday</p>
+	  <p class="data">Mobile Number</p>
+	  <p class="data">Work Number</p>
+	  <p class="data">Personal Email</p>
+	  <p class="data">Work Email</p>
+	  <p class="data">Company</p>
+	  <p class="data">Street 1</p>
+	  <p class="data">Street 2</p>
+	  <p class="data">City</p>
+	  <p class="data">State</p>
+	  <p class="data">Zip</p>
+	  <p class="data">Country</p>
+  </div>
+
   <input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
 
   <button class=" upload_button btn btn-default" type="button" ng-click="csvJson()">Upload</button>
-  <p>Ensuring your CSV format looks like this...</p>
 </section><!-- . upload_wrap - -->
