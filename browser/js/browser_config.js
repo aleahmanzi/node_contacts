@@ -4,7 +4,7 @@ angular.module('myApp')
 
  .config(['$routeProvider', function($routeProvider){
     $routeProvider
-    .when('/home', {
+    .when('/activity', {
         templateUrl: './browser/js/home/home.html',
         controller: 'HomeCtrl',
         // resolve: ['AuthService', function(AuthService){ return AuthService.isAuthenticated(); }]

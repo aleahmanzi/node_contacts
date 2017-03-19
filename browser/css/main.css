@@ -27,8 +27,8 @@
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; font-family: Oswald;}
 
 .add_contact_button, .submit_button { background-color: #F2635F; }
-.input-group { margin-left: 30px; width: 75%; padding-bottom: 20px; z-index: -1;}
-.result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; }
+.input-group { margin-left: 30px; width: 75%; padding-bottom: 20px; z-index: -1; padding-top: 15px;}
+.result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; font-size: 15px; }
 .all_contacts { outline: 0px solid black; display: inline-block; width: 150px; margin: 0 auto; margin-bottom: 30px; }
 .list_contacts { outline: 0px solid red; width: 130px; }
 .list_contacts img { outline: 0px dotted blue; height: 100px; border-radius: 50%; margin-left: 15px;margin-bottom: 5px; }
@@ -38,7 +38,7 @@
 
 
 /* Single Contact */
-
+.page_header { font-family: Arvo; font-size: 20px; }
 .contact_pic_wrap { outline: 0px solid blue; width: 95%; margin-left: 20px; }
 .contact_pic { outline: 0px solid black; width: 200px; margin: 0 auto; padding-top: 30px; }
 .contact_pic img { outline: 0px solid red; height: 150px; border-radius: 50%; margin-left: 25px; }
@@ -73,7 +73,7 @@
 /* Groups */
 .table { color: black; background-color: #777; margin-right: 40px; }
 
-.group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; }
+.group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; font-size: 15px; }
 .groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }
 .group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
 .group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
@@ -90,8 +90,10 @@
 .edit_group_wrap { margin-top: 25px; outline: 0px solid red; height: 200px; }
 .edit_group_wrap input { margin: 0 auto; }
 
-/* Birthdays */
-.birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
+/* Activity */
+.birthday_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; font-size: 15px; }
+.birthday_title { font-family: Arvo; }
+.birthday_results { display: inline-block; font-family: Oswald; margin-left: 30px; }
 .birthday_pic { outline: 0px solid black; width: 95%; }
 .birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
 .birthday_contact p { display: inline-block; }
