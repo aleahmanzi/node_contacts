@@ -34,7 +34,6 @@ getGroupFactory.getGroupData($scope.groupID)
       
     getGroupFactory.getContact()
     .success(function(result){
-      console.log(result);
       var contactList = result.contactInfo
 
       for(var a=0; a < $scope.singleGroup.contacts.length; a++){
@@ -43,9 +42,7 @@ getGroupFactory.getGroupData($scope.groupID)
         for(var b=0; b < contactList.length; b++){
           
           if(groupContact === contactList[b].id){
-            console.log("match!", contactList[b])
             $scope.groupContacts.push(contactList[b]);
-            console.log("array of contacts", $scope.groupContacts)
           }
         }
       }

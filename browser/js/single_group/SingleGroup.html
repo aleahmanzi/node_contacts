@@ -1,26 +1,24 @@
 <section class="details_wrap">
 
   <div class="group_details" ng-show="groupDetails">
-    <div>Name: <p>{{ singleGroup.name }}</p></div>
+    <p>{{ singleGroup.name }} <img src="../browser/public/edit.svg" class="group_edit_img" ng-click="updateGroup()"/></p>
+
     <div ng-repeat="contact in groupContacts" class="group_contact_name">
       <a>
         <img src="../browser/public/blank_photo.png"/><br/>
       </a>
       <a>
-        <div class="">{{ contact.name.firstName }}</div>
-        <div class="">{{ contact.name.lastName }}</div>
+        <div class="contact_name">{{ contact.name.firstName }}</div>
+        <div class="contact_name">{{ contact.name.lastName }}</div>
       </a>  
     </div>  
   </div>
 
   <div class="edit_group_wrap" ng-show="editGroupButtons">
-    <p ng-click="updateGroup()"><button class="btn btn-default">UPDATE GROUP</button></p>
-    
-    <p ng-click="ShowGroupConfirm()"><input type="button" value="DELETE GROUP" class="btn btn-default"></button></p>
-    <br />
-    <br />
+    <p ng-click="ShowGroupConfirm()" class="delete_btn_wrap">
+      <input type="button" value="DELETE" class="btn btn-default delete_group">
+    </p>
     <span ng-bind = "Message"></span>
-
   </div><!-- .edit_group_wrap - -->
 
   <div class="alert alert-success" ng-show="groupDeleted">
