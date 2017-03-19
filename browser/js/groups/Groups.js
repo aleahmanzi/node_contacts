@@ -18,9 +18,7 @@ angular.module('myApp').controller('getGroupCtrl',
     getGroupFactory.getGroups()
       .success(function(result){
           $scope.groupWrap = true;
-        console.log(result);
         $scope.groups = result.groupInfo;
-        console.log("groups", $scope.groups)
       })
 
 

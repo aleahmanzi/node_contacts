@@ -1,3 +1,6 @@
+.btn { color: #F2A104; }
+.btn { color: #73A2C0; }
+
 /* Header */
 .navbar { background-color: #e6e2e8; height: 50px; }
 .navbar-header { float: left; padding-left: 10px; }
@@ -8,7 +11,7 @@
 
 /* Sidebar */
 
-.sidebar { display: none; text-align: right; box-shadow: 2px 2px 2px #888888; }
+.sidebar { display: none; text-align: right; box-shadow: 2px 2px 2px #888888; font-family: Arvo; }
 .hello { color: white; }
 .nav-sidebar { margin-right: -21px; margin-bottom: 20px; margin-left: -20px; }
 .nav-sidebar > li > a { padding: 20px; padding-right: 20px; padding-left: 20px; color: #32353B; background-color: #4A8BCA; border: 1px solid #F1F2FA; padding-botton: 2px; margin: 0; }
@@ -24,36 +27,45 @@
 
 
 /* Contacts */
-.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; }
+.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; font-family: Oswald;}
+
 .add_contact_button, .submit_button { background-color: #F2635F; }
-
-.input-group { margin-left: 30px; width: 75%; padding-bottom: 25px; }
-
+.input-group { margin-left: 30px; width: 75%; padding-bottom: 20px; z-index: -1;}
 .result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; }
-.all_contacts { outline: 0px solid black; display: inline-block; width: 150px; }
-.list_contacts { margin-left: 20px; margin-bottom: 25px; }
-.list_contacts img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
-.contact_name { display: inline-block; margin: 0 auto; }
+.all_contacts { outline: 0px solid black; display: inline-block; width: 150px; margin: 0 auto; margin-bottom: 30px; }
+.list_contacts { outline: 0px solid red; width: 130px; }
+.list_contacts img { outline: 0px dotted blue; height: 100px; border-radius: 50%; margin-left: 15px;margin-bottom: 5px; }
+.contact_name { display: inline-block; }
+.extra_wrap { outline: 0px solid blue; margin: 0 auto; width: 100px; }
+.full_contact_name { margin: 0 auto; }
 
-.show_more { cursor: pointer; }
-.contact_pic_wrap { outline: 0px solid blue; width: 100%; margin-right: 25px; }
-.contact_pic { outline: 0px solid black; width: 95%; }
-.contact_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
-.core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
-.address_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; }
 
-.edit_wrap { color: red; cursor: pointer; }
+/* Single Contact */
+
+.contact_pic_wrap { outline: 0px solid blue; width: 90%; margin-left: 20px; }
+.contact_pic { outline: 0px solid black; width: 200px; margin: 0 auto; padding-top: 30px; }
+.contact_pic img { outline: 0px solid red; height: 150px; border-radius: 50%; margin-left: 25px; }
+.name { outline: 0px solid black; font-size: 25px; }
+.name p { margin: 0 auto; }
+
+.info_wrap { display: inline-block; outline: 0px solid red; widht: 90%; margin-left: 40px; font-family: Oswald; margin-top: 25px; }
+.core_data_wrap { outline: 0px solid black; width: 100%; margin-right: 25px; outline: 1px solid #eee; background-color: #eee; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; display: inline-block;}
+.address_wrap { outline: 0px solid blue; display: inline-block; }
+.address_info {outline: 1px solid #eee; background-color: #eee; margin-right: 25px; display: inline-block; width: 300px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; }
+.edit_icon { outline: 0px solid red; width: 25px; float: right; cursor: pointer;}
+.edit_icon img { height: 15px; }
+.add_wrap { outline: 0px solid red; cursor: pointer; width: 90%; margin-left: 25px; margin-bottom: 20px; }
+.edit_wrap { outline: 0px solid blue; width: 90%; margin-left: 35px; }
+.delete { outline: 0px solid black; margin: 0 auto; width: 100px; }
+
+.data_elements { margin-left: 10px; font-size: 15px; padding-bottom: 15px; padding-top: 15px; }
+.element { padding-bottom: 10px; font-style: bold; }
+.data { padding-left: 5px; }
 .alert, .alert-success { width: 75%; }
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
-.form-group .required .control-label:after { content:"*";color:red; }
 
-/* Address */
-.address_wrap { outline: 0px solid black; display: inline-block; }
-.address_info {outline: 1px solid #eee; background-color: #eee; margin-right: 25px; display: inline-block; width: 300px; margin-bottom: 25px; }
-.edit_icon { outline: 0px solid red; width: 25px; float: right; cursor: pointer;}
-.edit_icon img { height: 15px; }
-.add_wrap { outline: 0px solid red; display: inline-block; }
+
 
 /* Groups */
 .table { color: black; background-color: #777; margin-right: 40px; }

@@ -32,7 +32,6 @@ getContactsFactory.getContactData($scope.contactID)
 
       if(singleContact.id === $scope.contactID){
         $scope.singleContact = singleContact;
-        console.log("here is the single contact", $scope.singleContact);
         $scope.contactAddresses = singleContact.address;
       }
     }
@@ -53,7 +52,6 @@ getContactsFactory.getContactData($scope.contactID)
       for(var a = 0; a < $scope.contactAddresses.length; a++){
           if(addressId === $scope.contactAddresses[a]){
             $scope.allAddresses.push(address);
-            console.log("allAddresses", $scope.allAddresses)
             $scope.oneAddress = $scope.allAddresses[0];
         }
       }
@@ -205,16 +203,22 @@ $scope.ShowConfirm = function () {
 /// - upload photo
 
 
-$scope.handleFile = function(e){
-  var reader  = new FileReader();
-  reader.addEventListener("load", function () {
-      console.log("got hererrrrrr!!!!!!")
-    image = reader.result;
 
-    console.log("img", image)
-    imgElem.setAttribute('src', image.toString());
-  }, false);
-}  
+
+$scope.handleFile = function(e){
+
+  var fileReader = new FileReader();
+
+  fileReader.onload = function(file){
+
+    console.log("onload event triggered, context is \n", file);
+    $scope.file = file.currentTarget.result;
+  };
+
+  console.log("event: ", e);
+  console.log("Get Text", fileReader.readAsText(e[0]))
+ 
+}
 
   
 })

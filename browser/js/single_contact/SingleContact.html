@@ -5,41 +5,44 @@
     <div class="contact_pic_wrap">
       
       <div class="contact_pic">
-        <!-- /<img src="../browser/public/blank_photo.png"><br/> -->
-        <i class="fa fa-upload upload_image" aria-hidden="true" ng-click="uploadImg()"></i>
+        <img src="../browser/public/blank_photo.png"><br/>
+        <div class="name">
+          <p><b>{{ singleContact.name.firstName }} {{ singleContact.name.lastName }}</b></p>
+        </div>
       </div>
 
-      <div class='img_upload'>
-        <input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
-        <img id="imgElem">
+      <!-- <div class='img_upload'> -->
+        <!-- <input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)"> -->
+        <!-- <img id="imgElem"> -->
+      <!-- </div> -->
+
+      <div>
       </div>
 
     </div><!-- . contact_pic_wrap - -->
 
+<div class="info_wrap">
 
 
   <!-- contact basic data -->
 
     <div class="core_data_wrap">
-      <div>First Name: <p>{{ singleContact.name.firstName }}</p></div>
-      <div>Last Name: <p>{{ singleContact.name.lastName }}</p></div>
-      <div>Birthday: <p>{{ singleContact.birthday.date | date: MM:dd}}</p></div>
-      <div>Phone Numbers: 
-        <p>Mobile: {{ singleContact.phoneNumber.mobile }}</p>
-        <p>Work: {{ singleContact.phoneNumber.workNum }}</p>
+
+      <div class="edit_icon"  ng-click="updateContact()">
+        <img src="../browser/public/edit.svg" />
       </div>
-      <div>Emails: 
-        <p>Personal: {{ singleContact.email.personal }}</p>
-        <p>Work: {{ singleContact.email.workMail }}</p>
+
+      <div class="data_elements">
+        <div class="element">Birthday: <span class="data">{{ singleContact.birthday.date | date: MM:dd}}</span></div>
+        <div class="element">Mobile: <span class="data">{{ singleContact.phoneNumber.mobile }}</span></div>
+        <div class="element">Work: <span class="data">{{ singleContact.phoneNumber.workNum }}</span></div>
+        <div class="element">Personal: <span class="data">{{ singleContact.email.personal }}</span></div>
+        <div class="element">Work: <span class="data">{{ singleContact.email.workMail }}</span></div>
+        <div class="element">Company:<span class="data">{{ singleContact.company }}</span></div>
       </div>
-      <div>Company:<p>{{ singleContact.company }}</p></div>
     </div><!-- .core_data_wrap - -->
   
-  <!-- edit button -->
 
-    <div class="edit_wrap">
-      <p ng-click="updateContact()"><button class="btn btn-default">UPDATE</button></p>
-    </div><!-- .edit_wrap - -->
 
   <!-- address data -->
 
@@ -52,34 +55,38 @@
         </div>
 
         <div ng-show="addressDetails">
-          <div>Street1: <p>{{ address.street1 }}</p></div>
-          <div>Street2: <p>{{ address.street2 }}</p></div>
-          <div>City: <p>{{ address.city }}</p></div>
-          <div>State: <p>{{ address.state }}</p></div>
-          <div>Zip: <p>{{ address.zip }}</p></div>
-          <div>Country:<p>{{ address.country }}</p></div>
+          <div class="data_elements">
+            <div class="element">Street1:<span class="data"> {{ address.street1 }}</span></div>
+            <div class="element">Street2: <span class="data">{{ address.street2 }}</span></div>
+            <div class="element">City: <span class="data">{{ address.city }}</span></div>
+            <div class="element">State:<span class="data">{{ address.state }}</span></div>
+            <div class="element">Zip: <span class="data">{{ address.zip }}</span></div>
+            <div class="element">Country: <span class="data">{{ address.country }}</span></div>
+           </div> 
         </div>
       </div><!-- address_info -->
 
-      <div class="add_wrap">
-        <div class="add_info">
-          <div class="add">
-            <a ng-click="newAddress()""><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
-          </div>
-        </div>
-      </div><!-- add_wrap -->
+    </div><!-- address_wrap -->
 
-    </div><!-- . address_wrap -->
+</div> <!-- info_wrap -->
+
+
+    <div class="add_wrap">
+      <div class="add_info">
+        <div class="add">
+          <a ng-click="newAddress()""><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
+        </div>
+      </div>
+    </div><!-- add_wrap -->
+
 
   <!-- delete button -->
 
     <div class="edit_wrap">
-      
-      <p ng-click="ShowConfirm()"><input type="button" value="DELETE" class="btn btn-default"></button></p>
-      <br />
-      <br />
+     <div class="delete">
+      <p class="delete_btn" ng-click="ShowConfirm()"><input type="button" value="DELETE" class="btn btn-default"></p>
       <span ng-bind = "Message"></span>
-
+     </div> 
     </div><!-- .edit_wrap - -->
   
   <!-- success messages -->
