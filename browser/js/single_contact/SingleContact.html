@@ -5,18 +5,14 @@
     <div class="contact_pic_wrap">
       
       <div class="contact_pic">
-        <img src="../browser/public/blank_photo.png"><br/>
+        <div class='img_upload'>
+          <img id="clock">
+          <!-- <img src="../browser/public/blank_photo.png"><br/> -->
+          <input type="file" id="getval" class="upload"> 
+        </div>
         <div class="name">
           <p><b>{{ singleContact.name.firstName }} {{ singleContact.name.lastName }}</b></p>
         </div>
-      </div>
-
-      <div class='img_upload'>
-       <input type="file" id="getval" class="upload"> 
-      <img id="clock">
-      </div>
-
-      <div>
       </div>
 
     </div><!-- . contact_pic_wrap - -->

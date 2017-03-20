@@ -209,7 +209,8 @@ function readURL(){
     var file = document.getElementById("getval").files[0];
     var reader = new FileReader();
     reader.onloadend = function(){
-        document.getElementById('clock').style.backgroundImage = "url(" + reader.result + ")";        
+        document.getElementById('clock').style.backgroundImage = "url(" + reader.result + ")";
+        console.log("result")        
     }
     if(file){
         reader.readAsDataURL(file);
