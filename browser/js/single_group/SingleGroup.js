@@ -14,6 +14,7 @@ $scope.groupDetails = true;
 $scope.selected = {};
 $scope.contacts;
 $scope.groupContacts = [];
+$scope.selection = [];
 
 
 
@@ -61,7 +62,8 @@ $scope.ShowGroupConfirm = function () {
            $scope.groupDeleted = true;
         });
     } 
-}
+};
+
 
 
 /// - edit group
@@ -73,12 +75,25 @@ $scope.updateGroup = function(){
   $scope.groupName = $scope.singleGroup.name;
   $scope.contacts = $scope.singleGroup.contacts;
 
+
     getGroupFactory.getContact()
     .success(function(result){
-      console.log(result);
       $scope.contacts = result.contactInfo;
-    });
-}
+
+      $scope.checkedItem = function(id) {
+
+        var checked = false;
+        for(i=0; i < $scope.contacts.length; i++){
+          if(id = $scope.groupContacts[i]){
+            checked = true;
+          }
+        }
+        return checked;
+      }
+
+    })      
+};
+
 
 $scope.submitEdit = function(groupName, contacts){
 

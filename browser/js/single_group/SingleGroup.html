@@ -1,5 +1,7 @@
 <section class="details_wrap">
 
+<!-- show single group -->
+
   <div class="group_details" ng-show="groupDetails">
     <p>{{ singleGroup.name }} <img src="../browser/public/edit.svg" class="group_edit_img" ng-click="updateGroup()"/></p>
 
@@ -13,6 +15,9 @@
       </a>  
     </div>  
   </div>
+
+
+<!-- delete/edit messages -->
 
   <div class="edit_group_wrap" ng-show="editGroupButtons">
     <p ng-click="ShowGroupConfirm()" class="delete_btn_wrap">
@@ -31,13 +36,14 @@
   </div>
 
 
+<!-- edit group -->
 
   <div class="edit_Group" ng-show="editGroupGrid">
     
     <form class="form-group" name="editGroup">
 
       <div class="form-group">
-        <label>Group Name</label>
+        <label><b>Group Name</b></label>
         <input type="text" class="form-control" name="groupName" ng-model="groupName"/>
       </div>
 
@@ -50,11 +56,12 @@
                 <i class="glyphicon glyphicon-search"></i>
             </span>
           </div>
+        
 
         <div class="availiable_contacts" ng-repeat="contact in contacts | filter: name">
           <label>
-            <input type="checkbox" class="group_contacts" ng-model="selected[contact.id]">
-            <img class="group_contact" src="../browser/public/blank_photo.png"/>{{ contact.name.firstName }} {{ contact.name.lastName }}
+            <input type="checkbox" class="group_contacts" ng-model="selected[$index]" ng-checked="checkItem(contact.id)">
+            <img class="group_contact" src="../browser/public/blank_photo.png"/><span class="groupNameEdit">{{ contact.name.firstName }} {{ contact.name.lastName }}</span>
           </label>
         </div>
       </div >

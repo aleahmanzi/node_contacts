@@ -71,6 +71,14 @@
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
 
+#clock{
+    background-image:url('');
+    background-size:cover;
+    background-position: center;
+    height: 250px; width: 250px;
+    border: 1px solid #bbb;
+}
+
 
 /* CSV Page */
 
@@ -102,9 +110,11 @@
 .group_details p { font-family: Arvo; font-size: 20px; outline: 0px solid red; }
 .group_edit_img { height: 15px; padding-left: 50px; cursor: pointer; }
 .group_contact_name { display: inline-block; margin-right: 30px; margin-top: 25px; }
+.edit_Group { font-family: Oswald; }
+.form-group { margin-right: 35px; }
 .edit_group_wrap { margin-top: 25px; outline: 0px solid red; height: 200px; }
 .edit_group_wrap input { margin: 0 auto; }
-
+.groupNameEdit { margin-left: 15px; font-family: Arvo; }
 
 /* Activity */
 

@@ -19,6 +19,7 @@ $scope.addressAdded = false;
 $scope.addressSuccess = false;
 $scope.allAddresses = [];
 $scope.addressEdited = false;
+var data;
 
 
 /// - get contact detail
@@ -203,21 +204,17 @@ $scope.ShowConfirm = function () {
 /// - upload photo
 
 
-
-
-$scope.handleFile = function(e){
-
-  var fileReader = new FileReader();
-
-  fileReader.onload = function(file){
-
-    console.log("onload event triggered, context is \n", file);
-    $scope.file = file.currentTarget.result;
-  };
-
-  console.log("event: ", e);
-  console.log("Get Text", fileReader.readAsText(e[0]))
- 
+document.getElementById('getval').addEventListener('change', readURL, true);
+function readURL(){
+    var file = document.getElementById("getval").files[0];
+    var reader = new FileReader();
+    reader.onloadend = function(){
+        document.getElementById('clock').style.backgroundImage = "url(" + reader.result + ")";        
+    }
+    if(file){
+        reader.readAsDataURL(file);
+    }else{
+    }
 }
 
   

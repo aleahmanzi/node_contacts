@@ -5,10 +5,13 @@ var myApp = angular.module('myApp', ['ngRoute','ngAnimate', 'ui.bootstrap'])
 	  $scope.isNavCollapsed = true;
 	  $rootScope.login_msg = true;
 	  $rootScope.mini_nav = false
+	  $rootScope.addBtn = false;
 
 	  $scope.hideMsg = function(){
 	  	$rootScope.login_msg = false;
 	  	$rootScope.mini_nav = true;
+	  	$rootScope.addBtn = true;
+
 	  }
 
 

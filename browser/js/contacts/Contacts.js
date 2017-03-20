@@ -24,7 +24,6 @@ getContactsFactory.getContact()
     $scope.resultWrap = true;
     $scope.postMessage = false;
     $scope.contactButton = true;
-    console.log(result);
     $scope.contacts = result.contactInfo;
 
   });
