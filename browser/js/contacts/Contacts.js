@@ -8,6 +8,7 @@ $scope.resultWrap = false;
 $scope.detailsWrap = false;
 $scope.postMessage = false;
 $rootScope.login_msg = false;
+$rootScope.mini_nav = true;
 $scope.contacts = [];
 $scope.contactID = [];
 $scope.contactID = ''

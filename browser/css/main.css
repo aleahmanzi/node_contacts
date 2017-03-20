@@ -4,13 +4,13 @@
 .plus_wrap { outline: 0px solid black; float: right; width: 50px; height: 50px;  margin-bottom: 50px; }
 .plus_img_wrap { outline: 0px solid blue; width: 40px; margin-bottom: 20px; margin: 0 auto; height: 50px; }
 .contact_plus { cursor: pointer; color: #ff4400; margin-left: 7px; font-size: 40px; }
-.login { z-index: -100;  }
+.login { z-index: -1; }
 .login_wrap { float: right; margin-top: 25px; }
-.login_msg { width: 90%; margin-left: 15px; text-align: center; margin-top: 75px; position: fixed; z-index: -100; }
+.login_msg { width: 90%; margin-left: 10px; text-align: center; margin-top: 75px; position: fixed; z-index: -100; }
 .login_wording { outline: 1px solid #eee; background-color: #eee; width: 300px; height: 200px; margin-bottom: 25px; box-shadow: 10px 10px 5px #888888; margin: 0 auto; padding-top: 45px; }
 .login_wording p { font-family: Arvo; font-size: 25px; }
-.navbar-nav { width: 150px; }
-
+.nav { position: absolute; width: 100%; }
+.navlist { position: relative; }
 
 /* Sidebar */
 
