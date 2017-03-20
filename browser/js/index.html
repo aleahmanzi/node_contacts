@@ -35,11 +35,11 @@
 
 
 </head>
-<body ng-controller="CollapseDemoCtrl">
+<body >
 	
 <!-- HEADER NAV -->
 
-<div>
+<div ng-controller="CollapseDemoCtrl">
 <span ng-init="myDialog()"></span>
 
 
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="hello">
-      <p>Welcome {{userData.email}}</p>
+      <p>Welcome <span class="email">{{userData.GivenName}}.</span></p>
     </div>
   </div><!-- user -->
 
@@ -104,16 +104,16 @@
     <a ng-href="#/contactUpload">
       <span class="menuText">Upload Contacts</span>
     </a>  
-  </li>         
-</ul>
-
-<div ng-controller="NewContactCtrl">
+  </li>
+  <div ng-controller="NewContactCtrl" ng-show="addBtn">
   <div class="addMenu_wrap">
     <div class="add">
       <a ng-click="addContact()" href="#/addContact"><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
     </div>
   </div>
-</div> 
+</div>          
+</ul>
+
 
 </div>
 

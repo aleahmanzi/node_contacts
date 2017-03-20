@@ -24,7 +24,8 @@
 .profile_img_wrap { outline: 0px dotted white; width: 80px; height: 80px; margin: 0 auto; }
 .profilePic img { outline: 0px solid red; height: 80px; border-radius: 50%; margin-top: 5px; margin-right: 5px; }
 
-.addMenu_wrap { outline: 0px solid; margin-top: 50px; }
+.addMenu_wrap { outline: 0px solid; margin-top: 50px; display: block;}
+.icon { display: block; }
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
 
 

@@ -9,6 +9,7 @@ $scope.detailsWrap = false;
 $scope.postMessage = false;
 $rootScope.login_msg = false;
 $rootScope.mini_nav = true;
+$rootScope.addBtn = true;
 $scope.contacts = [];
 $scope.contactID = [];
 $scope.contactID = ''
