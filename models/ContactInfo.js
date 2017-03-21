@@ -22,7 +22,7 @@ const contactInfo = new Schema({
   },
   company: String,
   groups: [{type: mongoose.Schema.Types.ObjectId, ref: 'groupInfo'}],
-  pictures: [],
+  pictures: {type : Array , "default" : []},
   address: [{type: mongoose.Schema.Types.ObjectId, ref: 'addressInfo'}],
   spouse: {
     name: String,

@@ -12,9 +12,10 @@
     </a>
 
     <div class="birthday_contact" ng-click="getContactDetails(contact.id )">
-      <p>{{ birthday.name.firstName }}</p>
-      <p>{{ birthday.name.lastName }}</p>
-      <br/><p>{{ birthday.birthday.date | date: MM:dd}}</p>
+     <div class="birthday_center">
+        <p>{{ birthday.name.firstName }} {{ birthday.name.lastName }}</p>
+        <p>{{ birthday.birthday.date | date: MM:dd}}</p>
+     </div>
     </div>
   </div><!-- . birthday_results - -->
 

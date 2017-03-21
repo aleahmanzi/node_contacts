@@ -3,7 +3,9 @@
 <!-- LISTING GROUPS -->
 
   <div class="group_result_wrap" ng-show="groupResult">
+
     <p class="page_header"><b>Your Groups</b></p>
+
     <div class="group_wrap">
       <div class="groups" ng-show="groupWrap" ng-repeat="group in groups" >
 
@@ -12,19 +14,13 @@
         </a>
 
         <div class="group_name">
-          <a href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
+          <a class="group_name_word" href="#/groupInfo/{{ group.id }}"> {{ group.name }}</a>
         </div><!-- . group_name - -->
 
       </div><!-- . groups - -->
     </div><!-- . group_wrap - -->
 
-    <div class="group_details">
-      <div ng-show="detailsWrap">
-        <div>Group Name: <p>{{ singleGroup.name }}</p></div>
-      </div>
-    </div><!-- . group_details - -->
-
-  </div><!-- .getGroupsCtrl - -->
+  </div><!-- .group_result_wrap - -->
 
 
   <!-- ADD A GROUP -->

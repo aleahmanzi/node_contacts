@@ -17,12 +17,9 @@
           <img src="../browser/public/blank_photo.png"/><br/>
         </a>
 
-        <a class="contact_full_name" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
-        <div class="extra_wrap">
-            <div class="contact_name">{{ contact.name.firstName }}</div>
-        	  <div class="contact_name">{{ contact.name.lastName }}</div>
-        </div>
-        </a><!-- . contact_full_name - -->
+        <a class="full_contact_name" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
+          <div class="contact_name">{{ contact.name.firstName }} {{ contact.name.lastName }}</div>
+        </a><!-- . full_contact_name - -->
 
       </div><!-- . list_contacts - -->
     </div><!-- . all_contacts - -->

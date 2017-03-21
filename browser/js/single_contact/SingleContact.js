@@ -20,7 +20,7 @@ $scope.addressSuccess = false;
 $scope.allAddresses = [];
 $scope.addressEdited = false;
 var data;
-
+$scope.oneAddress;
 
 /// - get contact detail
 
@@ -33,6 +33,7 @@ getContactsFactory.getContactData($scope.contactID)
 
       if(singleContact.id === $scope.contactID){
         $scope.singleContact = singleContact;
+        console.log("single contact", $scope.singleContact)
         $scope.contactAddresses = singleContact.address;
       }
     }
@@ -210,7 +211,19 @@ function readURL(){
     var reader = new FileReader();
     reader.onloadend = function(){
         document.getElementById('clock').style.backgroundImage = "url(" + reader.result + ")";
-        console.log("result")        
+
+    var contact = {
+    id: $scope.singleContact.id,
+    picture: [ reader.result ]
+    }
+
+  console.log("what were passing", contact)
+  getContactsFactory.editContact($scope.singleContact.id, contact)
+    .success(function(){
+      console.log("here is the updated contact", contact)
+      $scope.addressEdited = true;
+    })
+
     }
     if(file){
         reader.readAsDataURL(file);

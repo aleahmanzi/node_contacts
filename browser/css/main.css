@@ -39,9 +39,9 @@
 .all_contacts { outline: 0px solid black; display: inline-block; width: 150px; margin: 0 auto; margin-bottom: 30px; }
 .list_contacts { outline: 0px solid red; width: 130px; }
 .list_contacts img { outline: 0px dotted blue; height: 100px; border-radius: 50%; margin-left: 15px;margin-bottom: 5px; }
-.contact_name { display: inline-block; }
-.extra_wrap { outline: 0px solid blue; margin: 0 auto; width: 100px; }
-.full_contact_name { margin: 0 auto; }
+.full_contact_name { outline: 0px solid red; position: relative; margin: 0 auto; width: 120px; }
+.contact_name { outline: 0px solid black; position: relative; text-align: center; }
+
 
 
 /* Single Contact */
@@ -97,7 +97,9 @@
 .group_wrap { outline: 0px solid black; width: 95%; display: inline-block; margin-top: 25px; font-size: 15px; }
 .groups { outline: 0px solid red; display: inline-block; width: 150px; margin-bottom: 25px; }
 .group_wrap img { outline: 0px solid blue; height: 100px; border-radius: 50%; margin-left: 25px; }
-.group_name { outline: 0px dotted black; width: 130px; margin-left: 10px; }
+.group_name { outline: 0px dotted black; position: relative; margin: 0 auto; width: 120px; }
+.group_name_word { outline: 0px solid blue; position: relative; display: table; margin: 0 auto; }
+
 .availiable_contacts { margin-bottom: 25px; }
 .group_contact { height: 100px; border-radius: 50%; }
 .group_contact_name img { outline: 0px solid blue; height: 100px; border-radius: 50%; }
@@ -120,10 +122,11 @@
 
 .birthday_wrap { outline: 0px solid blue; width: 90%; margin-left: 15px; font-size: 15px; }
 .birthday_title { font-family: Arvo; }
-.birthday_results { display: inline-block; font-family: Oswald; margin-left: 30px; }
-.birthday_pic { outline: 0px solid black; width: 95%; }
-.birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; }
-.birthday_contact p { display: inline-block; }
+.birthday_results { outline: 0px dotted red; display: inline-block; font-family: Oswald; margin-left: 30px; }
+.birthday_pic { outline: 0px solid black; margin: 0 auto; }
+.birthday_pic img { outline: 0px solid red; height: 100px; border-radius: 50%; margin-top: 5px; margin-bottom: 25px; margin-left: 15px; }
+.birthday_contact { outline: 0px solid red; position: relative; width: 130px; }
+.birthday_center { outline: 0px solid blue; position: relative; width: 115px; margin: 0 auto; text-align: center; }
 .add_group_button { margin-bottom: 25px; }
 
 
