@@ -47,11 +47,13 @@
 /* Single Contact */
 
 .page_header { font-family: Arvo; font-size: 20px; }
-.contact_pic_wrap { outline: 0px solid blue; width: 95%; margin-left: 20px; }
-.contact_pic { outline: 0px solid black; width: 200px; margin: 0 auto; padding-top: 30px; }
-.contact_pic img { outline: 0px solid red; height: 150px; border-radius: 50%; margin-left: 25px; }
+.contact_pic_wrap { outline: 0px solid black; width: 95%; }
+.img_upload { outline: 0px solid red; }
+.clock_wrap { outline: 0px solid blue; width: 200px; position: relative; margin: 0 auto; }
+#clock { background-image:url(''); background-size:cover; background-position: center; height: 200px; width: 200px; border: 1px solid #bbb; border-radius: 50%; margin: 0 auto; }
+.contact_img_upload { margin-top: 15px;  }
 .name { outline: 0px solid black; font-size: 25px; }
-.name p { margin: 0 auto; font-family: Arvo;}
+.name p { position: relative; text-align: center; margin: 0 auto; font-family: Arvo;}
 
 .all_info { outline: 0px solid blue; width: 90%; margin-top: 25px; display: inline-block; }
 .info_wrap { outline: 0px solid red; font-family: Oswald; margin: 0 auto; width: 100%; }
@@ -71,13 +73,7 @@
 .button_wrap { margin-bottom: 25px; }
 .upload_image { cursor: pointer;}
 
-#clock{
-    background-image:url('');
-    background-size:cover;
-    background-position: center;
-    height: 250px; width: 250px;
-    border: 1px solid #bbb;
-}
+
 
 
 /* CSV Page */

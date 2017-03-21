@@ -4,18 +4,19 @@
 
     <div class="contact_pic_wrap">
       
-      <div class="contact_pic">
-        <div class='img_upload'>
+      <div class='img_upload'>
+        <div class="clock_wrap">
           <img id="clock">
           <!-- <img src="../browser/public/blank_photo.png"><br/> -->
-          <input type="file" id="getval" class="upload"> 
+          <input type="file" id="getval" class="contact_img_upload"> 
         </div>
-        <div class="name">
-          <p><b>{{ singleContact.name.firstName }} {{ singleContact.name.lastName }}</b></p>
-        </div>
+      </div><!-- img_upload -->
+
+      <div class="name">
+        <p><b>{{ singleContact.name.firstName }} {{ singleContact.name.lastName }}</b></p>
       </div>
 
-    </div><!-- . contact_pic_wrap - -->
+    </div><!-- contact_pic_wrap -->
 
 <div class="all_info">
   <div class="info_wrap">
@@ -36,7 +37,7 @@
           <div class="element">Work: <span class="data">{{ singleContact.email.workMail }}</span></div>
           <div class="element">Company:<span class="data">{{ singleContact.company }}</span></div>
         </div>
-      </div><!-- .core_data_wrap - -->
+      </div><!-- core_data_wrap -->
 
     <!-- address data -->
 
@@ -81,7 +82,7 @@
       <p class="delete_btn" ng-click="ShowConfirm()"><input type="button" value="DELETE" class="btn btn-default"></p>
       <span ng-bind = "Message"></span>
      </div> 
-    </div><!-- .edit_wrap - -->
+    </div><!-- edit_wrap -->
   
   <!-- success messages -->
 
@@ -147,9 +148,9 @@
 
       <div class="button_wrap">
         <button class="btn btn-default" type="submit" required ng-click="submitContactEdit()">Submit</button>
-      </div><!-- . submit_button - -->
+      </div><!-- submit_button -->
 
-  </div><!-- . edit_contact_wrap - -->
+  </div><!-- edit_contact_wrap -->
 
   <!-- edit address grid -->
 
@@ -232,13 +233,13 @@
       <div>
         <div class="button_wrap">
           <button class="submit_button btn btn-default" type="text" required ng-click="createAddress()">Submit</button>
-        </div><!-- . submit_button - -->
+        </div><!-- submit_button -->
       </div>
-  </div><!-- . new_address_wrap - -->
+  </div><!-- . new_address_wrap -->
 
   <div class="alert alert-success" ng-show="addressSuccess">
     <strong>Success!</strong> Address has been added!
   </div>
 
-  </section><!-- . details_wrap - -->
+  </section><!-- details_wrap -->
 
