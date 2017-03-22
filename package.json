@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node server.js",
     "test": "mocha"
   },
   "keywords": [
@@ -22,6 +22,7 @@
     "mongoose": "^4.7.2",
     "mongoose-seeder": "v1.2.1",
     "morgan": "^1.7.0",
+    "node": "^6.9.4",
     "nodemon": "^1.11.0",
     "passport": "latest",
     "passport-google-oauth": "~0.1.5"
