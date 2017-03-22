@@ -10,7 +10,6 @@ myApp.directive('loginBar', function(AuthService, Store, $location){
         scope.isAuthenticated = true;
         scope.user = Store.user;
         scope.userData = scope.user.data.user;
-        console.log("user", scope.userData)
         $location.path("/contactInfo")
       } else {
         AuthService.getLoggedInUser()

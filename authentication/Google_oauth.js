@@ -40,7 +40,7 @@ passport.use(new GoogleStrategy({
             email: profile.emails[0].value,
             picture: profile.picture,
             google: {
-              id: profile.id
+            id: profile.id
             }
           });
         }

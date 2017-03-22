@@ -68,7 +68,7 @@ $scope.ShowGroupConfirm = function () {
 
 /// - edit group
 
-$scope.updateGroup = function(){
+$scope.updateGroup = function(id){
   $scope.editGroupGrid = true;
   $scope.editGroupButtons = false;
   $scope.groupDetails = false;
@@ -79,18 +79,6 @@ $scope.updateGroup = function(){
     getGroupFactory.getContact()
     .success(function(result){
       $scope.contacts = result.contactInfo;
-
-      $scope.checkedItem = function(id) {
-
-        var checked = false;
-        for(i=0; i < $scope.contacts.length; i++){
-          if(id = $scope.groupContacts[i]){
-            checked = true;
-          }
-        }
-        return checked;
-      }
-
     })      
 };
 

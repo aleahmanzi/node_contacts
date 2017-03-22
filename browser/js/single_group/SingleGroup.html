@@ -42,36 +42,35 @@
     <form class="form-group" name="editGroup">
 
       <div class="form-group">
-        <label><b>Group Name</b></label>
+        <label><b>Edit Group Name</b></label>
         <input type="text" class="form-control" name="groupName" ng-model="groupName"/>
       </div>
 
       <div class="form-group">
-        <label>Select Contacts to Add</label>
+        <label>Edit Groups Contacts</label>
+      </div >
 
-          <div class="input-group changethisone">
-            <input type="text"  class="form-control" placeholder="Contact Search" ng-model="name"/>
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-search"></i>
-            </span>
-          </div>
-        
-
+        <div class="input-group changethisone">
+          <input type="text"  class="form-control" placeholder="Contact Search" ng-model="name"/>
+          <span class="input-group-addon">
+              <i class="glyphicon glyphicon-search"></i>
+          </span>
+        </div>
+      
         <div class="availiable_contacts" ng-repeat="contact in contacts | filter: name">
           <label>
-            <input type="checkbox" class="group_contacts" ng-model="selected[$index]" ng-checked="checkItem(contact.id)">
+            <input type="checkbox" class="group_contacts" ng-model="selected[$index]" ng-checked="checkItem(contact.id)" ngTrueValue="1">
             <img class="group_contact" src="../browser/public/blank_photo.png"/><span class="groupNameEdit">{{ contact.name.firstName }} {{ contact.name.lastName }}</span>
           </label>
         </div>
-      </div >
-
     </form>  
+
 
     <div class="button_wrap">
       <button class="btn btn-default" type="text" required ng-click="submitEdit()">Submit</button>
     </div><!-- button_wrap -->
 
-  </div><!-- new_group -->
+  </div><!-- edit_Group -->
 
 </section><!--  details_wrap -->
 
