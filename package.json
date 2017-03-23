@@ -34,7 +34,8 @@
     "path": "^0.12.7"
   },
   "engines": {
-    "node": "6.10.1"
+    "node": "6.10.1",
+    "npm": "3.10.10"
   },
   "devDependencies": {
     "chai": "^3.5.0",
