@@ -26,7 +26,7 @@ angular.module('myApp')
 
   fact.postGroup = function(group) {
     return $http ({
-      url: 'http://localhost:8080/groupInfo',
+      url: 'http://127.0.0.1:8080/groupInfo',
       dataType: 'JSON',
       method: "POST", 
       data: group,

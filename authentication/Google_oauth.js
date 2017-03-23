@@ -32,13 +32,20 @@ passport.use(new GoogleStrategy({
       .then(function (user) {
 
         if (user) {
+          console.log("find old user")
+
+
+          // check if user.picture !== current photo, then make update
+          
+
           return user;
           
         } else {
+          console.log("Creating new user")
           return userInfo.create({
             name: profile.name.givenName,
             email: profile.emails[0].value,
-            picture: profile.picture,
+            picture: profile._json.picture,
             google: {
             id: profile.id
             }
