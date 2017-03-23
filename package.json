@@ -28,6 +28,9 @@
     "passport": "latest",
     "passport-google-oauth": "~0.1.5"
   },
+  "engines": {
+    "node": "6.9.4"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
