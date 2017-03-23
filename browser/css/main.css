@@ -12,7 +12,7 @@
 .login_wording p { font-family: Arvo; font-size: 25px; }
 .nav { position: absolute; width: 100%; }
 .navlist { position: relative; }
-
+.login_bar { font-family: Arvo; font-size: 15px; margin-right: 10px; }
 
 /* Sidebar */
 
@@ -23,9 +23,7 @@
 .menuText { display: inline-block; }
 .user { width: 100%; margin: 0 auto; }
 .profilePic { outline: 0px solid white; margin-bottom: 40px; margin-top: 25px; }
-.profile_img_wrap { outline: 0px dotted white; width: 80px; height: 80px; margin: 0 auto; }
-.profilePic img { outline: 0px solid red; height: 80px; border-radius: 50%; margin-top: 5px; margin-right: 5px; }
-
+.user_pic { outline: 0px solid red; height: 125px; border-radius: 50%; margin-top: 5px; margin-right: 5px; }
 .addMenu_wrap { outline: 0px solid; margin-top: 50px; display: block;}
 .icon { display: block; }
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }

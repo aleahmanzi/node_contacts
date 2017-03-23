@@ -1,6 +1,6 @@
 <section id="login-bar" class="login_wrap">
  <div class="login_bar">
-  <div ng-show="isAuthenticated">Welcome, {{userData.email}} | <a href="/logout">Logout</a></div>
+  <div ng-show="isAuthenticated">{{userData.email}} | <a href="/logout">Logout</a></div>
   <div ng-hide="isAuthenticated"><a href="/auth/google">Sign In with Google</a></div>
  </div> 
 </section>

@@ -6,6 +6,7 @@ var myApp = angular.module('myApp', ['ngRoute','ngAnimate', 'ui.bootstrap'])
 	  $rootScope.login_msg = true;
 	  $rootScope.mini_nav = false
 	  $rootScope.addBtn = false;
+	  $scope.loginData = $rootScope.userData;
 
 	  $scope.hideMsg = function(){
 	  	$rootScope.login_msg = false;
@@ -13,6 +14,7 @@ var myApp = angular.module('myApp', ['ngRoute','ngAnimate', 'ui.bootstrap'])
 	  	$rootScope.addBtn = true;
 
 	  }
+
 
 
 	});

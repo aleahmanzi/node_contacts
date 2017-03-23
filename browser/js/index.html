@@ -74,13 +74,11 @@
 
   <div class="user">
     <div class="profilePic">
-      <div class="profile_img_wrap">
-        <div>{{imgUrl}}</div>
-        <img src="../browser/public/blank_photo.png">
-      </div>
+        <!-- <img class="user_pic" src="../browser/public/blank_photo.png"> -->
+        <img class="user_pic" src={{userData.picture}}>
     </div>
     <div class="hello">
-      <p>Welcome <span class="email">{{userData.GivenName}}.</span></p>
+      <p>Welcome.</p>
     </div>
   </div><!-- user -->
 

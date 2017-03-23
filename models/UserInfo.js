@@ -18,8 +18,6 @@ userInfo.methods.apiRepr = function() {
   return {
     id: this._id,
     name: this.name,
-    username: this.username,
-    password: this.password,
     email: this.email,
     picture: this.picture,
     coordinates: this.coordinates,
