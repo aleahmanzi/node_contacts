@@ -8,7 +8,7 @@ angular.module('myApp')
 
   fact.postContact = function(contact) {
     return $http ({
-      url: 'http://localhost:8080/contactInfo',
+      url: 'http://127.0.0.1:8080/contactInfo',
       dataType: 'JSON',
       method: "POST", 
       data: contact,
@@ -20,7 +20,7 @@ angular.module('myApp')
 
   fact.postAddress = function(address) {
     return $http ({
-      url: 'http://localhost:8080/addressInfo',
+      url: 'http://127.0.0.1:8080/addressInfo',
       dataType: 'JSON',
       method: "POST", 
       data: address,
@@ -31,7 +31,7 @@ angular.module('myApp')
 
   fact.editAddress = function(addressID, addressUpdate){
     return $http ({
-    url: 'http://localhost:8080/addressInfo/' + addressID,
+    url: 'http://127.0.0.1:8080/addressInfo/' + addressID,
     dataType: 'JSON',
     method: "PUT", 
     data: addressUpdate,

@@ -8,7 +8,7 @@ angular.module('myApp')
 
   fact.getContact = function(userId) {
     return $http ({
-      url: 'http://localhost:8080/contactInfo/' + userId,
+      url: 'http://127.0.0.1:8080/contactInfo/' + userId,
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
     })
@@ -16,7 +16,7 @@ angular.module('myApp')
 
   fact.getContactData = function(contactID) {
     return $http ({
-      url:'http://localhost:8080/contactInfo',
+      url:'http://127.0.0.1:8080/contactInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK',
       id: contactID }
@@ -25,7 +25,7 @@ angular.module('myApp')
 
   fact.getAddressData = function(contactAddress) {
     return $http ({
-      url:'http://localhost:8080/addressInfo',
+      url:'http://127.0.0.1:8080/addressInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK',
       id: contactAddress }
@@ -34,7 +34,7 @@ angular.module('myApp')
 
   fact.editContact = function(contactID, toUpdate){
     return $http ({
-    url: 'http://localhost:8080/contactInfo/' + contactID,
+    url: 'http://127.0.0.1:8080/contactInfo/' + contactID,
     dataType: 'JSON',
     method: "PUT", 
     data: toUpdate,
@@ -46,7 +46,7 @@ angular.module('myApp')
 
 fact.deleteContact = function(contactID, contact){
     return $http ({
-    url: 'http://localhost:8080/contactInfo/' + contactID,
+    url: 'http://127.0.0.1:8080/contactInfo/' + contactID,
     dataType: 'JSON',
     method: "DELETE", 
     data: contactID,

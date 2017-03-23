@@ -8,7 +8,7 @@ angular.module('myApp')
 
   fact.postContact = function(contact) {
     return $http ({
-      url: 'http://localhost:8080/contactInfo',
+      url: 'http://127.0.0.1:8080/contactInfo',
       dataType: 'JSON',
       method: "POST", 
       data: contact,

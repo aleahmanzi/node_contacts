@@ -8,7 +8,7 @@ angular.module('myApp')
 
   fact.getGroups = function() {
     return $http ({
-      url: 'http://localhost:8080/groupInfo',
+      url: 'http://127.0.0.1:8080/groupInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
       maxResult: '10'
@@ -17,7 +17,7 @@ angular.module('myApp')
 
   fact.getGroupData = function(groupID) {
     return $http ({
-      url:'http://localhost:8080/groupInfo',
+      url:'http://127.0.0.1:8080/groupInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK',
       id: groupID }
@@ -38,7 +38,7 @@ angular.module('myApp')
   
   fact.getContact = function(userId) {
     return $http ({
-      url: 'http://localhost:8080/contactInfo/' + userId,
+      url: 'http://127.0.0.1:8080/contactInfo/' + userId,
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
     })
@@ -46,7 +46,7 @@ angular.module('myApp')
 
   fact.editGroup = function(groupID, toUpdate){
     return $http ({
-    url: 'http://localhost:8080/groupInfo/' + groupID,
+    url: 'http://127.0.0.1:8080/groupInfo/' + groupID,
     dataType: 'JSON',
     method: "PUT", 
     data: toUpdate,
@@ -58,7 +58,7 @@ angular.module('myApp')
 
   fact.deleteGroup = function(groupID, singleGroup){
       return $http ({
-      url: 'http://localhost:8080/groupInfo/' + groupID,
+      url: 'http://127.0.0.1:8080/groupInfo/' + groupID,
       dataType: 'JSON',
       method: "DELETE", 
       data: groupID,
