@@ -26,10 +26,11 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
     "passport": "latest",
-    "passport-google-oauth": "~0.1.5"
+    "passport-google-oauth": "~0.1.5",
+    "path": "^0.12.7"
   },
   "engines": {
-    "node": "6.9.4"
+    "node": "6.10.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
