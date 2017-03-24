@@ -33,6 +33,8 @@ app.use(function(req, res, next){
 
 require('./authentication')(app);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 const contactRouter = require('./routes/Contact');
 const addressRouter = require('./routes/Address');
