@@ -8,7 +8,7 @@ angular.module('myApp')
 
   fact.getContact = function(userId) {
     return $http ({
-      url: 'http://127.0.0.1:8080/contactInfo/' + userId,
+      url: '/contactInfo/' + userId,
       method: 'GET',
       params: {callback: 'JSON_CALLBACK'},
     })
@@ -16,7 +16,7 @@ angular.module('myApp')
 
   fact.getContactData = function(contactID) {
     return $http ({
-      url:'http://127.0.0.1:8080/contactInfo',
+      url:'/contactInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK',
       id: contactID }
@@ -25,7 +25,7 @@ angular.module('myApp')
 
   fact.getAddressData = function(contactAddress) {
     return $http ({
-      url:'http://127.0.0.1:8080/addressInfo',
+      url:'/addressInfo',
       method: 'GET',
       params: {callback: 'JSON_CALLBACK',
       id: contactAddress }
@@ -34,7 +34,7 @@ angular.module('myApp')
 
   fact.editContact = function(contactID, toUpdate){
     return $http ({
-      url: 'http://127.0.0.1:8080/contactInfo/' + contactID,
+      url: '/contactInfo/' + contactID,
       dataType: 'JSON',
       method: "PUT", 
       data: toUpdate
@@ -46,7 +46,7 @@ angular.module('myApp')
 
 fact.editAddress = function(addressID, addressUpdate){
     return $http ({
-    url: 'http://127.0.0.1:8080/addressInfo/' + addressID,
+    url: '/addressInfo/' + addressID,
     dataType: 'JSON',
     method: "PUT", 
     data: addressUpdate,
@@ -58,7 +58,7 @@ fact.editAddress = function(addressID, addressUpdate){
 
 fact.postAddress = function(address) {
   return $http ({
-    url: 'http://127.0.0.1:8080/addressInfo',
+    url: '/addressInfo',
     dataType: 'JSON',
     method: "POST", 
     data: address,
@@ -69,7 +69,7 @@ fact.postAddress = function(address) {
 
 fact.deleteContact = function(contactID, contact){
     return $http ({
-    url: 'http://127.0.0.1:8080/contactInfo/' + contactID,
+    url: '/contactInfo/' + contactID,
     dataType: 'JSON',
     method: "DELETE", 
     data: contactID,
