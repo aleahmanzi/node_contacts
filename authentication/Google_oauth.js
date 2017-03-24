@@ -10,8 +10,7 @@ const mongoose = require('mongoose');
 const userInfo = mongoose.model('userInfo');
 
 const GOOGLE_CLIENT_ID = "374972509400-ruvdflor4ctv70d0gdqi28ufkcc5ac6k.apps.googleusercontent.com";
-const { GOOGLE_CLIENT_SECRET } = require('../key.json') || process.env;
-
+const { GOOGLE_CLIENT_SECRET } = require('../key.json') || { GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET};
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 router.use(passport.initialize());

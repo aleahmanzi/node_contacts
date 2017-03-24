@@ -5,7 +5,9 @@ let mongoose = require('mongoose');
 let userInfo = mongoose.model('userInfo');
 
 let {SESSION_SECRET} = require('../key.json');
-if(!SESSION_SECRET) throw new ReferenceError("SESSION_SECRET not found. Please add this value to your key.json");
+if(!SESSION_SECRET) {
+  SESSION_SECRET = process.env.SESSION_SECRET
+}
 
 module.exports = function(app) {
   app.use(session({

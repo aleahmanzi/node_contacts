@@ -13,16 +13,14 @@ const path = require('path');
 console.log("6")
 var moment = require('moment');
 
-console.log("requiring modles")
 require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
 require('./models/UserInfo');
-console.log("starting express")
 const app = express();
 
 
-/*app.use(function(req, res, next){
+app.use(function(req, res, next){
  
    // Website you wish to allow to connect
    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
@@ -38,7 +36,8 @@ const app = express();
    res.setHeader('Access-Control-Allow-Credentials', true);
  	next();
  
- });*/
+ });
+
 console.log("req auth")
 require('./authentication')(app);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
