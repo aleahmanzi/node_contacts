@@ -42,7 +42,7 @@ const groupRouter = require('./routes/Group');
 const userRouter = require('./routes/User');
 const Google = require('./authentication/Google_oauth');
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const jsonParser = bodyParser.json();
 mongoose.Promise = global.Promise;
 
@@ -99,6 +99,7 @@ function closeServer() {
 }
 
 if (require.main === module) {
+	console.log("about to run server")
   runServer().then(openDatabase).catch(err => console.error(err));
 };
 
