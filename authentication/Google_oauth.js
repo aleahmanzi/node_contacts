@@ -18,7 +18,7 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID:     GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:8080/auth/google/callback" || "https://peaceful-waters-73676.herokuapp.com/auth/google/callback",
+    callbackURL: "https://peaceful-waters-73676.herokuapp.com/auth/google/callback",
   },
   
 
