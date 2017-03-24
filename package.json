@@ -8,14 +8,6 @@
     "start-heroku": "node server.js",
     "heroku-prebuild": "echo 'STARTING NPM INSTALL' && npm install"
   },
-  "main": [
-    "less/font-awesome.less",
-    "scss/font-awesome.scss",
-    "css/font-awesome.css",
-    "fonts/fontawesome-webfont.tff",
-    "fonts/fontawesome-webfont.woff",
-    "fonts/fontawesome-webfont.woff2"
-  ],
   "keywords": [
     "node",
     "hyperdev",
@@ -31,6 +23,7 @@
     "express": "4.15.2",
     "express-session": "^1.15.1",
     "faker": "^3.1.0",
+    "FortAwesome/Font-Awesome": "*",
     "mocha": "^3.2.0",
     "moment": "^2.18.1",
     "mongoose": "^4.7.2",
