@@ -8,6 +8,14 @@
     "start-heroku": "node server.js",
     "heroku-prebuild": "echo 'STARTING NPM INSTALL' && npm install"
   },
+  "main": [
+    "less/font-awesome.less",
+    "scss/font-awesome.scss",
+    "css/font-awesome.css",
+    "fonts/fontawesome-webfont.tff",
+    "fonts/fontawesome-webfont.woff",
+    "fonts/fontawesome-webfont.woff2"
+  ],
   "keywords": [
     "node",
     "hyperdev",
