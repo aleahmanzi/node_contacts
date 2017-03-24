@@ -19,6 +19,7 @@ $scope.addressAdded = false;
 $scope.addressSuccess = false;
 $scope.allAddresses = [];
 $scope.addressEdited = false;
+$scope.allInfo = true;
 var data;
 $scope.oneAddress;
 
@@ -195,6 +196,8 @@ $scope.ShowConfirm = function () {
       getContactsFactory.deleteContact($scope.singleContact.id)
         .success(function(){
            $scope.contactDeleted = true;
+           $scope.allInfo = false;
+
         });
     } 
 }

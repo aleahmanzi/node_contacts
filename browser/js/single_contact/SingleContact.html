@@ -2,7 +2,7 @@
   
   <!-- contact photo -->
 
-    <div class="contact_pic_wrap">
+    <div class="contact_pic_wrap" ng-show="allInfo">
       
       <div class='img_upload'>
         <div class="clock_wrap">
@@ -18,7 +18,7 @@
 
     </div><!-- contact_pic_wrap -->
 
-<div class="all_info">
+<div class="all_info" ng-show="allInfo">
   <div class="info_wrap">
 
     <!-- contact basic data -->
@@ -66,7 +66,7 @@
   </div> <!-- info_wrap -->
 </div> <!-- all_info  -->
 
-    <div class="add_wrap">
+    <div class="add_wrap" ng-show="allInfo">
       <div class="add_info">
         <div class="add">
           <a ng-click="newAddress()""><i class="fa fa-plus-circle fa-2x" class="icon"></i></a>
@@ -77,7 +77,7 @@
 
   <!-- delete button -->
 
-    <div class="edit_wrap">
+    <div class="edit_wrap" ng-show="allInfo">
      <div class="delete">
       <p class="delete_btn" ng-click="ShowConfirm()"><input type="button" value="DELETE" class="btn btn-default"></p>
       <span ng-bind = "Message"></span>
