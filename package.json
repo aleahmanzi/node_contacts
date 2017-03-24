@@ -32,6 +32,14 @@
     "passport-google-oauth": "~0.1.5",
     "path": "^0.12.7"
   },
+  "main": [
+    "less/font-awesome.less",
+    "scss/font-awesome.scss",
+    "css/font-awesome.css",
+    "fonts/fontawesome-webfont.tff",
+    "fonts/fontawesome-webfont.woff",
+    "fonts/fontawesome-webfont.woff2"
+  ],
   "engines": {
     "node": "6.10.1",
     "npm": "3.10.10"
