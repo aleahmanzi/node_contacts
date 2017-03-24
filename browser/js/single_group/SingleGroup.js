@@ -1,5 +1,5 @@
 angular.module('myApp').controller('GroupDetailsCtrl', 
-   function ($scope, getGroupFactory, $routeParams, $window) {
+   function ($scope, getGroupFactory, $routeParams, $window, $location) {
 
 
 /// - default values
@@ -60,6 +60,7 @@ $scope.ShowGroupConfirm = function () {
       getGroupFactory.deleteGroup($scope.singleGroup.id)
         .success(function(){
            $scope.groupDeleted = true;
+           $location.path("/groupInfo")
         });
     } 
 };
