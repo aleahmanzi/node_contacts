@@ -11,7 +11,6 @@ $scope.groupEdited = false;
 $scope.editGroupGrid = false;
 $scope.editGroupButtons = true;
 $scope.groupDetails = true;
-$scope.groupDeets = true;
 $scope.selected = {};
 $scope.contacts;
 $scope.groupContacts = [];
@@ -61,7 +60,7 @@ $scope.ShowGroupConfirm = function () {
       getGroupFactory.deleteGroup($scope.singleGroup.id)
         .success(function(){
            $scope.groupDeleted = true;
-           $scope.groupDeets = false;
+           $scope.groupDetails = false;
         });
     } 
 };

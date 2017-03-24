@@ -2,7 +2,7 @@
 
 <!-- show single group -->
 
-  <div class="group_details" ng-show="groupDetails" ng-show="groupDeets">
+  <div class="group_details" ng-show="groupDetails">
     <p>{{ singleGroup.name }} <img src="../browser/public/edit.svg" class="group_edit_img" ng-click="updateGroup()"/></p>
 
     <div ng-repeat="contact in groupContacts" class="group_contact_name">
@@ -13,7 +13,7 @@
         <div class="contact_name">{{ contact.name.firstName }} {{ contact.name.lastName }}</div>
       </a>  
     </div>  
-  </div>
+  </div><!-- group_details -->
 
 
 <!-- delete/edit messages -->
