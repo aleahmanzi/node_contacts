@@ -1,16 +1,9 @@
-console.log("start of serverjs")
 const express = require('express');
-console.log("1")
 const mongoose = require('mongoose');
-console.log("2")
 const morgan = require('morgan');
-console.log("3")
 const bodyParser = require('body-parser');
-console.log("4")
 const seeder = require('mongoose-seeder');
-console.log("5")
 const path = require('path');
-console.log("6")
 var moment = require('moment');
 
 require('./models/AddressInfo');
@@ -38,7 +31,6 @@ app.use(function(req, res, next){
  
  });
 
-console.log("req auth")
 require('./authentication')(app);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
@@ -68,7 +60,6 @@ app.get('/', function(req, res){
 });
 
 function runServer() {
-	console.log("start of run server function")
 	return new Promise((resolve, reject) => {	
 	    server = app.listen(PORT || 8080, () => {
 	      console.log(`Your app is listening on port ${PORT}`);
@@ -81,7 +72,6 @@ function runServer() {
 }
 
 function openDatabase() {
-	console.log("connecting to DB", DATABASE_URL);
 	return new Promise((resolve, reject) => {
 		mongoose.connect(DATABASE_URL);
 		var db = mongoose.connection;
@@ -95,7 +85,6 @@ function openDatabase() {
 
 function closeServer() {
 	return new Promise((resolve, reject) => {
-	console.log('Closing server');
 	server.close(err => {
 	   if (err) {
 	       return reject(err);
@@ -106,7 +95,6 @@ function closeServer() {
 }
 console.log("theh string req main", require.main)
 if (require.main === module) {
-	console.log("about to run server")
   runServer().then(openDatabase).catch(err => console.error(err));
 };
 
