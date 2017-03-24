@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start-heroku": "node server.js",
-    "heroku-prebuild": "npm install"
+    "heroku-prebuild": "echo 'STARTING NPM INSTALL' && npm install"
   },
   "keywords": [
     "node",
