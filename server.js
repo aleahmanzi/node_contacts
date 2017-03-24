@@ -1,3 +1,4 @@
+console.log("start of serverjs")
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -6,16 +7,16 @@ const seeder = require('mongoose-seeder');
 const path = require('path');
 var moment = require('moment');
 
-
+console.log("requiring modles")
 require('./models/AddressInfo');
 require('./models/ContactInfo');
 require('./models/GroupInfo');
 require('./models/UserInfo');
-
+console.log("starting express")
 const app = express();
 
 
-app.use(function(req, res, next){
+/*app.use(function(req, res, next){
  
    // Website you wish to allow to connect
    res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
@@ -31,8 +32,8 @@ app.use(function(req, res, next){
    res.setHeader('Access-Control-Allow-Credentials', true);
  	next();
  
- });
-
+ });*/
+console.log("req auth")
 require('./authentication')(app);
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
@@ -62,6 +63,7 @@ app.get('/', function(req, res){
 });
 
 function runServer() {
+	console.log("start of run server function")
 	return new Promise((resolve, reject) => {	
 	    server = app.listen(PORT || 8080, () => {
 	      console.log(`Your app is listening on port ${PORT}`);
@@ -97,7 +99,7 @@ function closeServer() {
 	});
 	});
 }
-
+console.log("theh string req main", require.main)
 if (require.main === module) {
 	console.log("about to run server")
   runServer().then(openDatabase).catch(err => console.error(err));
