@@ -21,4 +21,9 @@
   <input type="file" class="upload" ng-model="file" onchange="angular.element(this).scope().handleFile(this.files)">
 
   <button class=" upload_button btn btn-default" type="button" ng-click="csvJson()">Upload</button>
+
+  <div class="alert alert-success" ng-show="groupSuccess">
+    <strong>Success!</strong> Your file has been uploaded!
+  </div>
+
 </section><!-- . upload_wrap - -->

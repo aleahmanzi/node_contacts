@@ -4,6 +4,7 @@ angular.module('myApp').controller('UploadCtrl',
 // - default values
 $scope.file = '';
 $scope.CSVToArray;
+$scope.fileSuccess = false;
 var addressOutput;
 var contactOutput;
 var output;
@@ -31,6 +32,7 @@ $scope.csvJson = function(file) {
 	var mainFile = file[1].split(/\r/);
 	var jsonObj = [];
 	var headers = file[0].split(',');
+	$scope.fileSuccess = true;
 
 	for(var i = 0; i < mainFile.length; i++) {
 	  var data = mainFile[i].split(',');
