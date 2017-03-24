@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
     "test": "mocha",
     "start-heroku": "node server.js"
   },
@@ -29,7 +28,6 @@
     "mongoose-seeder": "v1.2.1",
     "morgan": "^1.7.0",
     "node": "0.0.0",
-    "nodemon": "^1.11.0",
     "passport": "latest",
     "passport-google-oauth": "~0.1.5",
     "path": "^0.12.7"
