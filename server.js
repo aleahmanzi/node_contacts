@@ -1,10 +1,16 @@
 console.log("start of serverjs")
 const express = require('express');
+console.log("1")
 const mongoose = require('mongoose');
+console.log("2")
 const morgan = require('morgan');
-// const bodyParser = require('body-parser');
+console.log("3")
+const bodyParser = require('body-parser');
+console.log("4")
 const seeder = require('mongoose-seeder');
+console.log("5")
 const path = require('path');
+console.log("6")
 var moment = require('moment');
 
 console.log("requiring modles")
