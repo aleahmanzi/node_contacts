@@ -2,7 +2,7 @@ console.log("start of serverjs")
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const seeder = require('mongoose-seeder');
 const path = require('path');
 var moment = require('moment');
