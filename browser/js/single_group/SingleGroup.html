@@ -2,7 +2,7 @@
 
 <!-- show single group -->
 
-  <div class="group_details" ng-show="groupDetails">
+  <div class="group_details" ng-show="groupDetails" ng-show="groupDeets">
     <p>{{ singleGroup.name }} <img src="../browser/public/edit.svg" class="group_edit_img" ng-click="updateGroup()"/></p>
 
     <div ng-repeat="contact in groupContacts" class="group_contact_name">
