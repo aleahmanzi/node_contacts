@@ -52,7 +52,6 @@ app.use('/addressInfo', addressRouter);
 app.use('/groupInfo', groupRouter);
 app.use('/userInfo', userRouter);
 app.use('/auth/google', Google);
-app.use(express.json({limit:'50mb'}))
 
 app.use('/browser', express.static(path.join(__dirname, '/browser')));
 
