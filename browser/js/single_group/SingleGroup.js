@@ -61,6 +61,7 @@ $scope.ShowGroupConfirm = function () {
         .success(function(){
            $scope.groupDeleted = true;
            $scope.groupDetails = false;
+           $scope.editGroupButtons = false;
         });
     } 
 };
