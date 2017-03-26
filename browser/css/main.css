@@ -34,7 +34,6 @@
 .contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button .upload_wrap { margin-left: 25px; font-family: Oswald;}
 
 .add_contact_button, .submit_button { background-color: #F2635F; }
-.input-group { margin-left: 30px; width: 75%; padding-bottom: 20px; z-index: -1; padding-top: 15px;}
 .result_wrap { outline: 0px solid red; display: inline-block; width: 95%; margin-top: 25px; font-size: 15px; }
 .all_contacts { outline: 0px solid black; display: inline-block; width: 150px; margin: 0 auto; margin-bottom: 30px; }
 .list_contacts { outline: 0px solid red; width: 130px; }
