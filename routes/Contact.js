@@ -98,12 +98,9 @@ router.put('/:id', (req, res) => {
   });
 
   contactInfo
-    .findByIdAndUpdate(req.params.id, 
-      .then(user => {
-       user.name  = toUpdate.name || user.name;
-        toUpdate.pictures && toUpdate.pictures.length && (user.pictures = user.pictures.concat(toUpdate.pictures));
-      return user.save();
-      }))
+    .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+    .then(contactInfo => res.status(204).end())
+    .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 
 
