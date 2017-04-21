@@ -1,8 +1,9 @@
 angular.module('myApp').controller('getGroupCtrl', 
-   function ($scope, getGroupFactory, $routeParams, $route) {
+   function ($scope, getGroupFactory, $routeParams, $route, $rootScope) {
 
   /// - default values
 
+  $rootScope.landing_page = false;
   $scope.groupWrap = false;
   $scope.detailsWrap = false;
   $scope.addGroupGrid = false;

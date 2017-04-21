@@ -1,7 +1,8 @@
 angular.module('myApp').controller('UploadCtrl', 
-   function ($scope, postContactFactory, $routeParams) {
+   function ($scope, postContactFactory, $routeParams, $rootScope) {
 
 // - default values
+$rootScope.landing_page = false;
 $scope.file = '';
 $scope.CSVToArray;
 $scope.fileSuccess = false;

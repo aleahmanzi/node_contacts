@@ -1,7 +1,8 @@
 angular.module('myApp').controller('HomeCtrl', 
-  function ($scope, getContactsFactory, $routeParams) {
+  function ($scope, getContactsFactory, $routeParams, $rootScope) {
 
 /// - default values
+$rootScope.landing_page = false;
 var now = new Date()
 var day = '';
 var singleBirthday = '';

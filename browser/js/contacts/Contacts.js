@@ -3,6 +3,7 @@ angular.module('myApp').controller('Ctrl',
 
 /// - default values
 
+$rootScope.landing_page = false;
 $scope.contactGrid = false;
 $scope.resultWrap = false;
 $scope.detailsWrap = false;

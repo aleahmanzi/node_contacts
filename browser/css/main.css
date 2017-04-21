@@ -28,6 +28,11 @@
 .icon { display: block; }
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
 
+/* Landing Page */
+.landing_wrap { outline: 0px solid red; padding: 15px; text-align: center; margin-top: 50px; }
+.tree { outline: 0px solid blue; padding: 15px; margin: 0 auto; }
+.landing_title { font-family: Arvo; font-size: 20px; }
+.desc_wrap { font-family: Oswald; font-size: 15px; }
 
 /* Contacts */
 
@@ -131,7 +136,7 @@
 
 @media (min-width: 768px) {
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
-	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap { width: 75%; float: right; }
+	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap, .landing_wrap { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
 }
 
