@@ -14,6 +14,7 @@
 .navlist { position: relative; }
 .login_bar { font-family: Arvo; font-size: 15px; margin-right: 10px; }
 
+
 /* Sidebar */
 
 .sidebar { display: none; text-align: right; box-shadow: 2px 2px 2px #888888; font-family: Arvo; }
@@ -28,11 +29,17 @@
 .icon { display: block; }
 .add { outline: 0px dotted white; width: 35px; margin: 0 auto; }
 
+
 /* Landing Page */
 .landing_wrap { outline: 0px solid red; padding: 15px; text-align: center; margin-top: 50px; }
-.tree { outline: 0px solid blue; padding: 15px; margin: 0 auto; }
-.landing_title { font-family: Arvo; font-size: 20px; }
-.desc_wrap { font-family: Oswald; font-size: 15px; }
+.landing_title { outline: 0px solid blue; font-family: Arvo; font-size: 50px; display: inline-block; margin-top: 15px; }
+.leaf { outline: 0px solid black; height: 40px; margin-bottom: 5px; }
+h3 { padding-top: 5px; padding-bottom: 15px; }
+.desc_wrap { font-family: Oswald; font-size: 8px; }
+.list { outline: 0px solid red; text-align: left; width: 400px; margin: 0 auto; }
+.desc_wrap p { font-size: 15px; margin: 0 auto; padding: 15px; display: inline-block; }
+.check { height: 15px; display: inline-block; }
+
 
 /* Contacts */
 
@@ -138,6 +145,9 @@
 	.sidebar { position: fixed; width: 20%; top: 0; bottom: 0; left: 0; z-index: 1000; display: block; padding: 20px; overflow-x: hidden; overflow-y: auto; background-color: #271d5c; font-size: 1.5em; }
 	.contact_result_wrap, .add_contact_wrap, .group_result_wrap, .add_group_wrap, .contact_button, .upload_wrap, .details_wrap, .birthday_wrap, .landing_wrap { width: 75%; float: right; }
 	.addMenu { margin-right: 60px; margin-top: 50px; }
+	.desc_wrap p { font-size: 17px; }
+	.list { width: 500px; margin: 0 auto; }
+	.check { height: 25px; }
 }
 
 
