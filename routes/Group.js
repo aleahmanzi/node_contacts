@@ -39,7 +39,8 @@ router.post('/', (req, res) => {
   groupInfo
     .create({
       name: req.body.name,
-      contacts: req.body.contacts
+      contacts: req.body.contacts, 
+      picture: req.body.picture
     })
     .then(
       groupInfo => res.status(201).json(groupInfo.apiRepr()))
@@ -62,7 +63,7 @@ router.put('/:id', (req, res) => {
   }
 
   const toUpdate = {};
-  const updateableFields = ['name', 'contacts'];
+  const updateableFields = ['name', 'contacts', 'picture'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
