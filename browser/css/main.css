@@ -53,6 +53,7 @@ h3 { padding-top: 5px; padding-bottom: 15px; }
 .full_contact_name { outline: 0px solid red; position: relative; margin: 0 auto; width: 120px; }
 .contact_name { outline: 0px solid black; position: relative; text-align: center; }
 .input-group { outline: 0px solid red; padding-right: 25px; }
+.form_control { z-index: -500; }
 
 
 
