@@ -8,7 +8,7 @@
   <div class="birthday_results" ng-repeat="birthday in currentBirthday">
 
     <a class="birthday_pic" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
-      <img src="../browser/public/blank_photo.png"/><br/>
+      <img src="{{ contact.pictures || '../browser/public/blank_photo.png' }}"/><br/>
     </a>
 
     <div class="birthday_contact" ng-click="getContactDetails(contact.id )">
