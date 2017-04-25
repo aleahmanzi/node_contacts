@@ -76,7 +76,7 @@
   <div class="user">
     <div class="profilePic">
         <!-- <img class="user_pic" src="../browser/public/blank_photo.png"> -->
-        <img class="user_pic" src={{userData.picture}}>
+        <img class="user_pic" ng-src="{{ userData.picture || '../browser/public/blank_photo.png' }}">
     </div>
     <div class="hello">
       <p>Welcome.</p>
