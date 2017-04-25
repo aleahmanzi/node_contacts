@@ -7,7 +7,7 @@
 
     <div ng-repeat="contact in groupContacts" class="group_contact_name">
       <a>
-        <img ng-src="{{ contact.picture || '../browser/public/blank_group.png' }}"/><br/>
+        <img ng-src="{{ contact.pictures || '../browser/public/blank_photo.png' }}"/><br/>
       </a>
       <a>
         <div class="contact_name">{{ contact.name.firstName }} {{ contact.name.lastName }}</div>
