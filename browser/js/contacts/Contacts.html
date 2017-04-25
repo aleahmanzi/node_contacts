@@ -14,7 +14,7 @@
       <div class="list_contacts">
 
         <a ng-click="getContactDetails(contact.id )" ng-href="#/contactInfo/{{ contact.id }}">
-          <img ng-src="{{ contact.picture || '../browser/public/blank_photo.png' }}"/><br/>
+          <img ng-src="{{ contact.picture }}"/><br/>
         </a>
 
         <a class="full_contact_name" ng-click="getContactDetails(contact.id )" href="#/contactInfo/{{ contact.id }}">
