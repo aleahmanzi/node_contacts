@@ -10,7 +10,7 @@
       <div class="groups" ng-show="groupWrap" ng-repeat="group in groups" >
 
         <a ng-click="getContactDetails(contact.id )" href="#/groupInfo/{{ group.id }}">
-          <img ng-src="{{ group.pictures || '../browser/public/blank_group.png' }}"/><br/>
+          <img ng-src="{{ group.picture || '../browser/public/blank_group.png' }}"/><br/>
         </a>
 
         <div class="group_name">
